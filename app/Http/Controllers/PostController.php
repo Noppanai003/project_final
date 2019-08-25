@@ -27,7 +27,7 @@ class PostController extends Controller
 
   public function index()
   {
-    return view('posts.index')->with('posts', Post::all());
+    return view('posts.index')->with('posts', Post::paginate(5));
   }
 
   /**
@@ -42,6 +42,13 @@ class PostController extends Controller
       ->with('category_s', category_store::all())
       ->with('tags', Tag::all());
   }
+
+  public function search2(Request $request)
+    {
+        $search2 = $request->get('search2');
+        $posts = DB::table('posts')->where('title', 'like', '%'.$search2.'%')->paginate(5);
+        return view('posts.index', ['posts' => $posts]);
+    }
 
   public function autoprovince(Request $request)
   {
@@ -69,7 +76,7 @@ class PostController extends Controller
   public function store(CreatePostRequest $request)
   {
     // dd($request->all());
-    $image = $request->image->store('posts');
+    $image = $request->image->store('post');
     $image1 = $request->image1->store('posts');
     // dd($image,$image1);
     $post = Post::create([
@@ -114,7 +121,8 @@ class PostController extends Controller
    */
   public function show($id)
   {
-    //
+        $post = Post::find($id);
+        return view('posts.show',compact('post'));
   }
 
   /**

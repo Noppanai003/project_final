@@ -94,7 +94,7 @@
                     <ul class="dropdown-menu" role="menu">
                       <li><a href=# >Drop Down 1</a></li>
                       <li><a href=# >Drop Down 2</a></li>
-                    </ul> 
+                    </ul>
                   </li> --}}
 
                 @if (Route::has('login'))
@@ -117,7 +117,7 @@
                         @endauth
                     {{-- </div> --}}
                 @endif
-                  
+
                 </ul>
               </div>
               <!-- navbar-collapse -->
@@ -165,7 +165,7 @@
         </div>
       </div> --}}
 
-      {{-- 
+      {{--
       <!-- direction 2 -->
       <div id="slider-direction-2" class="slider-direction slider-two">
         <div class="container">
@@ -246,7 +246,7 @@
                           <b>
                               ช่วยหาอู่ซ่อมรถหรือบริการที่เกี่ยวกับรถได้รวดเร็ว ทุกที่ ทุกเวลา
                           </b>
-                        
+
                       </p>
                     </div>
                   </div>
@@ -265,7 +265,7 @@
                                 <b>
                                     รวบรวมบริการเกี่ยวกับรถยนต์ไว้บนแพลตฟอร์มเดียวเพื่อตอบสนองความต้องการในทุกแง่มุมของผู้ใช้รถยนต์
                                 </b>
-                                            
+
                             </p>
                     </div>
                   </div>
@@ -283,7 +283,7 @@
                                 <b>
                                     มีระบบการให้คะแนนผู้ให้บริการ ทำให้คุณสบายใจได้ว่ารถของคุณจะได้รับบริการจากผู้ให้บริการที่มีความเป็นมืออาชีพ
                                 </b>
-                                            
+
                             </p>
                     </div>
                   </div>
@@ -301,7 +301,7 @@
                                 <b>
                                     ไว้วางใจได้ในทุกบริการเกี่ยวกับรถยนต์ที่เราคัดสรรมาไว้เพื่อคุณ
                                 </b>
-                                            
+
                             </p>
                     </div>
                   </div>
@@ -319,7 +319,7 @@
                                     <b>
                                         ช่วยตัดค่าใช้จ่ายที่ไม่ชัดเจน ไม่จำเป็นทำให้ได้รับบริการที่คุ้มค่า คุ้มราคา
                                     </b>
-                                                    
+
                                 </p>
                         </div>
                   </div>
@@ -1364,8 +1364,8 @@
             {{-- <div class="copyright text-center">
               {{-- <p>
                 &copy; Copyright <strong>eBusiness</strong>. All Rights Reserved
-              </p> 
-            </div> 
+              </p>
+            </div>
             {{-- <div class="credits">
               <!--
                 All the links in the footer should remain intact.
@@ -1374,10 +1374,10 @@
                 Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eBusiness
               -->
               Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div> 
+            </div>
           </div> --}}
         {{-- </div> --}}
-      {{-- </div> 
+      {{-- </div>
     </div> --}}
   </footer>
 
