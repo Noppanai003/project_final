@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    
+
 <div class="card card-default">
     @if($errors->any())
         <div class="alert alert-danger">
@@ -22,7 +22,6 @@
                 @endif
                     <div class="form-group">
                         <label for="title">ชื่อสถานประกอบการ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
-                        
                         <input type="text" name="title" value="{{isset($post)?$post->title:''}}" class="form-control" placeholder="กรุณาใส่ข้อมูล">
                     </div>
                     <div class="form-group">
@@ -50,14 +49,14 @@
                           </div>
                       </div>
                         {{ csrf_field() }}
-                        
+
                         <div class="form-group">
                             <label for="title">อำเภอ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
                             <input type="text" name="amphur" value="{{isset($post)?$post->amphur:''}}" id="city_name1" class="form-control" placeholder="กรุณาใส่ข้อมูล" />
                               <div id="cityList">
                               </div>
                         </div>
-                            {{ csrf_field() }}  
+                            {{ csrf_field() }}
 
                         <div class="form-group">
                             <label for="title">ตำบล <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
@@ -66,7 +65,7 @@
                                 </div>
                         </div>
                             {{ csrf_field() }}
-                            
+
                         <div class="form-group">
                             <label for="title">รหัสไปรษณีย์ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
                             <input type="text" name="postcode" value="{{isset($post)?$post->postcode:''}}" class="form-control" placeholder="กรุณาใส่ข้อมูล">
@@ -77,7 +76,7 @@
                             <input type="text" name="tel" value="{{isset($post)?$post->tel:''}}" class="form-control" placeholder="กรุณาใส่ข้อมูล">
                         </div>
 
-                        {{-- <div class="form-group">
+                        <!-- <div class="form-group">
                                 <label for="title">ประเภทร้าน <a class="text-danger">*</a></label>
                                 <select class="form-control" name="category_s">
                                         @foreach($category_s as $category_store)
@@ -90,8 +89,8 @@
                                                   >{{$category_store->name_store}}</option>
                                         @endforeach
                                 </select>
-                        </div> --}}
-    
+                        </div> -->
+
                         <div class="form-group">
                             <label for="title">ประเภทการสถานประกอบการ <a class="text-danger">*</a></label>
                             <select class="form-control" name="category">
@@ -102,12 +101,12 @@
                                                         selected
                                                     @endif
                                                 @endif
-                                                >{{$category->name}}</option>
+                                                {{$category->name}}</option>
                                         @endforeach
-                                </select>
+                            </select>
                         </div>
 
-                        {{-- @if($tags->count()>0)
+                        <!-- @if($tags->count()>0)
                         <div class="form-group">
                           <label for="title">Tags <a class="text-danger">*</a></label><br>
                           <select class="form-control" name="tags[]" id="select-tags" multiple>
@@ -123,8 +122,8 @@
                                   @endforeach
                           </select>
                         </div>
-                        @endif --}}
-                            
+                        @endif  -->
+
                         <div class="form-group">
                             <label for="title">รูปอู่ซ่อม<a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
                             <input type="file" name="image" value="" class="form-control">
@@ -141,14 +140,14 @@
                             <label form=""><b>ค้นหาตำแหน่งที่อยู่ร้าน</b></label><br>
                             <input type="text" id="searchmap" placeholder=" กรุณาใส่ข้อมูล">
                             <div></div><br>
-        
+
                         <div id="map-canvas"></div><br>
-                    
+
                         <div class="form-group">
                             <label form="">ละติจูด</label>
                             <input type="text" value="{{isset($post)?$post->lat:''}}" class="form-control input-sm" name="lat" id="lat">
                         </div>
-        
+
                         <div class="form-group">
                             <label form="">ลองติจูด</label>
                             <input type="text" value="{{isset($post)?$post->long:''}}" class="form-control input-sm" name="long" id="lng">
@@ -158,7 +157,7 @@
                         <div class="form-group">
                                 <input type="submit" name="" value="{{isset($post)?'แก้ไขข้อมูล':'เพิ่มข้อมูลอู่ซ่อม'}}" class="btn btn-success">
                         </div>
-                   
+
             </form>
     </div>
 </div>
@@ -166,7 +165,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.1.1/trix.js" charset="utf-8"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.1.1/trix.css">
-          
+
           <script type="text/javascript">
                 $(document).ready(function(){
                         $('#select-tags').select2();
@@ -196,14 +195,14 @@
                 $(document).on('click', 'li', function(){
                     $('#cityList').fadeOut();
                     $('#city_name').val($(this).text());
-                    
+
                 });
             </script>
 
             <script>
                 var map = new google.maps.Map(document.getElementById('map-canvas'),{
                 center:{
-                    
+
                     lat:19.0284952,
                     lng:99.8941534
                 },

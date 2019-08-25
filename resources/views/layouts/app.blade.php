@@ -20,11 +20,28 @@
     <!-- Styles -->
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        #map-canvas{
-            width:780px;
-            height:370px;
+        #map-canvas {
+            width: 780px;
+            height: 370px;
+        }
+
+        body {
+            background-color: #00FFFF;
+        }
+
+        /* type number ซ่อนปุ่มกด ขึ้น-ลง ของ text เลขบัตรประชาชน */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            /* display: none; <- Crashes Chrome on hover */
+            -webkit-appearance: none;
+            margin: 0;
+            /* <-- Apparently some margin are still there even though it's hidden */
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+            /* Firefox */
         }
     </style>
 
@@ -42,7 +59,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('', 'Carcare') }}
+                    <!-- {{ config('', 'Carcare') }} -->
+                    <img class="logo-light" src="{{asset('img/logo-dark.png')}}" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -96,9 +114,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
+                        <div class="card-header"> {{ Auth::user()->name }} </div>
                         <ul class="list-group">
-                            
                             @if(auth()->user()->isAdmin())
+
                                 <li class="list-group-item">
                                     <a href="{{route('dashboard.index')}}">แดชบอร์ด</a>
                                 </li>
@@ -113,7 +132,7 @@
                                 </li>
                                 {{-- <li class="list-group-item">
                                     <a href="{{route('tags.index')}}">Tags</a>
-                                </li> --}}
+                                </li>  --}}
                                 <li class="list-group-item">
                                     <a href="{{route('manageRequests.index')}}">จัดการคำขอบริการ</a>
                                 </li>
@@ -126,25 +145,25 @@
                                 <a href="{{route('posts.index')}}">จัดการข้อมูลร้าน</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="#">จัดการข้อมูลโปรโมชัน</a>
+                                <a href="{{route('promotions.index')}}">จัดการข้อมูลโปรโมชัน</a>
                             </li>
                             <li class="list-group-item">
                                 <a href="{{route('posts1.index')}}">จัดการข้อมูลรถยนต์</a>
                             </li>
 
-                        </ul> 
+                        </ul>
                     </div>
                     <div class="col-md-9">
 
                         @if(Session()->has('success'))
-                            <div class="alert alert-success">
-                                {{Session()->get('success')}}
-                            </div>
+                        <div class="alert alert-success">
+                            {{Session()->get('success')}}
+                        </div>
                         @endif
                         @if(Session()->has('error'))
-                            <div class="alert alert-danger">
-                                {{Session()->get('error')}}
-                            </div>
+                        <div class="alert alert-danger">
+                            {{Session()->get('error')}}
+                        </div>
                         @endif
                         @yield('content')
 
@@ -152,7 +171,7 @@
                 </div>
             </div>
             @else
-                @yield('content')
+            @yield('content')
             @endauth
         </main>
     </div>
