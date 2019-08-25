@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('image1');
             $table->integer('category_id');
             $table->integer('category_store_id');
+            $table->integer('user_id');
             $table->string('fname');
             $table->string('lname');
             $table->string('city_name');

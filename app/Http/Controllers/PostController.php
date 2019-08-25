@@ -86,6 +86,7 @@ class PostController extends Controller
       'tel' => $request->tel,
       // 'category_store_id' => $request->category_s,
       'category_id' => $request->category,
+      'user_id'=>auth()->user()->id,
       'lat' => $request->lat,
       'long' => $request->long,
       'image' => $image,

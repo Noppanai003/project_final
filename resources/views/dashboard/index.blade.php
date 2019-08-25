@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('content')
+@section('content') 
         {{-- ส่วนของการแสดง --}}
         <div class="card card-default">
                 <div class="card-header">

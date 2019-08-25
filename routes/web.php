@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Blog\Postcontroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,14 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','WelcomeController@index')->name('welcome');
+Route::get('blog/posts/{post}',[Postcontroller::class,'show'])->name('blog.show');
+Route::get('blog/category/{category}',[Postcontroller::class,'category'])->name('blog.category');
 
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
 
     Route::resource('posts', 'PostController');
+    Route::resource('posts1', 'Post1Controller');
     Route::resource('tags', 'TagsController');
 
 });
@@ -45,5 +46,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
 //     Route::resource('manageAssessment', 'ManageAssessmentController');
 // });
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/test', function() {    
+    return view('test');
+});
+
 
 Route::post('posts/create', 'PostController@autoprovince')->name('autocomplete.show');

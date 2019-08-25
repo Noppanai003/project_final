@@ -105,11 +105,11 @@
                                 <li class="list-group-item">
                                     <a href="{{route('users.index')}}">จัดการข้อมูลสมาชิก</a>
                                 </li>
-                                <li class="list-group-item">
+                                {{-- <li class="list-group-item">
                                     <a href="{{route('categoryStore.index')}}">ประเภทร้าน</a>
-                                </li>
+                                </li> --}}
                                 <li class="list-group-item">
-                                    <a href="{{route('categories.index')}}">ประเภทการซ่อม</a>
+                                    <a href="{{route('categories.index')}}">ประเภทการร้าน</a>
                                 </li>
                                 {{-- <li class="list-group-item">
                                     <a href="{{route('tags.index')}}">Tags</a>
@@ -127,6 +127,9 @@
                             </li>
                             <li class="list-group-item">
                                 <a href="#">จัดการข้อมูลโปรโมชัน</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{route('posts1.index')}}">จัดการข้อมูลรถยนต์</a>
                             </li>
 
                         </ul> 

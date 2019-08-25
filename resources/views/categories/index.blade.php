@@ -2,13 +2,13 @@
 @section('content')
     
     <div class="d-flex justify-content-end mb-2">
-        <a href="{{route('categories.create')}}" class="btn btn-success">เพิ่มประเภทการซ่อม</a>
+        <a href="{{route('categories.create')}}" class="btn btn-success">เพิ่มประเภทการร้าน</a>
     </div>
 
     {{-- ส่วนของการแสดง --}}
     <div class="card card-default">
         <div class="card-header">
-              ประเภทการซ่อม
+              ประเภทการร้าน
         </div>
     <div class="card-body">
         @if($categories->count()>0)
@@ -41,7 +41,7 @@
                       </tbody>
                   </table>
                   @else
-                      <h3 class="text text-center">ไม่มีประเภทการซ่อม</h3>
+                      <h3 class="text text-center">ไม่มีประเภทการร้าน</h3>
       @endif
         
     </div>

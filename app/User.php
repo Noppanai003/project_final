@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role'
+        'name', 'email', 'password', 'role'
     ];
 
     /**
@@ -38,11 +38,18 @@ class User extends Authenticatable
     ];
 
     // กำหนดว่าจะให้แอดมินทำอะไร
-    public function isAdmin(){
-        return $this->role=='admin';
+    public function isAdmin()
+    {
+        return $this->role == 'admin';
     }
 
-    public function isRevenue_officer(){
-        return $this->role=='revenue_officer';
+    public function isRevenue_officer()
+    {
+        return $this->role == 'revenue_officer';
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }

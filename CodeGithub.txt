@@ -1,0 +1,11 @@
+Code Github
+git merge man
+git checkout man
+git checkout master
+
+git commit -m "add all"
+git push -u origin master
+php artisan Storage:link
+git branch --all
+
+git add .

@@ -27,11 +27,11 @@
               @endif
               
               <div class="form-group">
-                    <label for="">ชื่อประเภทการซ่อม</label>
+                    <label for="">ชื่อประเภทการร้าน</label>
                     <input type="text" name="name" value="{{isset($category)?$category->name:''}}" class="form-control" placeholder="กรุณาใส่ข้อมูล">
               </div>
               <div class="form-group">
-                    <input type="submit" name="" value="{{isset($category)?'แก้ไขประเภทการซ่อม':'เพิ่มประเภทการซ่อม'}}" class="btn btn-success">
+                    <input type="submit" name="" value="{{isset($category)?'แก้ไขประเภทการร้าน':'เพิ่มประเภทการร้าน'}}" class="btn btn-success">
               </div>
           </form>
     </div>
