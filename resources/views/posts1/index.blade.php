@@ -8,34 +8,37 @@
                   ข้อมูลรถยนต์
             </div>
             <div class="card-body">
-                @if($post1s->count()>0)
+                {{-- @if($post1->count()>0) --}}
                     <table class="table">
                         <thead>
                             <th>รูปรถยนต์</th>
-                            <th>ยี่ห้อ</th>
+                            <th>ค่ายผู้ผลิต</th>
                             <th>รุ่นรถ</th>
-                            <th>ป้ายทะเบียน</th>
+                            <th>เลขทะเบียนรถยนต์</th>
                             <th></th>
                             <th></th>
                             
                         </thead>
                         <tbody>
-                          @foreach($post1s as $post1)
+                          @foreach($posts1 as $post1)
                               <tr>
   
                                   <td>
-                                      <img src="storage/{{$post1s->image}}" alt="" width="70" height="60">
+                                      <img src="storage/{{$post1->image2}}" alt="" width="70" height="60">
                                   </td>
-                                  <td>{{$post1s->title}}</td>
-                                  <td>{{$post1s->name}}</td>                                 
-                                  <td>{{$post1s->license}}</td>
+
+                                  <td>{{$post1->make}}</td>
+
+                                  <td>{{$post1->model}}</td>  
+
+                                  <td>{{$post1->license}}</td>
                                   
                                   <td>
-                                        <a href="{{route('posts1.edit',$post1s->id)}}" class="btn btn-info btn-sm">แก้ไข</a>
+                                        <a href="{{route('posts1.edit',$post1->id)}}" class="btn btn-info btn-sm">แก้ไข</a>
                                   </td>
   
                                   <td>
-                                      <form class="delete_form" action="{{route('posts1.destroy',$post1s->id)}}" method="post">
+                                      <form class="delete_form" action="{{route('posts1.destroy',$post1->id)}}" method="post">
                                               @csrf
                                               <input type="hidden" name="_method" value="DELETE">
                                               <input type="submit" name="" value="ลบ" class="btn btn-danger btn-sm">

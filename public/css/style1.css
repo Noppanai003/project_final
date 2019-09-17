@@ -1,3 +1,10 @@
+/* เพิ่มใหม่ */
+#map-canvas {
+    width: 780px;
+    height: 370px;
+}
+/* สิ้นสุดเพิ่มใหม่ */
+
 .block-number {
     text-align: center;
     font-weight: bold;

@@ -76,21 +76,6 @@
                             <input type="text" name="tel" value="{{isset($post)?$post->tel:''}}" class="form-control" placeholder="กรุณาใส่ข้อมูล">
                         </div>
 
-                        <!-- <div class="form-group">
-                                <label for="title">ประเภทร้าน <a class="text-danger">*</a></label>
-                                <select class="form-control" name="category_s">
-                                        @foreach($category_s as $category_store)
-                                                <option value="{{$category_store->id}}"
-                                                  @if(isset($post))
-                                                      @if($category_store->id == $post->category_store_id)
-                                                          selected
-                                                      @endif
-                                                  @endif
-                                                  >{{$category_store->name_store}}</option>
-                                        @endforeach
-                                </select>
-                        </div> -->
-
                         <div class="form-group">
                             <label for="title">ประเภทการสถานประกอบการ <a class="text-danger">*</a></label>
                             <select class="form-control" name="category">
@@ -101,28 +86,11 @@
                                                         selected
                                                     @endif
                                                 @endif
-                                                {{$category->name}}</option>
-                                        @endforeach
+                                                {{$category->name}}
+                                            </option>
+                                    @endforeach
                             </select>
                         </div>
-
-                        <!-- @if($tags->count()>0)
-                        <div class="form-group">
-                          <label for="title">Tags <a class="text-danger">*</a></label><br>
-                          <select class="form-control" name="tags[]" id="select-tags" multiple>
-                                  @foreach($tags as $tag)
-                                          <option value="{{$tag->id}}"
-                                            @if(isset($post))
-                                                @if($post->hasTag($tag->id))
-                                                    selected
-                                                @endif
-                                            @endif
-
-                                            >{{$tag->name}}</option>
-                                  @endforeach
-                          </select>
-                        </div>
-                        @endif  -->
 
                         <div class="form-group">
                             <label for="title">รูปอู่ซ่อม<a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>

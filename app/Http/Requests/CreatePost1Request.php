@@ -24,6 +24,9 @@ class CreatePost1Request extends FormRequest
     public function rules()
     {
         return [
+        
+            'license'=>'required',
+            'image2'=>'required|image'
             
         ];
     }

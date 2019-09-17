@@ -8,15 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Promotion extends Model
-{
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'id_card'
-    ];
-}
 
 class User extends Authenticatable
 {

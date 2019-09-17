@@ -34,11 +34,3 @@
   <!-- Styles -->
   {{-- <link href="{{asset('css/page.min.css')}}" rel="stylesheet"> --}}
   <link href="{{asset('css/style1.css')}}" rel="stylesheet">
-
-
-  <!-- =======================================================
-    Theme Name: eBusiness
-    Theme URL: https://bootstrapmade.com/ebusiness-bootstrap-corporate-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->

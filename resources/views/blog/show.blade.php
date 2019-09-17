@@ -22,7 +22,7 @@
 
             <p class="opacity-70 text-uppercase small ls-1">{{$post->category->name}}</p>
             <h1 class="display-4 mt-7 mb-8">ร้าน{{$post->title}}</h1>
-            <p><span class="opacity-70 mr-1">By</span> <a class="text-white" href="#">{{$post->user->name}}</a></p>
+            <p><span class="opacity-70 mr-1">By</span> <a class="text-white">{{$post->user->name}}</a></p>
             {{-- <p><img class="avatar avatar-sm" src="../assets/img/avatar/2.jpg" alt="..."></p> --}}
 
           </div>
@@ -38,8 +38,22 @@
     @endsection
     
     @section('content')
+    
     <div class="section" id="section-content">
       <div class="container">
+     
+              <div class="row">
+                <div class="col">
+                
+                </div>
+                <div class="col-5">
+                
+                </div>
+                <div class="col">
+                    <a class="btn btn-success" href="{{route('CallMechanic.create')}}" role="button">เรียกช่างนอกพื้นที่</a>
+                </div>
+              </div>
+    
         <div class="row">
           <div class="col-lg-8 mx-auto">
               <h2><b>ร้าน{{$post->title}}</b></h2>

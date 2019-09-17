@@ -20,6 +20,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('posts', 'PostController');
     Route::resource('posts1', 'Post1Controller');
+    Route::resource('CallMechanic', 'CallMechanicController');
     Route::resource('tags', 'TagsController');
     Route::resource('promotions','PromotionController');
     Route::get('/search','PromotionController@search');

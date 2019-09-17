@@ -28,7 +28,7 @@
 										<span class="icon-bar"></span>
 									</button>
                 <!-- Brand -->
-                <a class="navbar-brand page-scroll sticky-logo" href="index.html">
+                <a class="navbar-brand page-scroll sticky-logo" href="{{ url('/home') }}">
                   {{-- <h1><span>e</span>Business</h1> --}}
                   <!-- Uncomment below if you prefer to use an image logo -->
                   <img class="" src="{{asset('img/logo_carcare.png')}}" alt="logo">
@@ -334,7 +334,7 @@
                       <h3 class="sidebar-title">ประเภทร้าน</h3>
                       <div class="row link-color-default fs-14 lh-24">
                         @foreach($categories as $category)
-                              <div class="col-6"><a href="{{route('blog.category',$category->id)}}">{{$category->name}}</a></div>
+                          <a class="btn btn-primary" href="{{route('blog.category',$category->id)}}" role="button">{{$category->name}}</a>
                         @endforeach
                       </div>
                      

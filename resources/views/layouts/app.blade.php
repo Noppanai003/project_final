@@ -13,6 +13,10 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 
+    <!-- Favicons ไอคอนวิ่งที่นี่-->
+    <link href="{{asset('img/logoWeb-carcare.png')}}" rel="icon">
+    <link href="{{asset('img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -28,7 +32,7 @@
         }
 
         body {
-            background-color: #00FFFF;
+            /* background-color: #00FFFF; */
         }
 
         /* type number ซ่อนปุ่มกด ขึ้น-ลง ของ text เลขบัตรประชาชน */
@@ -59,7 +63,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <!-- {{ config('', 'Carcare') }} -->
+                    {{-- <!-- {{ config('', 'Carcare') }} --> --}}
                     <img class="logo-light" src="{{asset('img/logo-dark.png')}}" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -124,15 +128,9 @@
                                 <li class="list-group-item">
                                     <a href="{{route('users.index')}}">จัดการข้อมูลสมาชิก</a>
                                 </li>
-                                {{-- <li class="list-group-item">
-                                    <a href="{{route('categoryStore.index')}}">ประเภทร้าน</a>
-                                </li> --}}
                                 <li class="list-group-item">
                                     <a href="{{route('categories.index')}}">ประเภทการร้าน</a>
                                 </li>
-                                {{-- <li class="list-group-item">
-                                    <a href="{{route('tags.index')}}">Tags</a>
-                                </li>  --}}
                                 <li class="list-group-item">
                                     <a href="{{route('manageRequests.index')}}">จัดการคำขอบริการ</a>
                                 </li>
@@ -149,6 +147,12 @@
                             </li>
                             <li class="list-group-item">
                                 <a href="{{route('posts1.index')}}">จัดการข้อมูลรถยนต์</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{route('posts1.index')}}">จัดการข้อมูลการแจ้งเตือน</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{route('CallMechanic.index')}}">เรียกช่างนอกพื้นที่</a>
                             </li>
 
                         </ul>

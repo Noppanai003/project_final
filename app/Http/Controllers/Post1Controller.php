@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreatePost1Request;
+use App\Post1;
+use DB;
 
 class Post1Controller extends Controller
 {
@@ -11,9 +14,30 @@ class Post1Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // public function fetch(Request $request)
+    // {
+    //     $id=$request->get('select');
+    //     $result=array();
+    //     $query=DB::table('make')
+    //     ->join('model','make.id','=','model.make_id')
+    //     ->select('model.title')
+    //     ->where('make.id',$id)
+    //     ->groupBy('model.title')
+    //     ->get();
+
+    //     $output='<option value="">เลือกรุ่นรถ</option>';
+    //     foreach ($query as $row) {
+    //         $output.='<option value= "'.$row->title.'" >'.$row->title.'</option>';
+    //     }
+    //     echo $output;
+    // }
+
     public function index()
     {
-        return view('posts1.index');
+
+        return view('posts1.index')
+            ->with('posts1', Post1::paginate(5));
     }
 
     /**
@@ -23,7 +47,10 @@ class Post1Controller extends Controller
      */
     public function create()
     {
-        return view('posts1.create');
+        $list = DB::table('make')->get();
+
+        return view('posts1.create')
+            ->with('list', $list);
     }
 
     /**
@@ -32,9 +59,20 @@ class Post1Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreatePost1Request $request)
     {
-        //
+        $image2 = $request->image2->store('post');
+        $post1 = Post1::create([
+
+            'make' => $request->make,
+            'model' => $request->model,
+            'image2' => $image2,
+            'license' => $request->license,
+            // 'user_id'=>auth()->user()->id,
+
+        ]);
+        Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
+        return redirect(route('posts1.index'));
     }
 
     /**
@@ -54,9 +92,9 @@ class Post1Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post1 $posts1)
     {
-        //
+        return view('posts1.create')->with('posts1', $posts1);
     }
 
     /**
@@ -77,8 +115,11 @@ class Post1Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post1 $post1)
     {
-        //
+        $post1->delete(); //ลบข้อมูลในฐานข้อมูล
+        $post1->deleteImage();
+        Session()->flash('success', 'ลบข้อมูลแล้ว');
+        return redirect(route('posts1.index'));
     }
 }
