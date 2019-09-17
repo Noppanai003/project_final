@@ -16,7 +16,7 @@ class Promotion extends Model
         'pro_start_date',
         'pro_due_date'
     ];
-
+    
     // ลบภาพที่เก็บอยู่ใน Storage
     public function deleteImage()
     {

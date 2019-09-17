@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PostcarController extends Controller
+class NotificationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class PostcarController extends Controller
      */
     public function index()
     {
-        //
+        return view('notifications.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class PostcarController extends Controller
      */
     public function create()
     {
-        //
+        return view('notifications.create');
     }
 
     /**

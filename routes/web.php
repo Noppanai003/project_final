@@ -22,12 +22,23 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('posts1', 'Post1Controller');
     Route::resource('tags', 'TagsController');
     Route::resource('promotions','PromotionController');
-    Route::get('/search','PromotionController@search');
+    Route::get('/search','PromotionController@search'); //ค้นหา admin จัดการโปรโมชัน
+    Route::get('/search2','PostController@search2'); //ค้นหาข้อมูลร้าน
+    Route::get('/search3','UserController@search3'); // ค้นหา admin จัดการผู้ใช้
+    Route::get('/search4','UserPromotionController@search4'); // ค้นหาโปรโมชัน ผู้ใช้รถยนต์
 
-    Route::get('/search2','PostController@search2');
-    Route::get('/search3','UserController@search3');
+    Route::post('Post', 'PostController@store')->name('store');
+    // Route::get('/checkbox', 'PostController@checkbox');
 
+    Route::get('profile', 'Usercontroller@profile'); //โปรไฟล์ผู้ใช้
+    Route::get('editprofile', 'Usercontroller@editprofile'); //แก้ไขโปรไฟล์ผู้ใช้
 
+    Route::resource('MoneyRequests', 'MoneyRequestController'); //จัดการคำร้องขอคืนเงิน
+    Route::resource('DepositManages', 'DepositManageController'); //จัดการคำร้องหักค่ามัดจำการเรียก
+    Route::resource('TransferMoneys', 'TransferMoneyController'); //จัดการข้อมูลการโอนเงิน
+
+    Route::resource('userpromotions', 'UserPromotionController'); //จัดการข้อมูลการโอนเงิน
+    Route::resource('notifications', 'NotificationController');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -46,9 +57,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/test', function() {    
+Route::get('/test', function() {
     return view('test');
 });
-
 
 Route::post('posts/create', 'PostController@autoprovince')->name('autocomplete.show');

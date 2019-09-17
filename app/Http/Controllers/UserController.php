@@ -6,6 +6,7 @@ use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -37,6 +38,16 @@ class UserController extends Controller
     public function create()
     {
         return view('users.create');
+    }
+
+    public function profile()
+    {
+        return view('userprofile.profile', array('user' => Auth::user()));
+    }
+
+    public function editprofile()
+    {
+        return view('userprofile.editprofile', array('user' => Auth::user()));
     }
 
     public function search3(Request $request)
