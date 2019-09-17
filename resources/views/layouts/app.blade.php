@@ -21,6 +21,10 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <!-- Favicons -->
+  <link href="{{asset('img/logoWeb-carcare.png')}}" rel="icon">
+  <link href="{{asset('img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+
     <!-- Styles -->
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -96,14 +100,16 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                <a class="dropdown-item" href="{{ url('/profile') }}"><i class="fa fa-btn fa-user"></i> ข้อมูลส่วนตัว</a>
+
+                                <a class="dropdown-item"  href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fa fa-btn fa-sign-out"></i>
                                     {{ __('ออกจากระบบ') }}
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
+
                             </div>
                         </li>
                         @endguest
@@ -136,6 +142,21 @@
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{route('manageAssessment.index')}}">จัดการข้อมูลประเมินการใช้บริการ</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('MoneyRequests.index')}}">จัดการคำร้องขอคืนเงิน</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('TransferMoneys.index')}}">จัดการข้อมูลการโอนเงิน</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('DepositManages.index')}}">จัดการคำร้องหักค่ามัดจำการเรียก</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('userpromotions.index')}}">โปรโมชัน</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('notifications.index')}}">การแจ้งเตือน</a>
                                 </li>
                             @endif
 

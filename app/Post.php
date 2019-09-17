@@ -25,7 +25,21 @@ class Post extends Model
         'image',
         'image1',
         'lat',
-        'long'
+        'long',
+        // 'day',
+        'time_start',
+        'time_end',
+        
+        'mon',
+        'tue',
+        'wed',
+        'thu',
+        'fri',
+        'sat',
+        'sun',
+
+        // 'day_start',
+        // 'day_end'
 
     ];
 

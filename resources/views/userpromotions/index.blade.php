@@ -1,0 +1,83 @@
+@extends('layouts.app')
+@section('content')
+
+<!-- {{-- ส่วนของการแสดง --}} -->
+
+<div class="card card-default">
+    <div class="card-header">
+        โปรโมชัน
+
+        <!-- ส่วนค้นหา -->
+        <div class="col-md-6 float-right">
+            <form action="/search4" method="get">
+                <div class="input-group">
+                    <input type="search" name="search" class="form-control" placeholder="ค้นหาข้อมูล">
+                    <span class="input-group-prepend">
+                        <!-- <button type="submit" class="btn btn-dark" >Search</button> -->
+                        <button type="submit" class="btn btn-secondary"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="card-body">
+        @if($promotions->count()>0)
+        <table class="table">
+            <thead>
+                <th>รูปโปรโมชัน</th>
+                <th>หัวข้อ</th>
+                <th>ส่วนลด%</th>
+                <th>วันที่เริ่มต้น</th>
+                <th>วันที่สิ้นสุด</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </thead>
+            <tbody>
+                @foreach($promotions as $promotion)
+                <tr>
+                    <td>
+                        <img src="storage/{{$promotion->pro_image}}" alt="" width="120px" height="120px">
+                    </td>
+                    <td>{{$promotion->pro_name}}</td>
+                    <td>{{$promotion->pro_cost}} %</td>
+                    <td>{{$promotion->pro_start_date}}</td>
+                    <td>{{$promotion->pro_due_date}}</td>
+                    <td>
+                        <a href="{{route('promotions.show',$promotion->id)}}" class="btn btn-warning btn-sm">รายละเอียด</a>
+                    </td>
+
+                </tr>
+                @endforeach
+            </tbody>
+            <!-- <tfoot>
+                <tr>
+                    <th colspan="7">
+                        จำนวนสมาชิกทั้งหมด {{ $total=$promotions->count() }}  คน
+                    </th>
+                </tr>
+            </tfoot> -->
+        </table>
+
+        @else
+        <h3 class="text text-center">ไม่มีข้อมูลโปรโมชัน</h3>
+        @endif
+    </div>
+</div>
+
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.delete_form').on('submit', function() {
+            if (confirm("คุณต้องการลบข้อมูลหรือไม่")) {
+                return true;
+            } else {
+                return false;
+            }
+
+        });
+    });
+</script> -->
+
+@endsection

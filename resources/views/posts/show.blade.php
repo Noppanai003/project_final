@@ -33,9 +33,41 @@
                         {{ $post->lname }}
                     </div>
                     <div class="form-group" >
-                        <strong >รายละเอียดร้าน : </strong>
+                        <strong>รายละเอียดร้าน : </strong>
                         {!!$post->description!!}
                     </div>
+
+                    <strong> วันที่เปิดทำการ : </strong>
+                    <div class="form-group">
+                        <i class="fa fa-calendar-check-o"></i><strong> จันทร์  </strong>
+                        - {{ $post->mon }}
+                        <br>
+                        <i class="fa fa-calendar-check-o"></i><strong> อังคาร  </strong>
+                        - {{ $post->tue }}
+                        <br>
+                        <i class="fa fa-calendar-check-o"></i><strong> พุธ  </strong>
+                        - {{ $post->wed }}
+                        <br>
+                        <i class="fa fa-calendar-check-o"></i><strong> พฤหัสบดี  </strong>
+                        - {{ $post->thu }}
+                        <br>
+                        <i class="fa fa-calendar-check-o"></i><strong> ศุกร์  </strong>
+                        - {{ $post->fri }}
+                        <br>
+                        <i class="fa fa-calendar-check-o"></i><strong> เสาร์  </strong>
+                        - {{ $post->sat }}
+                        <br>
+                        <i class="fa fa-calendar-check-o"></i><strong> อาทิตย์  </strong>
+                        - {{ $post->sun }}
+                    </div>
+
+                    <div class="form-group">
+                        <strong>เวลาเปิดทำการ : </strong>
+                        {{ $post->time_start }}
+                        <label> - </label>
+                        {{ $post->time_end }} น.
+                    </div>
+
                     <div class="form-group">
                         <strong>บ้านเลขที่อยู่ปัจจุบัน : </strong>
                         {{ $post->content }}
@@ -52,7 +84,6 @@
                         <strong>จังหวัด : </strong>
                         {{ $post->city_name }}
                     </div>
-
 
                     <div class="form-group">
                         <strong>รหัสไปรษณีย์ : </strong>

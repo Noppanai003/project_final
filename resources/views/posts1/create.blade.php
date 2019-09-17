@@ -1,17 +1,10 @@
 @extends('layouts.app')
 @section('content')
-    
+
 <div class="card card-default">
-    @if($errors->any())
-        <div class="alert alert-danger">
-              <ul class="list-group">
-                    @foreach($errors->all() as $error)
-                          <li class="list-group-item">{{$error}}</li>
-                    @endforeach
-              </ul>
-        </div>
-    @endif
+
     <div class="card-header">
+
             {{isset($post1)?'แก้ไขข้อมูล':'ข้อมูลรถยนต์'}} 
     </div>
     <div class="card-body">
@@ -59,10 +52,12 @@
                         </div>
                    
             </form>
+        </div>
     </div>
-</div>
+    
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+
       
 {{--           
         <script type="text/javascript">

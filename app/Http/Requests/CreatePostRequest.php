@@ -24,23 +24,37 @@ class CreatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required|unique:posts',
-            'fname'=>'required',
-            'lname'=>'required',
-            'description'=>'required',
-            'content'=>'required',
-            'city_name'=>'required',
-            'amphur'=>'required',
-            'district'=>'required',
-            'postcode'=>'required',
-            'tel'=>'required',
-            // 'category_s'=>'required',
-            'category'=>'required',
-            'lat'=>'required',
-            'long'=>'required',
-            'image'=>'required|image',
-            'image1'=>'required|image'
-            
+            'title' => 'required|unique:posts',
+            'fname' => 'required',
+            'lname' => 'required',
+            'description' => 'required',
+            'content' => 'required',
+            'city_name' => 'required',
+            'amphur' => 'required',
+            'district' => 'required',
+            'postcode' => 'required',
+            'tel' => 'required',
+            'category' => 'required',
+            'lat' => 'required',
+            'long' => 'required',
+            'image' => 'required|image',
+            'image1' => 'required|image',
+            // 'day' => 'required',
+            'time_start' => 'required',
+            'time_end' => 'required',
+
+            // 'mon' => 'required',
+            // 'tue' => 'required',
+            // 'wed' => 'required',
+            // 'thu' => 'required',
+            // 'fri' => 'required',
+            // 'sat' => 'required',
+            // 'sun' => 'required',
+
+            // 'day_start' => 'required',
+            // 'day_end' => 'required'
+
+
         ];
     }
 }

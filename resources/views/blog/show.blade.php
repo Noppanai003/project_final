@@ -22,9 +22,9 @@
 
             <p class="opacity-70 text-uppercase small ls-1">{{$post->category->name}}</p>
             <h1 class="display-4 mt-7 mb-8">ร้าน{{$post->title}}</h1>
+
             <p><span class="opacity-70 mr-1">By</span> <a class="text-white">{{$post->user->name}}</a></p>
             {{-- <p><img class="avatar avatar-sm" src="../assets/img/avatar/2.jpg" alt="..."></p> --}}
-
           </div>
 
           <div class="col-12 align-self-end text-center">
@@ -36,7 +36,7 @@
       </div>
     </header><!-- /.header -->
     @endsection
-    
+
     @section('content')
     
     <div class="section" id="section-content">
@@ -61,7 +61,7 @@
                 <h5><i class="fa fa-map-marker col-red">
                     {{$post->content}} ตำบล{{$post->district}} อำเภอ{{$post->amphur}} จังหวัด{{$post->city_name}} {{$post->postcode}}
                 </i></h5>
-                      
+
                 <h4>รายละเอียดร้าน</h4>
                     {!!$post->description!!}
                 <br>
@@ -70,12 +70,12 @@
                 </i></h5>
                 <br><br><br>
                 <div id="disqus_thread"></div>
-                    <script>                
+                    <script>
                         var disqus_config = function () {
                           this.page.url = "{{config('app.url')}}/blog/posts/{{$post->id}}";  // Replace PAGE_URL with your page's canonical URL variable
                           this.page.identifier = "{{$post->id}}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                         };
-              
+
                         (function() { // DON'T EDIT BELOW THIS LINE
                           var d = document, s = d.createElement('script');
                           s.src = 'https://http-localhost-8000-box97w81ox.disqus.com/embed.js';
@@ -89,7 +89,7 @@
       </div>
     </div>
     @endsection
-    
+
   </body>
 </html>
 
