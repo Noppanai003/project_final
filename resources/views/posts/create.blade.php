@@ -76,7 +76,6 @@
                 <input type="text" name="tel" value="{{isset($post)?$post->tel:''}}" class="form-control" placeholder="กรุณาใส่ข้อมูล">
             </div>
 
-<<<<<<< HEAD
                         <div class="form-group">
                             <label for="title">ประเภทการสถานประกอบการ <a class="text-danger">*</a></label>
                             <select class="form-control" name="category">
