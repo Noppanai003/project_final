@@ -9,9 +9,14 @@
     <div class="card-body">
         <form action="" method="post">
             <div class="form-group">
-                <!-- <label for="">ชื่อประเภทการร้าน</label>
-                <input type="text" name="" value="" class="form-control" placeholder="กรุณาใส่ข้อมูล"> -->
-        
+                <div class="form-group">
+                    <label >ประเภทการแจ้งเตือน</label>
+                        <select class="form-control" >
+                            <option>พ.ร.บ</option>
+                            <option>การต่อภาษีทะเบียนรถยนต์</option>
+                            <option>การต่อประกันรถยนต์</option>
+                        </select>
+                </div>
             </div>
 
             <!-- <div class="form-group">

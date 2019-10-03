@@ -169,9 +169,9 @@
                             <li class="list-group-item">
                                 <a href="{{route('posts1.index')}}">จัดการข้อมูลรถยนต์</a>
                             </li>
-                            <li class="list-group-item">
+                            <!-- <li class="list-group-item">
                                 <a href="{{route('posts1.index')}}">จัดการข้อมูลการแจ้งเตือน</a>
-                            </li>
+                            </li> -->
                             <li class="list-group-item">
                                 <a href="{{route('CallMechanic.index')}}">เรียกช่างนอกพื้นที่</a>
                             </li>

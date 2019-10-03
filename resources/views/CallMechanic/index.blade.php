@@ -107,7 +107,7 @@
                     <h2>ค้นหาอู่ซ่อมรถยนต์</h2>
 
                     <form class="input-group" action="{{route('welcome')}}" method="GET">
-                        <input type="text" class="form-control" name="search" placeholder="Search" value="{{request()->query('search')}}">
+                        <input type="search" class="form-control" name="search" placeholder="Search" value="{{request()->query('search')}}">
                         <div class="input-group-addon">
                           <button type="submit"><i class="fa fa-search"></i></button>
                         </div>
@@ -115,17 +115,17 @@
                       <br>
                       <h3 class="sidebar-title">ประเภทร้าน</h3>
                       <div class="row link-color-default fs-14 lh-24">
-                        @foreach($categories as $category)                         
-                              <a class="btn btn-primary" href="{{route('blog.category',$category->id)}}" role="button">{{$category->name}}</a>                    
+                        @foreach($categories as $category)
+                              <a class="btn btn-primary" href="{{route('blog.category',$category->id)}}" role="button">{{$category->name}}</a>
                         @endforeach
                       </div>
-                     
- 
+
+
                         {{-- <input type="text" class="text form-control width-80" id="sus_email" placeholder="ค้นหาอู่">
                         <button type="submit" id="sus_submit" <i class="fa fa-search"></i> </button>
                         <div id="msg_Submit" class="h3 text-center hidden"></div> --}}
 
-                        
+
                       </div>
                     </div>
                   </div>
@@ -155,7 +155,7 @@
             <div class="section bg-gray">
                 <div class="container">
                   <div class="row">
-        
+
                     <div class="col-md-8 col-xl-9">
                       <div class="row gap-y">
                           @forelse($posts as $post)
@@ -168,7 +168,7 @@
                                     <p><a class="small-3 text-dark text-uppercase ls-2 fw-400" href="{{route('blog.show',$post->id)}}">{{$post->category->name}}</a></p>
                                     <p><a class="small-3 text-dark text-uppercase ls-2 fw-400" href="#">ตำแหน่งร้าน : {{$post->content}} ตำบล{{$post->district}} อำเภอ{{$post->amphur}} จังหวัด{{$post->city_name}} {{$post->postcode}}</a><br>
                                     <a class="small-3 text-dark text-uppercase ls-2 fw-400" href="#">เบอรโทรร้าน : {{$post->tel}}</a></p>
-                                    
+
                                   </div>
                                 </div>
                             </div>
@@ -184,7 +184,7 @@
                 </div>
               </div>
               <!-- End services -->
-      
+
         </div>
       </div>
     </div>

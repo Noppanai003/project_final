@@ -29,7 +29,8 @@ class Post extends Model
         // 'day',
         'time_start',
         'time_end',
-        
+
+        // วันเปิดทำการ
         'mon',
         'tue',
         'wed',
@@ -37,6 +38,34 @@ class Post extends Model
         'fri',
         'sat',
         'sun',
+
+        // ประเภทการบริการ
+        'engine',
+        'suspension',
+        'electrical',
+        'tank',
+        'betterlet',
+
+        //รายละเอียดเพิ่มเติม
+        'detail_engine',
+        'detail_suspension',
+        'detail_electrical',
+        'detail_tank',
+        'detail_betterlet',
+
+        //เรทราคาเริ่มต้น
+        'start_price_engine',
+        'start_price_suspension',
+        'start_price_electrical',
+        'start_price_tank',
+        'start_price_betterlet',
+
+        //ราคาสิ้นสุด
+        'end_price_engine',
+        'end_price_suspension',
+        'end_price_electrical',
+        'end_price_tank',
+        'end_price_betterlet',
 
         // 'day_start',
         // 'day_end'
