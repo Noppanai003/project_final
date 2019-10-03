@@ -55,15 +55,8 @@
                                         <a href="{{ route('register') }}">สมัครสมาชิก</a>
                                     </li>
                                     @endif
-<<<<<<< HEAD
                                 @endauth
-                                    </div>
-                                {{-- @endif --}}
-=======
-                                    @endauth
-                                    </div>
-
->>>>>>> 72704741db5765d0ea19ae7958e767bc0abe8c2c
+                                    </div>                                
 
                                 </ul>
                             </div>

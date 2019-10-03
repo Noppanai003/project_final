@@ -176,18 +176,11 @@
                             </li>
                             <li class="list-group-item">
                                 <a href="{{route('posts1.index')}}">จัดการข้อมูลรถยนต์</a>
-<<<<<<< HEAD
                             </li>                        
                             <li class="list-group-item">
                                 <a href="{{route('CallMechanic.index')}}">จัดการข้อมูลเรียกช่างนอกพื้นที่</a>
                             </li>
 
-=======
-                            </li>
-                            <!-- <li class="list-group-item">
-                                <a href="{{route('posts1.index')}}">จัดการข้อมูลการแจ้งเตือน</a>
-                            </li> -->
->>>>>>> 72704741db5765d0ea19ae7958e767bc0abe8c2c
                             <li class="list-group-item">
                                 <a href="{{route('CallMechanic.index')}}">เรียกช่างนอกพื้นที่</a>
                             </li>

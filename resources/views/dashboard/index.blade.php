@@ -6,7 +6,7 @@
                     Dashboard
                 </div>
             <div class="card-body">
-                @include('layouts.footer')
+             
             </div>
         </div>
 @endsection

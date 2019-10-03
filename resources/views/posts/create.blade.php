@@ -161,23 +161,6 @@
                 <input type="text" name="tel" value="{{isset($post)?$post->tel:''}}" class="form-control" placeholder="กรุณาใส่ข้อมูล">
             </div>
 
-<<<<<<< HEAD
-                        <div class="form-group">
-                            <label for="title">ประเภทการสถานประกอบการ <a class="text-danger">*</a></label>
-                            <select class="form-control" name="category">
-                                    @foreach($categories as $category)
-                                            <option value="{{$category->id}}">
-                                                @if(isset($post))
-                                                    @if($category->id == $post->category_id)
-                                                        selected
-                                                    @endif
-                                                @endif
-                                                {{$category->name}}
-                                            </option>
-                                    @endforeach
-                            </select>
-                        </div>
-=======
             <div class="form-group">
                 <label for="title">ประเภทการสถานประกอบการ <a class="text-danger">*</a></label>
                 <select class="form-control" name="category">
@@ -193,7 +176,6 @@
                     @endforeach
                 </select>
             </div>
->>>>>>> 72704741db5765d0ea19ae7958e767bc0abe8c2c
 
             <div class="form-group">
                 <label for="title">รูปอู่ซ่อม<a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
@@ -278,26 +260,6 @@
                                 </div>
                             </div> -->
 
-<<<<<<< HEAD
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="">เวลาเปิดทำการ :</label>
-                                        <input type="" name="time_start" value="{{isset($post)?$post->time_start:''}}" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="">สิ้นสุดเวลาทำการ :</label>
-                                        <input type="" name="time_end" value="{{isset($post)?$post->time_end:''}}" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="submit" name="" value="{{isset($post)?'แก้ไขข้อมูล':'เพิ่มข้อมูลอู่ซ่อม'}}" class="btn btn-success">
-                            </div>
-=======
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
@@ -312,7 +274,6 @@
                         </div>
                     </div>
                 </div>
->>>>>>> 72704741db5765d0ea19ae7958e767bc0abe8c2c
 
                 <div class="form-group">
                     <input type="submit" name="" value="{{isset($post)?'แก้ไขข้อมูล':'เพิ่มข้อมูลอู่ซ่อม'}}" class="btn btn-success">
