@@ -101,6 +101,7 @@ class PostController extends Controller
             'time_start' => $request->time_start,
             'time_end' => $request->time_end,
 
+            //วันที่เปิดทำการ
             'mon' => $request->mon,
             'tue' => $request->tue,
             'wed' => $request->wed,
@@ -109,6 +110,34 @@ class PostController extends Controller
             'sat' => $request->sat,
             'sun' => $request->sun,
 
+            //ประเภทการซ่อม
+            'engine' => $request->engine,
+            'suspension' => $request->suspension,
+            'electrical' => $request->electrical,
+            'tank' => $request->tank,
+            'betterlet' => $request->betterlet,
+
+            //รายละเอียดเพิ่มเติม
+            'detail_engine' => $request->detail_engine,
+            'detail_suspension' => $request->detail_suspension,
+            'detail_electrical' => $request->detail_electrical,
+            'detail_tank' => $request->detail_tank,
+            'detail_betterlet' => $request->detail_betterlet,
+
+            //เรทราคาเริ่มต้น
+            'start_price_engine' => $request->start_price_engine,
+            'start_price_suspension' => $request->start_price_suspension,
+            'start_price_electrical' => $request->start_price_electrical,
+            'start_price_tank' => $request->start_price_tank,
+            'start_price_betterlet' => $request->start_price_betterlet,
+
+            //ราคาสิ้นสุด
+            'end_price_engine' => $request->end_price_engine,
+            'end_price_suspension' => $request->end_price_suspension,
+            'end_price_electrical' => $request->end_price_electrical,
+            'end_price_tank' => $request->end_price_tank,
+            'end_price_betterlet' => $request->end_price_betterlet,
+
             //   'day_start' => $request->day_start,
             //     'day_end' => $request->day_end
 
@@ -116,7 +145,7 @@ class PostController extends Controller
 
         // dd($request->day);
         $post = new Post;
-            $post->day = $request->day;
+        $post->day = $request->day;
 
         //  $post->day = implode(",",$request->day);
 

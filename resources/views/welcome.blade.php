@@ -30,7 +30,7 @@
 									</button>
                 <!-- Brand -->
                 <a class="navbar-brand page-scroll sticky-logo" href="{{ url('/home') }}">
-    
+
                   <!-- Uncomment below if you prefer to use an image logo -->
                   <img class="" src="{{asset('img/logo_carcare.png')}}" alt="logo">
                   {{-- <img src="img/logo_carcare" alt="" title=""> --}}
@@ -55,9 +55,15 @@
                                         <a href="{{ route('register') }}">สมัครสมาชิก</a>
                                     </li>
                                     @endif
+<<<<<<< HEAD
                                 @endauth
                                     </div>
                                 {{-- @endif --}}
+=======
+                                    @endauth
+                                    </div>
+
+>>>>>>> 72704741db5765d0ea19ae7958e767bc0abe8c2c
 
                                 </ul>
                             </div>
@@ -312,7 +318,7 @@
                                 <h2>ที่อยู่ของเรา</h2>
                             </div>
                         </div>
-                    </div>                  
+                    </div>
                     <div class="row">
 
                         <!-- Start Google Map -->
@@ -322,7 +328,7 @@
                             <!-- End Map -->
                         </div>
                         <!-- End Google Map -->
-                      
+
                     </div>
                 </div>
             </div>
