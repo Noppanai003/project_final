@@ -42,7 +42,7 @@
     <div class="section" id="section-content">
       <div class="container">
      
-              <div class="row">
+              {{-- <div class="row">
                 <div class="col">
                 
                 </div>
@@ -52,7 +52,7 @@
                 <div class="col">
                     <a class="btn btn-success" href="{{route('CallMechanic.create')}}" role="button">เรียกช่างนอกพื้นที่</a>
                 </div>
-              </div>
+              </div> --}}
     
         <div class="row">
           <div class="col-lg-8 mx-auto">
@@ -68,6 +68,76 @@
                 <h5><i class="fa fa-phone-square" aria-hidden="true">
                     ช่องทางติดต่อ โทร {{$post->tel}}
                 </i></h5>
+                <br>
+
+                <div class="container">
+                  <h3 class="opacity-70 mr-1"><i class="fa fa-thumbs-up"></i> คะแนนจากผู้ใช้งาน</h3>
+                  <div class="star-rating">
+                      <span class="fa fa-star-o" title="1"></span>
+                      <span class="fa fa-star-o" title="2"></span>
+                      <span class="fa fa-star-o" title="3"></span>
+                      <span class="fa fa-star-o" title="4"></span>
+                      <span class="fa fa-star-o" title="5"></span>
+                  </div>
+                  
+                  <h3 class="opacity-70 mr-1"><i class="fa fa-trophy"></i> รีวิวอู่</h3>
+                  <div class="review-rating">
+                      <div class="left-review">
+                          <div class="review-title">3.5</div>
+                          <div class="review-star">
+                              <span class="fa fa-star"></span>
+                              <span class="fa fa-star"></span>
+                              <span class="fa fa-star"></span>
+                              <span class="fa fa-star-half-o"></span>
+                              <span class="fa fa-star-o"></span>
+                          </div>
+                          <div class="review-people"><i class="fa fa-user"></i> 8,445,600 total</div>
+                      </div>
+                      <div class="right-review">
+                          <div class="row-bar">
+                              <div class="left-bar">5</div>
+                              <div class="right-bar">
+                                  <div class="bar-container">
+                                      <div class="bar-5" style="width: 80%"></div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row-bar">
+                              <div class="left-bar">4</div>
+                              <div class="right-bar">
+                                  <div class="bar-container">
+                                      <div class="bar-4" style="width: 40%"></div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row-bar">
+                              <div class="left-bar">3</div>
+                              <div class="right-bar">
+                                  <div class="bar-container">
+                                      <div class="bar-3" style="width: 15%"></div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row-bar">
+                              <div class="left-bar">2</div>
+                              <div class="right-bar">
+                                  <div class="bar-container">
+                                      <div class="bar-2" style="width: 20%"></div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row-bar">
+                              <div class="left-bar">1</div>
+                              <div class="right-bar">
+                                  <div class="bar-container">
+                                      <div class="bar-1" style="width: 35%"></div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
                 <br><br><br>
                 <div id="disqus_thread"></div>
                     <script>

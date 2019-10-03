@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\CallMechanic' => $baseDir . '/app/CallMechanic.php',
     'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -15,6 +16,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\Blog\\PostController' => $baseDir . '/app/Http/Controllers/Blog/PostController.php',
+    'App\\Http\\Controllers\\CallMechanicController' => $baseDir . '/app/Http/Controllers/CallMechanicController.php',
     'App\\Http\\Controllers\\CategoryController' => $baseDir . '/app/Http/Controllers/CategoryController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\DashboardController' => $baseDir . '/app/Http/Controllers/DashboardController.php',
@@ -23,6 +25,7 @@ return array(
     'App\\Http\\Controllers\\ManageAssessmentController' => $baseDir . '/app/Http/Controllers/ManageAssessmentController.php',
     'App\\Http\\Controllers\\ManageRequestsController' => $baseDir . '/app/Http/Controllers/ManageRequestsController.php',
     'App\\Http\\Controllers\\MoneyRequestController' => $baseDir . '/app/Http/Controllers/MoneyRequestController.php',
+    'App\\Http\\Controllers\\NotificationController' => $baseDir . '/app/Http/Controllers/NotificationController.php',
     'App\\Http\\Controllers\\Post1Controller' => $baseDir . '/app/Http/Controllers/Post1Controller.php',
     'App\\Http\\Controllers\\PostController' => $baseDir . '/app/Http/Controllers/PostController.php',
     'App\\Http\\Controllers\\PromotionController' => $baseDir . '/app/Http/Controllers/PromotionController.php',
@@ -55,6 +58,8 @@ return array(
     'App\\Http\\Requests\\UpdatePromotionRequest' => $baseDir . '/app/Http/Requests/UpdatePromotionRequest.php',
     'App\\Http\\Requests\\UpdateTagsRequest' => $baseDir . '/app/Http/Requests/UpdateTagsRequest.php',
     'App\\Http\\Requests\\UpdateUserRequest' => $baseDir . '/app/Http/Requests/UpdateUserRequest.php',
+    'App\\Makecar' => $baseDir . '/app/Makecar.php',
+    'App\\Modelcar' => $baseDir . '/app/Modelcar.php',
     'App\\Notification' => $baseDir . '/app/Notification.php',
     'App\\Post' => $baseDir . '/app/Post.php',
     'App\\Post1' => $baseDir . '/app/Post1.php',

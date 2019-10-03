@@ -32,12 +32,17 @@
     <style>
         #map-canvas {
             width: 780px;
-            height: 370px;
+            height: 370px; 
         }
 
-        body {
-            /* background-color: #00FFFF; */
-        }
+        /* #map {
+            height: 100%;
+        } */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }       
 
         /* type number ซ่อนปุ่มกด ขึ้น-ลง ของ text เลขบัตรประชาชน */
         input::-webkit-outer-spin-button,
@@ -158,6 +163,9 @@
                                 <li class="list-group-item">
                                     <a href="{{route('notifications.index')}}">การแจ้งเตือน</a>
                                 </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('makecar.index')}}">จัดการข้อมูลยี่ห้อรถ</a>
+                                </li>
                             @endif
 
                             <li class="list-group-item">
@@ -168,10 +176,11 @@
                             </li>
                             <li class="list-group-item">
                                 <a href="{{route('posts1.index')}}">จัดการข้อมูลรถยนต์</a>
-                            </li>
+                            </li>                        
                             <li class="list-group-item">
-                                <a href="{{route('posts1.index')}}">จัดการข้อมูลการแจ้งเตือน</a>
+                                <a href="{{route('CallMechanic.index')}}">จัดการข้อมูลเรียกช่างนอกพื้นที่</a>
                             </li>
+
                             <li class="list-group-item">
                                 <a href="{{route('CallMechanic.index')}}">เรียกช่างนอกพื้นที่</a>
                             </li>

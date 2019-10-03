@@ -53,6 +53,11 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function CallMechanic()
+    {
+        return $this->hasMany(CallMechanic::class);
+    }
+
     public function category_store()
     {
         return $this->belongsTo(category_store::class);

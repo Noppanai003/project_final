@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreatePost1Request;
 use App\Post1;
+use App\Makecar;
 use DB;
 
 class Post1Controller extends Controller
@@ -37,7 +38,8 @@ class Post1Controller extends Controller
     {
 
         return view('posts1.index')
-            ->with('posts1', Post1::paginate(5));
+            ->with('posts1', Post1::paginate(5))
+            ->with('makecar',Makecar::all());
     }
 
     /**
@@ -47,10 +49,11 @@ class Post1Controller extends Controller
      */
     public function create()
     {
-        $list = DB::table('make')->get();
+        // $list = DB::table('make')->get();
 
         return view('posts1.create')
-            ->with('list', $list);
+        ->with('makecar',Makecar::all());
+            // ->with('list', $list);
     }
 
     /**
@@ -64,8 +67,10 @@ class Post1Controller extends Controller
         $image2 = $request->image2->store('post');
         $post1 = Post1::create([
 
-            'make' => $request->make,
+            'make' => $request->makecar,
             'model' => $request->model,
+            'fname' => $request->modelcar,
+            'lname' => $request->lname,
             'image2' => $image2,
             'license' => $request->license,
             // 'user_id'=>auth()->user()->id,
@@ -83,7 +88,9 @@ class Post1Controller extends Controller
      */
     public function show($id)
     {
-        //
+        return view('posts1.index')
+            ->with('posts1', Post1::paginate(5))
+            ->with('makecar',Makecar::all());
     }
 
     /**
@@ -117,9 +124,13 @@ class Post1Controller extends Controller
      */
     public function destroy(Post1 $post1)
     {
-        $post1->delete(); //ลบข้อมูลในฐานข้อมูล
-        $post1->deleteImage();
-        Session()->flash('success', 'ลบข้อมูลแล้ว');
+        // $post1->delete(); //ลบข้อมูลในฐานข้อมูล
+        // // $post1->deleteImage();
+        // Session()->flash('success', 'ลบข้อมูลแล้ว');
+        // return redirect(route('posts1.index'));
+
+        $post1->delete();
+        Session()->flash('success','ลบข้อมูลเรียบร้อยแล้ว');
         return redirect(route('posts1.index'));
     }
 }

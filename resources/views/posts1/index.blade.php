@@ -8,13 +8,13 @@
                   ข้อมูลรถยนต์
             </div>
             <div class="card-body">
-                {{-- @if($post1->count()>0) --}}
+                @if($posts1->count()>0)
                     <table class="table">
                         <thead>
                             <th>รูปรถยนต์</th>
                             <th>ค่ายผู้ผลิต</th>
-                            <th>รุ่นรถ</th>
-                            <th>เลขทะเบียนรถยนต์</th>
+                            <th>รุ่นรถ</th>                            
+                            <th>ปีรุ่นรถยนต์</th>
                             <th></th>
                             <th></th>
                             
@@ -29,9 +29,9 @@
 
                                   <td>{{$post1->make}}</td>
 
-                                  <td>{{$post1->model}}</td>  
+                                  <td>{{$post1->fname}}</td>  
 
-                                  <td>{{$post1->license}}</td>
+                                  <td>{{$post1->model}}</td>
                                   
                                   <td>
                                         <a href="{{route('posts1.edit',$post1->id)}}" class="btn btn-info btn-sm">แก้ไข</a>
@@ -49,9 +49,9 @@
                           @endforeach
                         </tbody>
                     </table>
-                    {{-- @else
-                      <h3 class="text text-center">ไม่มีข้อมูลร้าน</h3>
-                @endif --}}
+                    @else
+                      <h3 class="text text-center">ไม่มีข้อมูลรถยนต์</h3>
+                @endif
             </div>
           </div>
 

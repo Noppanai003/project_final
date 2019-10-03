@@ -380,6 +380,7 @@ class ComposerStaticInit09440fd8dd065cd912ae227b8a54d905
     );
 
     public static $classMap = array (
+        'App\\CallMechanic' => __DIR__ . '/../..' . '/app/CallMechanic.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -389,6 +390,7 @@ class ComposerStaticInit09440fd8dd065cd912ae227b8a54d905
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Blog\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/Blog/PostController.php',
+        'App\\Http\\Controllers\\CallMechanicController' => __DIR__ . '/../..' . '/app/Http/Controllers/CallMechanicController.php',
         'App\\Http\\Controllers\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoryController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
@@ -397,6 +399,7 @@ class ComposerStaticInit09440fd8dd065cd912ae227b8a54d905
         'App\\Http\\Controllers\\ManageAssessmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/ManageAssessmentController.php',
         'App\\Http\\Controllers\\ManageRequestsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ManageRequestsController.php',
         'App\\Http\\Controllers\\MoneyRequestController' => __DIR__ . '/../..' . '/app/Http/Controllers/MoneyRequestController.php',
+        'App\\Http\\Controllers\\NotificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/NotificationController.php',
         'App\\Http\\Controllers\\Post1Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Post1Controller.php',
         'App\\Http\\Controllers\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/PostController.php',
         'App\\Http\\Controllers\\PromotionController' => __DIR__ . '/../..' . '/app/Http/Controllers/PromotionController.php',
@@ -429,6 +432,8 @@ class ComposerStaticInit09440fd8dd065cd912ae227b8a54d905
         'App\\Http\\Requests\\UpdatePromotionRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdatePromotionRequest.php',
         'App\\Http\\Requests\\UpdateTagsRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateTagsRequest.php',
         'App\\Http\\Requests\\UpdateUserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateUserRequest.php',
+        'App\\Makecar' => __DIR__ . '/../..' . '/app/Makecar.php',
+        'App\\Modelcar' => __DIR__ . '/../..' . '/app/Modelcar.php',
         'App\\Notification' => __DIR__ . '/../..' . '/app/Notification.php',
         'App\\Post' => __DIR__ . '/../..' . '/app/Post.php',
         'App\\Post1' => __DIR__ . '/../..' . '/app/Post1.php',

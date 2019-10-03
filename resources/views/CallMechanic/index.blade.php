@@ -38,28 +38,6 @@
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
                 <ul class="nav navbar-nav navbar-right">
-                  {{-- <li class="active">
-                    <a class="page-scroll" href="#home">Home</a>
-                  </li> --}}
-                  {{-- <li>
-                    <a class="page-scroll" href="#about">About</a>
-                  </li>
-                  <li>
-                    <a class="page-scroll" href="#services">Services</a>
-                  </li>
-                  <li>
-                    <a class="page-scroll" href="#team">Team</a>
-                  </li>
-                  <li>
-                    <a class="page-scroll" href="#portfolio">Portfolio</a>
-                  </li> --}}
-
-                  {{-- <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Drop Down<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href=# >Drop Down 1</a></li>
-                      <li><a href=# >Drop Down 2</a></li>
-                    </ul>
-                  </li> --}}
 
                 @if (Route::has('login'))
                     {{-- <div class="top-right links"> --}}
@@ -93,57 +71,18 @@
     </div>
     <!-- header-area end -->
   </header>
-  <!-- header end -->
+  <!-- header end -->                       
 
-<!-- Start Wellcome Area -->
-    <div class="wellcome-area">
-        <div class="well-bg">
-          <div class="test-overly"></div>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="wellcome-text">
-                  <div class="well-text text-center">
-                    <h2>ค้นหาอู่ซ่อมรถยนต์</h2>
-
-                    <form class="input-group" action="{{route('welcome')}}" method="GET">
-                        <input type="text" class="form-control" name="search" placeholder="Search" value="{{request()->query('search')}}">
-                        <div class="input-group-addon">
-                          <button type="submit"><i class="fa fa-search"></i></button>
-                        </div>
-                      </form>
-                      <br>
-                      <h3 class="sidebar-title">ประเภทร้าน</h3>
-                      <div class="row link-color-default fs-14 lh-24">
-                        @foreach($categories as $category)                         
-                              <a class="btn btn-primary" href="{{route('blog.category',$category->id)}}" role="button">{{$category->name}}</a>                    
-                        @endforeach
-                      </div>
-                     
- 
-                        {{-- <input type="text" class="text form-control width-80" id="sus_email" placeholder="ค้นหาอู่">
-                        <button type="submit" id="sus_submit" <i class="fa fa-search"></i> </button>
-                        <div id="msg_Submit" class="h3 text-center hidden"></div> --}}
-
-                        
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End Wellcome Area -->
-
+  <br><br>
   <!-- Start Service area -->
   <div id="services" class="services-area area-padding">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="section-headline services-head text-center">
-              <h2>สถานประกอบการ</h2>
+              <h4>ข้อมูลรถยนต์</h4><br>
+              <h6>คุณมีรถยนต์ {{$posts1->count()}} คัน</h6>
+              <h6>เลือกที่ต้องการทำรายการ</h6>
             </div>
           </div>
         </div>
@@ -158,27 +97,24 @@
         
                     <div class="col-md-8 col-xl-9">
                       <div class="row gap-y">
-                          @forelse($posts as $post)
-                            <div class="col-md-6">
-                                <div class="card border hover-shadow-6 mb-6 d-block">
-                                  <a href="{{route('blog.show',$post->id)}}"><img class="card-img-top" src="storage/{{$post->image}}" alt="Card image cap"></a>
-                                  <div class="p-6 text-center">
+                        @forelse($posts1 as $posts2)
+                        <div class="col-md-6">
+                            <div class="card border hover-shadow-6 mb-6 d-block">
+                                <a href="{{route('CallMechanic.create',$posts2->id)}}"><img class="card-img-top" src="storage/{{$posts2->image2}}" alt="Card image cap"></a>
+                                <div class="p-6 text-center">
 
-                                    <h5 class="mb-0"><a class="text-dark" href="{{route('blog.show',$post->id)}}">ร้าน{{$post->title}}</a></h5>
-                                    <p><a class="small-3 text-dark text-uppercase ls-2 fw-400" href="{{route('blog.show',$post->id)}}">{{$post->category->name}}</a></p>
-                                    <p><a class="small-3 text-dark text-uppercase ls-2 fw-400" href="#">ตำแหน่งร้าน : {{$post->content}} ตำบล{{$post->district}} อำเภอ{{$post->amphur}} จังหวัด{{$post->city_name}} {{$post->postcode}}</a><br>
-                                    <a class="small-3 text-dark text-uppercase ls-2 fw-400" href="#">เบอรโทรร้าน : {{$post->tel}}</a></p>
-                                    
-                                  </div>
+                                    <h5 class="mb-0"><a class="text-dark" href="{{route('CallMechanic.create',$posts2->id)}}">{{$posts2->lname}}</a></h5>
+                                    <p><a class="small-3 text-dark text-uppercase ls-2 fw-400" href="{{route('CallMechanic.create',$posts2->id)}}">{{$posts2->make}} {{$posts2->fname}}</a></p>                              
+
                                 </div>
                             </div>
-                          @empty
-                            <p class="text-center">ไม่มีผลลัพธ์ : <strong>{{request()->query('search')}}</strong></p>
-                          @endforelse
-                      </div>
-                      {{$posts->appends(['search'=>request()->query('search')])->links()}}
+                        </div>
+                        @empty
+                        <p class="text-center">ไม่มีผลลัพธ์ : <strong>{{request()->query('search')}}</strong></p>
+                        @endforelse
                     </div>
-                      {{-- @include('layouts.sidebar1') --}}
+                        {{$posts->appends(['search'=>request()->query('search')])->links()}}
+                    </div>                 
 
                   </div>
                 </div>

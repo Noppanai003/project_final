@@ -20,8 +20,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('posts', 'PostController');
     Route::resource('posts1', 'Post1Controller');
+
     Route::resource('CallMechanic', 'CallMechanicController');
-    Route::resource('tags', 'TagsController');
+    Route::resource('makecar', 'MakecarController');
+ 
     Route::resource('promotions','PromotionController');
     Route::get('/search','PromotionController@search'); //ค้นหา admin จัดการโปรโมชัน
     Route::get('/search2','PostController@search2'); //ค้นหาข้อมูลร้าน
@@ -61,5 +63,22 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test', function() {
     return view('test');
 });
+
+Route::get('/test1', function() {
+    return view('test1');
+});
+
+Route::get('/Geolocation', function() {
+    return view('Geolocation');
+});
+
+Route::get('/Geo', function() {
+    return view('Geo');
+});
+
+Route::get('/show1', function() {
+    return view('Makecar.show');
+});
+
 
 Route::post('posts/create', 'PostController@autoprovince')->name('autocomplete.show');

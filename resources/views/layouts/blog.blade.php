@@ -12,7 +12,7 @@
      <link href="{{asset('css/page.min.css')}}" rel="stylesheet">
      <link href="{{asset('css/style1.css')}}" rel="stylesheet">
      <link href="{{asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
- 
+    
      <!-- Favicons -->
      <link rel="apple-touch-icon" href="{{asset('img/apple-touch-icon.png')}}">
      <link rel="icon" href="{{asset('img/logoWeb-carcare.png')}}">

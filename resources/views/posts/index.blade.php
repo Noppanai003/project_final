@@ -27,8 +27,7 @@
             <thead>
                 <th>รูปร้าน</th>
                 <th>ชื่อร้าน</th>
-                <th>ประเภทร้าน</th>
-                <!-- <th>ชื่อเจ้าของร้าน</th> -->
+                <th>ประเภทร้าน</th>              
                 <th>ที่อยู่</th>
                 <th></th>
                 <th></th>
@@ -44,7 +43,7 @@
                     <td>{{$post->title}}</td>
                     <td>{{$post->category->name}}</td>
                     <a href="{{route('categories.edit',$post->category->id)}}"> </a>
-                    <!-- <td>{{$post->fname}} {{$post->lname}}</td> -->
+                    {{--  <td>{{$post->fname}} {{$post->lname}}</td>  --}}
                     <td>{{$post->content}} {{$post->district}} {{$post->amphur}} {{$post->city_name}} {{$post->postcode}} </td>
 
                     <td>

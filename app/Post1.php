@@ -12,9 +12,16 @@ class Post1 extends Model
         'make',
         'model',
         'image2',
-        'license' 
+        'license',
+        'fname',
+        'lname' 
 
     ];
+    
+    public function Makecar()
+    {
+        return $this->belongsTo(Makecar::class);
+    }
 
     public function deleteImage()
     {

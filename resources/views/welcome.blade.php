@@ -40,7 +40,7 @@
               <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
                 <ul class="nav navbar-nav navbar-right">
 
-                                    @auth
+                                @auth
                                     <li class="active">
                                         <a href="{{ url('/home') }}">หน้าหลัก</a>
                                     </li>
@@ -55,9 +55,9 @@
                                         <a href="{{ route('register') }}">สมัครสมาชิก</a>
                                     </li>
                                     @endif
-                                    @endauth
-                                    {{-- </div> --}}
-                                    @endif
+                                @endauth
+                                    </div>
+                                {{-- @endif --}}
 
                                 </ul>
                             </div>
@@ -289,8 +289,7 @@
                                         @endforelse
                                     </div>
                                     {{$posts->appends(['search'=>request()->query('search')])->links()}}
-                                </div>
-                                {{-- @include('layouts.sidebar1') --}}
+                                </div>                              
 
                             </div>
                         </div>

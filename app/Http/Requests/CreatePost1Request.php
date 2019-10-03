@@ -26,7 +26,9 @@ class CreatePost1Request extends FormRequest
         return [
         
             'license'=>'required',
-            'image2'=>'required|image'
+            'image2'=>'required|image',
+            'makecar'=>'required',
+            'modelcar'=>'required',
             
         ];
     }

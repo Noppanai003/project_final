@@ -76,12 +76,11 @@
                 <input type="text" name="tel" value="{{isset($post)?$post->tel:''}}" class="form-control" placeholder="กรุณาใส่ข้อมูล">
             </div>
 
-<<<<<<< HEAD
                         <div class="form-group">
                             <label for="title">ประเภทการสถานประกอบการ <a class="text-danger">*</a></label>
                             <select class="form-control" name="category">
                                     @foreach($categories as $category)
-                                            <option value="{{$category->id}}"
+                                            <option value="{{$category->id}}">
                                                 @if(isset($post))
                                                     @if($category->id == $post->category_id)
                                                         selected
@@ -180,13 +179,13 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="">เวลาเปิดทำการ :</label>
-                                        <input type="time" name="time_start" value="{{isset($post)?$post->time_start:''}}" class="form-control">
+                                        <input type="" name="time_start" value="{{isset($post)?$post->time_start:''}}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="">สิ้นสุดเวลาทำการ :</label>
-                                        <input type="time" name="time_end" value="{{isset($post)?$post->time_end:''}}" class="form-control">
+                                        <input type="" name="time_end" value="{{isset($post)?$post->time_end:''}}" class="form-control">
                                     </div>
                                 </div>
                             </div>

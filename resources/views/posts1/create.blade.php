@@ -2,7 +2,15 @@
 @section('content')
 
 <div class="card card-default">
-
+    @if($errors->any())
+    <div class="alert alert-danger">
+        <ul class="list-group">
+            @foreach($errors->all() as $error)
+            <li class="list-group-item">{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div class="card-header">
 
             {{isset($post1)?'แก้ไขข้อมูล':'ข้อมูลรถยนต์'}} 
@@ -15,25 +23,35 @@
                 @endif
                     <div class="form-group">
                         <label for="title">ชื่อรถ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
-                        <input type="text" name="model" value="" class="form-control" placeholder="กรุณาใส่ข้อมูล">
-                    </div>
-                    <div class="form-group">
-                        <label for="title">ยี่ห้อรถ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
-                        <select class="form-control" name="make" id="make">
-                             <option value="">เลือกยี่ห้อรถ</option>
-                             @foreach ($list as $row)
-                                <option value="{{$row->title}}">{{$row->title}}</option>
-                             @endforeach
-                        </select>
-                    </div>
-                    {{ csrf_field() }}
-                    <div class="form-group">
-                        <label for="title">รุ่นรถ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
-                        <input type="text" name="model" value="" class="form-control" placeholder="กรุณาใส่ข้อมูล">
+                        <input type="text" name="lname" value="" class="form-control" placeholder="กรุณาใส่ข้อมูล">
                     </div>
 
                     <div class="form-group">
-                        <label for="title">เลือกปีรุ่นรถ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
+                        <label for="title">ยี่ห้อรถยนต์ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
+                        <select class="form-control" name="makecar">
+                                @foreach($makecar as $makecars)
+                                        {{-- <option value="">selected </option> --}}
+                                        <option value="{{$makecars->title}}">
+                                            
+                                             {{-- @if(isset($makecars))
+                                                @if($makecars->id == $makecars->make_id)
+                                                    selected
+                                                @endif
+                                            @endif  --}}
+                                            {{$makecars->title}}
+
+                                        </option>
+                                @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">รุ่นรถ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
+                        <input type="text" name="modelcar" value="" class="form-control" placeholder="กรุณาใส่ข้อมูล">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">ปีรุ่นรถ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
                         <input type="text" name="model" value="" class="form-control" placeholder="กรุณาใส่ข้อมูล">
                     </div>
 
