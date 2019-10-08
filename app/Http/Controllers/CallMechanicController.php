@@ -20,9 +20,16 @@ class CallMechanicController extends Controller
     {
         return view('CallMechanic.index')
         ->with('categories',Category::all())
-        ->with('posts', Post::paginate(5))
-        ->with('posts1', Post1::all());
-        
+        ->with('posts', Post::all())
+        ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get());
+    }
+
+    public function showcall()
+    {
+        return view('CallMechanic.show')
+        ->with('categories',Category::all())
+        ->with('posts', Post::all())
+        ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get());
     }
 
     /**
@@ -32,10 +39,12 @@ class CallMechanicController extends Controller
      */
     public function create()
     {
-        return view('CallMechanic.create')
+        // $user->id === $post1s->user_id;
+        // แล้วให้มันแสดงค่ารถตามไอดีที่ถูกส่งมา
+        return view('CallMechanic.show')
         ->with('categories',Category::all())
         ->with('posts', Post::paginate(5))
-        ->with('posts1', Post1::all());
+        ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get());
     }
 
     /**
@@ -48,10 +57,10 @@ class CallMechanicController extends Controller
     {        
         $image3 = $request->image3->store('posts');
         // dd($image,$image1);
-        CallMechanic::create([  
+        CallMechanic::create([
             'user_id' => auth()->user()->id,
-            'posts_id' => $request->posts_id,
-            // 'post1s_id' => $request->post1s_id,
+            'posts_id' => $request->checkshop,
+            'post1s_id' => $request->post1,
             'gencode' => $request->gencode,
             'info' => $request->info,
             'cartel' => $request->cartel,               
@@ -61,7 +70,7 @@ class CallMechanicController extends Controller
 
         ]);      
         Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
-        // return redirect(route('posts.index'));
+        return redirect(route('CallMechanic.create'));
     }
 
     /**
@@ -83,7 +92,12 @@ class CallMechanicController extends Controller
      */
     public function edit($id)
     {
-        //
+        //what data do i want?
+
+        return view('CallMechanic.create')
+        ->with('categories',Category::all())
+        ->with('posts', Post::paginate(5))
+        ->with('posts1', Post1::find($id));
     }
 
     /**

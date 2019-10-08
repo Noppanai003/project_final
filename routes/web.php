@@ -31,7 +31,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/search4','UserPromotionController@search4'); // ค้นหาโปรโมชัน ผู้ใช้รถยนต์
 
     Route::post('Post', 'PostController@store')->name('store');
-    // Route::get('/checkbox', 'PostController@checkbox');
 
     Route::get('profile', 'Usercontroller@profile'); //โปรไฟล์ผู้ใช้
     Route::get('editprofile', 'Usercontroller@editprofile'); //แก้ไขโปรไฟล์ผู้ใช้
@@ -76,9 +75,11 @@ Route::get('/Geo', function() {
     return view('Geo');
 });
 
-Route::get('/show1', function() {
-    return view('Makecar.show');
-});
+// Route::get('/rating', function() {
+//     return view('ratings.index');
+// });
+
+Route::resource('rating', 'ArticleratingController');
 
 
 Route::post('posts/create', 'PostController@autoprovince')->name('autocomplete.show');

@@ -73,7 +73,7 @@ class Post1Controller extends Controller
             'lname' => $request->lname,
             'image2' => $image2,
             'license' => $request->license,
-            // 'user_id'=>auth()->user()->id,
+            'user_id'=>auth()->user()->id,
 
         ]);
         Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');

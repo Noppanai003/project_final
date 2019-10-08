@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     @include('layouts.head')
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 </head>
 
 <body data-spy="scroll" data-target="#navbar-example">
@@ -9,7 +10,6 @@
   {{-- <div id="preloader"></div> --}}
 
 @include('layouts.sidebar')
-
   <header>
     <!-- header-area start -->
     <div id="sticker" class="header-area">
@@ -77,54 +77,69 @@
   <!-- Start Service area -->
   <div id="services" class="services-area area-padding">
       <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="section-headline services-head text-center">
-              <h4>ข้อมูลรถยนต์</h4><br>
-              <h6>คุณมีรถยนต์ {{$posts1->count()}} คัน</h6>
-              <h6>เลือกที่ต้องการทำรายการ</h6>
-            </div>
-          </div>
-        </div>
-        <div class="row text-center">
-          <div class="services-contents">
+        {{-- @include('ratings.connect'); --}}
+        <?php
+          header('Content-Type: text/html; charset=utf-8');       
+          $db=new mysqli("localhost","root","","carcare3");
 
-          <br>
-            <!-- Start services -->
-            <div class="section bg-gray">
-                <div class="container">
-                  <div class="row">
+            $articleArr=[];
+            $query=$db->query("select * from posts");
+            while ($row=$query->fetch_object()){
+              $articleArr[]=$row;
+            }
+            mysqli_query($db, 'SET CHARACTER SET UTF8');
+            
+        ?>
+        {{-- @foreach ($articleArr as $article ) --}}
+   
+              <div class="section-headline services-head">
+                
+                  <table class="table">
+                      <thead>
+                          <th>รูปร้าน</th>
+                          <th>ชื่อร้าน</th>
+                          {{-- <th>ประเภทร้าน</th>               --}}
+                          <th>คะแนนศูนย์บริการ</th>
+                          <th></th>
+                          <th></th>
+          
+                      </thead>
+                      <tbody>
+                          @foreach ($articleArr as $article )
+                          <tr>
+          
+                              <td>
+                                  <img src="storage/{{$article->image}}" alt="" width="100" height="100">
+                              </td>
+                              <td>{{$article->title}}</td>
+                              <td>Rating: x/5</td>                           
+                            
+                              {{-- <td>{{$article->content}} {{$article->district}} {{$article->amphur}} {{$article->city_name}} {{$article->postcode}} </td> --}}
+                              <td>
+                                  <a href="{{route('rating.show',$article->id)}}" class="btn btn-primary btn-sm">vote</a>
+                              </td>
 
-                    <div class="col-md-8 col-xl-9">
-                      <div class="row gap-y">
+                              <td>
+                                  <a href="{{route('posts.show',$article->id)}}" class="btn btn-warning btn-sm">รายละเอียด</a>
+                              </td>
+                              
+          
+                              {{-- <td>
+                                  <form class="delete_form" action="{{route('posts.destroy',$article->id)}}" method="post">
+                                      @csrf
+                                      <input type="hidden" name="_method" value="DELETE">
+                                      <input type="submit" name="" value="ลบ" class="btn btn-danger btn-sm">
+                                  </form>
+                              </td>  --}}
+          
+                          </tr>
+                          @endforeach
+                      </tbody>
+                  </table>
 
-                        @forelse($posts1 as $posts2)
-                        <div class="col-md-6">
-                            <div class="card border hover-shadow-6 mb-6 d-block">
-                                <a href="{{route('CallMechanic.edit',$posts2->id)}}"><img class="card-img-top" src="storage/{{$posts2->image2}}" alt="Card image cap"></a>
-                                <div class="p-6 text-center">
-
-                                    <h5 class="mb-0"><a class="text-dark" href="{{route('CallMechanic.edit',$posts2->id)}}">{{$posts2->lname}}</a></h5>
-                                    <p><a class="small-3 text-dark text-uppercase ls-2 fw-400" href="{{route('CallMechanic.edit',$posts2->id)}}">{{$posts2->make}} {{$posts2->fname}}</a></p>
-
-                                </div>
-                            </div>
-                        </div>
-                        @empty
-                        {{-- <p class="text-center">ไม่มีผลลัพธ์ : <strong>{{request()->query('search')}}</strong></p> --}}
-                        @endforelse
-                    </div>
-                        {{-- {{$posts->appends(['search'=>request()->query('search')])->links()}} --}}
-                    </div>                 
-
-                  </div>
-                </div>
               </div>
-              <!-- End services -->
 
-        </div>
-      </div>
-    </div>
+        
     <!-- End Service area -->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>

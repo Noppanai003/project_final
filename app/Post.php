@@ -87,6 +87,11 @@ class Post extends Model
         return $this->hasMany(CallMechanic::class);
     }
 
+    public function Articlerating()
+    {
+        return $this->hasMany(Articlerating::class);
+    }
+
     public function category_store()
     {
         return $this->belongsTo(category_store::class);

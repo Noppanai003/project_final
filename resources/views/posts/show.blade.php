@@ -149,19 +149,36 @@
                         <img src="../storage/{{$post->image1}}" width="200px" height="200px">
                     </div>
 
-                    <div class="form-group">
-                        <strong>ละติจูด : </strong>
-                        {{ $post->lat }}
-                    </div>
-                    <div class="form-group">
-                        <strong>ลองติจูด : </strong>
-                        {{ $post->long }}
-                    </div>
-
+                    <div id="map-canvas"></div>              
 
                 </div>
             </div>
         </form>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYG5g2aJ9TjMlbYk7E_VuFYKSvHC1Ee6Y&libraries=places" type="text/javascript"></script>
+                <script>
+
+                  var lat = {{$post->lat}};
+                  var lng = {{$post->long}};
+                  
+                  var map = new google.maps.Map(document.getElementById('map-canvas'),{
+
+                    center:{
+                      lat: lat,
+                      lng: lng
+                    },
+                    zoom: 15                  
+                  });
+
+                  var marker = new google.maps.Marker({
+                    position:{
+                      lat:lat,
+                      lng:lng
+                    },
+                    map: map
+                  });
+
+                </script>
 
     </div>
 

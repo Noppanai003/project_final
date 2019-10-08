@@ -14,13 +14,19 @@ class Post1 extends Model
         'image2',
         'license',
         'fname',
-        'lname' 
+        'lname',
+        'user_id' 
 
     ];
     
     public function Makecar()
     {
         return $this->belongsTo(Makecar::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function deleteImage()

@@ -99,31 +99,30 @@
                                             <div class="form-group">
                                                 <label for="title">ข้อมูลรถยนต์</label>                                        
                                                 
-                                                @foreach($posts1 as $posts2)
-                                                    @if ($posts2->id)                                                        
-                                                        @continue                                                        
-                                                    @endif
-                                                @endforeach  
-                                                <div class="form-group">
-                                                            <label for="title">ยี่ห้อรถยนต์ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label >
-                                                            <input type="text" name="make" value="{{$posts2->make}}" class="form-control" placeholder="กรุณาใส่ข้อมูล" readonly>
-                                                        </div>                                                    
-                        
-                                                        <div class="form-group">
-                                                            <label for="title">รุ่นรถ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
-                                                            <input type="text" name="modelcar" value="{{$posts2->fname}}" class="form-control" placeholder="กรุณาใส่ข้อมูล" readonly>
-                                                        </div>
-                                    
-                                                        <div class="form-group">
-                                                            <label for="title">ปีรุ่นรถ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
-                                                            <input type="text" name="model" value="{{$posts2->model}}" class="form-control" placeholder="กรุณาใส่ข้อมูล" readonly>
-                                                        </div>
-                                    
-                                                        <div class="form-group">
-                                                            <label for="title">เลขทะเบียนรถยนต์ <a class="text-danger">(*ไม่จำเป็นต้องใช้)</a></label>
-                                                            <input type="text" name="license" value="{{$posts2->license}}" class="form-control" placeholder="กรุณาใส่ข้อมูล" readonly>
-                                                        </div>                                                                                            
-                                            </div>  
+                                                <?php
+                                                $posts2=$posts1;
+                                                ?>  
+                                                <input type="hidden" name="post1" value="{{$posts2->id}}" class="form-control" class="b" readonly>
+                                                    <div class="form-group">
+                                                                <label for="title">ยี่ห้อรถยนต์ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label >
+                                                                <input type="text" name="make" value="{{$posts2->make}}" class="form-control" placeholder="กรุณาใส่ข้อมูล" readonly>
+                                                            </div>                                                    
+                            
+                                                            <div class="form-group">
+                                                                <label for="title">รุ่นรถ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
+                                                                <input type="text" name="modelcar" value="{{$posts2->fname}}" class="form-control" placeholder="กรุณาใส่ข้อมูล" readonly>
+                                                            </div>
+                                        
+                                                            <div class="form-group">
+                                                                <label for="title">ปีรุ่นรถ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
+                                                                <input type="text" name="model" value="{{$posts2->model}}" class="form-control" placeholder="กรุณาใส่ข้อมูล" readonly>
+                                                            </div>
+                                        
+                                                            <div class="form-group">
+                                                                <label for="title">เลขทะเบียนรถยนต์ <a class="text-danger">(*ไม่จำเป็นต้องใช้)</a></label>
+                                                                <input type="text" name="license" value="{{$posts2->license}}" class="form-control" placeholder="กรุณาใส่ข้อมูล" readonly>
+                                                            </div>                                                                                            
+                                                    </div>                                             
 
                                             <div class="form-group">
                                                     <label for="title">ข้อมูลเพิ่มเติม <a class="text-danger">(*ถ้ามี)</a></label>
@@ -131,38 +130,16 @@
                                             </div>
 
                                             <?php
-
-                                                $a = 0;
-                                                $i = 0;
-                                                $result='';
-                                                $result1='';
-                                                $result2='';                                             
-                                                for($a==1;$a<1;$a++){ // จำนวนรอบที่ต้องการทดสอบ หรือ สุ่ม
-                                                        $number='0123456789'; // ตัวแปรตัวเลข ที่จะเอาไปสุ่ม
-                                                        $number1="ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // ตัวแปรแบบตัวอักษรภาษาอังกฤษ ที่จะเอาไปสุ่ม                                                       
-                                                        
-                                                        for($i==1;$i<2;$i++){ // จำนวนหลักที่ต้องการสามารถเปลี่ยนได้ตามใจชอบนะครับ จาก 5 เป็น 3 หรือ 6 หรือ 10 เป็นต้น
-                                                                $random=rand(0,strlen($number)-1); //สุ่มตัวเลข
-                                                                $cut_txt=substr($number,$random,1); //ตัดตัวเลข หรือ ตัวอักษรจากตำแหน่งที่สุ่มได้มา 1 ตัว
-                                                                $result.=substr($number,$random,1); // เก็บค่าที่ตัดมาแล้วใส่ตัวแปร
-                                                                $number=str_replace($cut_txt,'',$number); // ลบ หรือ แทนที่ตัวอักษร หรือ ตัวเลขนั้นด้วยค่า ว่าง            
-                                                        }
-
-                                                        for($i==1;$i<5;$i++){ // จำนวนหลักที่ต้องการสามารถเปลี่ยนได้ตามใจชอบนะครับ จาก 5 เป็น 3 หรือ 6 หรือ 10 เป็นต้น
-                                                            $random1=rand(0,strlen($number1)-1); //สุ่มตัวเลข
-                                                                $cut_txt1=substr($number1,$random1,1); //ตัดตัวเลข หรือ ตัวอักษรจากตำแหน่งที่สุ่มได้มา 1 ตัว
-                                                                $result1.=substr($number1,$random1,1); // เก็บค่าที่ตัดมาแล้วใส่ตัวแปร
-                                                                $number2=str_replace($cut_txt1,'',$number1); // ลบ หรือ แทนที่ตัวอักษร หรือ ตัวเลขนั้นด้วยค่า ว่าง
-                                                        }
-                                                        $result2 = $result.$result1;                                                        
-                                                        $i=0; // ตั้งค่าให้ $i ใหม่ เริ่มต้นที่ 0
-                                                }
+                                                $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';                                                
+                                                $result = substr(str_shuffle($permitted_chars), 0, 5);
                                             ?> 
 
-                                            <div class="form-group">
-                                                    {{-- <h2 class="b" name="gencode" >{{$result2}}</h2>                --}}
-                                                    <input type="hidden" name="gencode" value="{{$result2}}" class="form-control" class="b" readonly>
+                                            <div class="form-group">                                                  
+                                                    <input type="hidden" name="gencode" value="{{$result}}" class="form-control" class="b" readonly>
                                             </div> 
+                                            {{-- <div class="form-group">                                                  
+                                                    
+                                            </div>  --}}
                                            
                                             <div class="form-group">
                                                     <label for="title">สภาพรถยนต์<a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
@@ -258,41 +235,37 @@
                                                                                         <th></th> --}}
                                                                         
                                                                                     </thead>
+                                                                                    {{-- <div class="form-group">
+                                                                                        <label for="title">ประเภทการสถานประกอบการ <a class="text-danger">*</a></label>
+                                                                                        <select class="form-control" name="category">
+                                                                                            @foreach($categories as $category)
+                                                                                            <option value="{{$category->id}}">
+                                                                                                @if(isset($post))
+                                                                                                @if($category->id == $post->category_id)
+                                                                                                    selected
+                                                                                                @endif
+                                                                                                @endif
+                                                                                                {{$category->name}}
+                                                                                            </option>
+                                                                                            @endforeach
+                                                                                        </select>
+                                                                                    </div> --}}
                                                                                     <tbody>
                                                                                         @foreach($posts as $post)
                                                                                         <tr>
-                                                                                            <td><label><input type="checkbox" value=""></label></td>
-                                                                        
+                                                                                                {{-- <input type="checkbox" name="variable_check" id=" variable_check " value="0"> --}}
+                                                                                            <td><label><input type="checkbox" name="checkshop" value="{{$post->id}}"></label></td>                                                                        
                                                                                             <td>
-                                                                                                <a href="{{route('blog.show',$post->id)}}"><img class="card-img-top" src="../../storage/{{$post->image}}" alt="Card image cap" width="100" height="100"></a>
-                                                                                                {{-- <img src="storage/{{$post->image}}" alt="" width="100" height="100"> --}}
+                                                                                                <a href=""><img src="../../storage/{{$post->image}}" alt="Card image cap" width="100" height="100"></a>                                                                                             
                                                                                             </td>
                                                                                             <td>ร้าน{{$post->title}}</td>
-                                                                                            <td>{{$post->category->name}}</td>
-                                                                                            {{-- <a href="{{route('categories.edit',$post->category->id)}}"> </a> --}}
-                                                                                            {{-- <a href="{{route('blog.show',$post->id)}}">{{$post->category->name}}</a>--}}
-                                                                                            <td>ตำแหน่งร้าน : {{$post->content}} ตำบล{{$post->district}} อำเภอ{{$post->amphur}} จังหวัด{{$post->city_name}}</td>
-                                                                        
-                                                                                            {{-- <td>
-                                                                                                <a href="{{route('posts.show',$post->id)}}" class="btn btn-warning btn-sm">รายละเอียด</a>
-                                                                                            </td> --}}
-                                                                                            {{-- <td>
-                                                                                                <a href="{{route('posts.edit',$post->id)}}" class="btn btn-primary btn-sm">แก้ไข</a>
-                                                                                            </td> --}}
-                                                                        
-                                                                                            {{-- <td>
-                                                                                                <form class="delete_form" action="{{route('posts.destroy',$post->id)}}" method="post">
-                                                                                                    @csrf
-                                                                                                    <input type="hidden" name="_method" value="DELETE">
-                                                                                                    <input type="submit" name="" value="ลบ" class="btn btn-danger btn-sm">
-                                                                                                </form>
-                                                                                            </td> --}}
-                                                                        
+                                                                                            <td>{{$post->category->name}}</td>                                                       
+                                                                                            <td>ตำแหน่งร้าน : {{$post->content}} ตำบล{{$post->district}} อำเภอ{{$post->amphur}} จังหวัด{{$post->city_name}}</td>                                                                    
                                                                                         </tr>
                                                                                         @endforeach
                                                                                     </tbody>
-                                                                                </table>                                                                      
-                                                                    </div>                                                               
+                                                                                </table>                                                        
+                                                                    </div>
                                                 
                                                                 </div>
                                                                 </div>

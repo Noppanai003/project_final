@@ -11,7 +11,9 @@ class PostController extends Controller
 {
     public function show(Post $post)
     {
-        return view('blog.show')->with('post', $post);
+        return view('blog.show')
+        ->with('post', $post)
+        ->with('posts', Post::find($post));
     }
 
     public function category(Category $category){

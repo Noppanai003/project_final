@@ -71,18 +71,16 @@
     </div>
     <!-- header-area end -->
   </header>
-  <!-- header end -->
-  
-  <br><br>
+  <!-- header end -->     
+    
+<br><br>
   <!-- Start Service area -->
   <div id="services" class="services-area area-padding">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="section-headline services-head text-center">
-              <h4>ข้อมูลรถยนต์</h4><br>
-              <h6>คุณมีรถยนต์ {{$posts1->count()}} คัน</h6>
-              <h6>เลือกที่ต้องการทำรายการ</h6>
+              <h3>รอการตอบรับการเรียกช่าง</h3>
             </div>
           </div>
         </div>
@@ -94,34 +92,17 @@
             <div class="section bg-gray">
                 <div class="container">
                   <div class="row">
-
+        
                     <div class="col-md-8 col-xl-9">
                       <div class="row gap-y">
-
-                        @forelse($posts1 as $posts2)
-                        <div class="col-md-6">
-                            <div class="card border hover-shadow-6 mb-6 d-block">
-                                <a href="{{route('CallMechanic.edit',$posts2->id)}}"><img class="card-img-top" src="storage/{{$posts2->image2}}" alt="Card image cap"></a>
-                                <div class="p-6 text-center">
-
-                                    <h5 class="mb-0"><a class="text-dark" href="{{route('CallMechanic.edit',$posts2->id)}}">{{$posts2->lname}}</a></h5>
-                                    <p><a class="small-3 text-dark text-uppercase ls-2 fw-400" href="{{route('CallMechanic.edit',$posts2->id)}}">{{$posts2->make}} {{$posts2->fname}}</a></p>
-
-                                </div>
-                            </div>
-                        </div>
-                        @empty
-                        {{-- <p class="text-center">ไม่มีผลลัพธ์ : <strong>{{request()->query('search')}}</strong></p> --}}
-                        @endforelse
-                    </div>
-                        {{-- {{$posts->appends(['search'=>request()->query('search')])->links()}} --}}
-                    </div>                 
-
+                        
+                      </div>
+            
                   </div>
                 </div>
               </div>
               <!-- End services -->
-
+      
         </div>
       </div>
     </div>

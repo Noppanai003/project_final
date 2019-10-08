@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     @include('layouts.head')
+    <meta charset="UTF-8">
 </head>
 
 <body data-spy="scroll" data-target="#navbar-example">
@@ -9,7 +10,6 @@
   {{-- <div id="preloader"></div> --}}
 
 @include('layouts.sidebar')
-
   <header>
     <!-- header-area start -->
     <div id="sticker" class="header-area">
@@ -71,44 +71,39 @@
     </div>
     <!-- header-area end -->
   </header>
-  <!-- header end -->     
-    
-<br><br>
+  <!-- header end -->
+  
+  <br><br>
   <!-- Start Service area -->
   <div id="services" class="services-area area-padding">
       <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="section-headline services-head text-center">
-              <h3>ข้อมูลรถยนต์</h3>
-            </div>
-          </div>
-        </div>
-        <div class="row text-center">
-          <div class="services-contents">
+        {{-- @include('ratings.connect'); --}}
+        <?php
+            $post=$posts;
+          header('Content-Type: text/html; charset=utf-8');       
+          $db=new mysqli("localhost","root","","carcare3");
 
-          <br>
-            <!-- Start services -->
-            <div class="section bg-gray">
-                <div class="container">
-                  <div class="row">
-        
-                    <div class="col-md-8 col-xl-9">
-                      <div class="row gap-y">
-                        @foreach($categories as $category)                         
-                        <a class="btn btn-primary" href="{{route('blog.category',$category->id)}}" role="button">{{$category->name}}</a>                    
-                        @endforeach
-                    </div>
+        //    $id= $_GET["$article->id"];
+        //     $query=$db->query("select * from posts where id=$id");
+        //     $row=$query->fetch_object();
             
-
-                  </div>
-                </div>
+        //     mysqli_query($db, 'SET CHARACTER SET UTF8');
+            
+        ?> 
+   
+              <div class="section-headline services-head">
+                <h4>รีวิวอู่</h4>
+                <?php
+                
+                    foreach (range(1,5) as $rating):?>
+                    {{-- {{route('rating.show',$article->id)}} --}}
+                    <a href="{{route('rating.store',$post->id)}}&rating=<?php echo $rating?>">
+                    <?php echo $rating;?>
+                    <?php endforeach; ?>
+                
               </div>
-              <!-- End services -->
-      
-        </div>
-      </div>
-    </div>
+       
+        
     <!-- End Service area -->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
