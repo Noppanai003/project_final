@@ -15,6 +15,9 @@ class CreateNotificationsTable extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nonti_data');
+            $table->string('startdate');
+            $table->string('deadline');
             $table->timestamps();
         });
     }
