@@ -23,7 +23,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('CallMechanic', 'CallMechanicController');
     Route::resource('makecar', 'MakecarController');
- 
+
     Route::resource('promotions','PromotionController');
     Route::get('/search','PromotionController@search'); //ค้นหา admin จัดการโปรโมชัน
     Route::get('/search2','PostController@search2'); //ค้นหาข้อมูลร้าน
@@ -52,7 +52,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('categories', 'CategoryController');
     Route::resource('categoryStore', 'category_StoreController');
     Route::resource('dashboard', 'DashboardController');
-    Route::resource('manageRequests', 'ManageRequestsController');
+    Route::resource('managerequests', 'ManageRequestsController');
     Route::resource('manageAssessment', 'ManageAssessmentController');
 
 });
@@ -80,6 +80,10 @@ Route::get('/Geo', function() {
 // });
 
 Route::resource('rating', 'ArticleratingController');
+
+// Route::get('/show', function() {
+//     return view('manageRequest.show');
+// });
 
 
 Route::post('posts/create', 'PostController@autoprovince')->name('autocomplete.show');

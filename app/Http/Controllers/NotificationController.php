@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateNotificationRequest;
+use App\Http\Requests\UpdateNotificationRequest;
 use App\Http\Controllers\Controller;
+use App\Notification;
+use Illuminate\Support\Facades\DB;
 
 class NotificationController extends Controller
 {
@@ -14,7 +18,7 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        return view('notifications.index');
+        return view('notifications.index')->with('notifications' ,Notification::all());
     }
 
     /**
@@ -33,10 +37,18 @@ class NotificationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateNotificationRequest $request)
     {
-        //
+        Notification::create([
+            'nonti_data' => $request->nonti_data,
+            'startdate' => $request->startdate
+
+        ]);
+        Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
+        return redirect(route('notifications.index'));
     }
+
+
 
     /**
      * Display the specified resource.
@@ -55,9 +67,9 @@ class NotificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Notification $notification)
     {
-        //
+        return view('notifications.create')->with('notification', $notification);
     }
 
     /**
@@ -67,9 +79,14 @@ class NotificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateNotificationRequest $request, Notification $notification)
     {
-        //
+        $request->only([
+            'nonti_data',
+            'startdate'
+        ]);
+        Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
+        return redirect(route('notifications.index'));
     }
 
     /**
@@ -78,8 +95,10 @@ class NotificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Notification $notification)
     {
-        //
+        $notification->delete(); //ลบข้อมูลในฐานข้อมูล
+        Session()->flash('success', 'ลบข้อมูลเรียบร้อยแล้ว!');
+        return redirect(route('notifications.index'));
     }
 }

@@ -30,6 +30,7 @@ class CallMechanicController extends Controller
         ->with('categories',Category::all())
         ->with('posts', Post::all())
         ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get());
+
     }
 
     /**
@@ -54,7 +55,7 @@ class CallMechanicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(CreateCallMechanicRequest $request)
-    {        
+    {
         $image3 = $request->image3->store('posts');
         // dd($image,$image1);
         CallMechanic::create([
@@ -63,12 +64,12 @@ class CallMechanicController extends Controller
             'post1s_id' => $request->post1,
             'gencode' => $request->gencode,
             'info' => $request->info,
-            'cartel' => $request->cartel,               
+            'cartel' => $request->cartel,
             'lat' => $request->lat,
             'long' => $request->long,
             'image3' => $image3,
 
-        ]);      
+        ]);
         Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
         return redirect(route('CallMechanic.create'));
     }

@@ -32,7 +32,7 @@
     <style>
         #map-canvas {
             width: 780px;
-            height: 370px; 
+            height: 370px;
         }
 
         /* #map {
@@ -42,7 +42,7 @@
             height: 100%;
             margin: 0;
             padding: 0;
-        }       
+        }
 
         /* type number ซ่อนปุ่มกด ขึ้น-ลง ของ text เลขบัตรประชาชน */
         input::-webkit-outer-spin-button,
@@ -143,7 +143,7 @@
                                     <a href="{{route('categories.index')}}">ประเภทการร้าน</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{route('manageRequests.index')}}">จัดการคำขอบริการ</a>
+                                    <a href="{{route('managerequests.index')}}">จัดการคำขอบริการ</a>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{route('manageAssessment.index')}}">จัดการข้อมูลประเมินการใช้บริการ</a>
@@ -176,7 +176,7 @@
                             </li>
                             <li class="list-group-item">
                                 <a href="{{route('posts1.index')}}">จัดการข้อมูลรถยนต์</a>
-                            </li>                        
+                            </li>
                             <li class="list-group-item">
                                 <a href="{{route('CallMechanic.index')}}">จัดการข้อมูลเรียกช่างนอกพื้นที่</a>
                             </li>
