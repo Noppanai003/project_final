@@ -3,11 +3,10 @@ git merge man
 git checkout man
 git checkout master
 
-git commit -m "add all"
-
 git branch --all
 git add .
 git status
+git commit -m "add all"
 git push -u origin master
 
 ----------------------------------
