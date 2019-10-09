@@ -18,7 +18,7 @@
                 <div class="container">
                 <strong> รูปโปรโมชัน : </strong>
                     <div class="form-group" align= "middle">
-                    <img src="../storage/{{$promotion->pro_image}}" width="250px" height="250px" >
+                        <img src="../storage/{{$promotion->pro_image}}" width="250px" height="250px" >
                     </div> <br>
                     <div class="form-group">
                         <strong>หัวข้อ : </strong>

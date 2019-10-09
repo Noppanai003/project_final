@@ -72,7 +72,7 @@
     <!-- header-area end -->
   </header>
   <!-- header end -->
-  
+
   <br><br>
   <!-- Start Service area -->
   <div id="services" class="services-area area-padding">
@@ -115,7 +115,7 @@
                         @endforelse
                     </div>
                         {{-- {{$posts->appends(['search'=>request()->query('search')])->links()}} --}}
-                    </div>                 
+                    </div>
 
                   </div>
                 </div>
