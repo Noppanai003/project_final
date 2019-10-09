@@ -7,6 +7,7 @@ use App\Http\Requests\CreateNotificationRequest;
 use App\Http\Requests\UpdateNotificationRequest;
 use App\Http\Controllers\Controller;
 use App\Notification;
+use App\Post1;
 use Illuminate\Support\Facades\DB;
 
 class NotificationController extends Controller
@@ -18,7 +19,9 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        return view('notifications.index')->with('notifications' ,Notification::all());
+        return view('notifications.index')
+        ->with('notifications' ,Notification::all());
+        
     }
 
     /**
@@ -28,7 +31,8 @@ class NotificationController extends Controller
      */
     public function create()
     {
-        return view('notifications.create');
+        return view('notifications.create')
+        ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get());
     }
 
     /**
@@ -40,6 +44,8 @@ class NotificationController extends Controller
     public function store(CreateNotificationRequest $request)
     {
         Notification::create([
+            'user_id' => auth()->user()->id,
+            'post1s_id' => $request->post1,
             'nonti_data' => $request->nonti_data,
             'startdate' => $request->startdate
 
@@ -47,8 +53,6 @@ class NotificationController extends Controller
         Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
         return redirect(route('notifications.index'));
     }
-
-
 
     /**
      * Display the specified resource.
@@ -58,7 +62,8 @@ class NotificationController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('notifications.show')
+        ->with('posts1', Post1::find($id));
     }
 
     /**
