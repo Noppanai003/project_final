@@ -24,6 +24,12 @@ class CallMechanicController extends Controller
         ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get());
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
     public function showcall()
     {
         return view('CallMechanic.show')
@@ -40,7 +46,6 @@ class CallMechanicController extends Controller
      */
     public function create()
     {
-        // $user->id === $post1s->user_id;
         // แล้วให้มันแสดงค่ารถตามไอดีที่ถูกส่งมา
         return view('CallMechanic.show')
         ->with('categories',Category::all())

@@ -29,6 +29,11 @@ class Post1 extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function Notification()
+    {
+        return $this->hasMany(Notification::class);
+    }
+
     public function deleteImage()
     {
         Storage::delete($this->image2);

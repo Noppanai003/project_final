@@ -74,58 +74,73 @@
   <!-- header end -->
   
   <br><br>
-  <!-- Start Service area -->
-  <div id="services" class="services-area area-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="section-headline services-head text-center">
-              <h4>ข้อมูลรถยนต์</h4><br>
-              <h6>คุณมีรถยนต์ {{$posts1->count()}} คัน</h6>
-              <h6>เลือกที่ต้องการทำรายการ</h6>
+
+      <!-- Start portfolio Area -->
+  <div id="portfolio" class="portfolio-area area-padding fix">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h5>ข้อมูลรถยนต์</h2>
+                <h6>คุณมีรถยนต์ {{$posts1->count()}} คัน</h6>
+                <h6>เลือกที่ต้องการทำรายการ</h6>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row text-center">
-          <div class="services-contents">
+          <div class="row">
+            <!-- Start Portfolio -page -->
+            {{-- <div class="awesome-project-1 fix">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="awesome-menu ">
+                  <ul class="project-menu">
+                    <li>
+                      <a href="#" class="active" data-filter="*">All</a>
+                    </li>
+                    <li>
+                      <a href="#" data-filter=".development">Development</a>
+                    </li>
+                    <li>
+                      <a href="#" data-filter=".design">Design</a>
+                    </li>
+                    <li>
+                      <a href="#" data-filter=".photo">Photoshop</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div> --}}
+            <br>
+            <div class="awesome-project-content">
 
-          <br>
-            <!-- Start services -->
-            <div class="section bg-gray">
-                <div class="container">
-                  <div class="row">
-
-                    <div class="col-md-8 col-xl-9">
-                      <div class="row gap-y">
-
-                        @forelse($posts1 as $posts2)
-                        <div class="col-md-6">
-                            <div class="card border hover-shadow-6 mb-6 d-block">
-                                <a href="{{route('CallMechanic.edit',$posts2->id)}}"><img class="card-img-top" src="storage/{{$posts2->image2}}" alt="Card image cap"></a>
-                                <div class="p-6 text-center">
-
-                                    <h5 class="mb-0"><a class="text-dark" href="{{route('CallMechanic.edit',$posts2->id)}}">{{$posts2->lname}}</a></h5>
-                                    <p><a class="small-3 text-dark text-uppercase ls-2 fw-400" href="{{route('CallMechanic.edit',$posts2->id)}}">{{$posts2->make}} {{$posts2->fname}}</a></p>
-
-                                </div>
-                            </div>
-                        </div>
-                        @empty
-                        {{-- <p class="text-center">ไม่มีผลลัพธ์ : <strong>{{request()->query('search')}}</strong></p> --}}
-                        @endforelse
+              <!-- single-awesome-project start -->
+              @forelse($posts1 as $posts2)
+              <div class="col-md-4 col-sm-4 col-xs-12 design development">
+                <div class="single-awesome-project">
+                  <div class="awesome-img">
+                    <a href="#"><img class="card-img-top" src="../../storage/{{$posts2->image2}}" alt="Card image cap"></a>
+                    <div class="add-actions text-center">
+                      <div class="project-dec">
+                        <a href="{{route('CallMechanic.create',$posts2->id)}}">                          
+                          <h4 href="">{{$posts2->lname}}</h4>
+                          <span>
+                             {{$posts2->make}} {{$posts2->fname}}
+                        </span>
+                        </a>
+                      </div>
                     </div>
-                        {{-- {{$posts->appends(['search'=>request()->query('search')])->links()}} --}}
-                    </div>                 
-
                   </div>
                 </div>
               </div>
-              <!-- End services -->
+              @empty
+                    
+                @endforelse
+              <!-- single-awesome-project end -->
 
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- End Service area -->
+      <!-- awesome-portfolio end -->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 

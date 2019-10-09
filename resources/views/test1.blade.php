@@ -29,4 +29,6 @@
                         // Output: 54esmdr0qf
                         $result = substr(str_shuffle($permitted_chars), 0, 5);
                         echo $result;
+                        echo $result;
+                        echo $result;
 ?>

@@ -61,6 +61,11 @@ class User extends Authenticatable
         return $this->hasMany(Post1::class);
     }
 
+    public function Notification()
+    {
+        return $this->hasMany(Notification::class);
+    }
+
     public function CallMechanic()
     {
         return $this->hasMany(CallMechanic::class);

@@ -24,11 +24,11 @@
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-example-navbar-collapse-1" aria-expanded="false">
-										<span class="sr-only">Toggle navigation</span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
+					<span class="sr-only">Toggle navigation</span>
+				    <span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
                 <!-- Brand -->
                 <a class="navbar-brand page-scroll sticky-logo" href="{{ url('/home') }}">
                   <img class="" src="{{asset('img/logo_carcare.png')}}" alt="logo">
@@ -235,21 +235,6 @@
                                                                                         <th></th> --}}
                                                                         
                                                                                     </thead>
-                                                                                    {{-- <div class="form-group">
-                                                                                        <label for="title">ประเภทการสถานประกอบการ <a class="text-danger">*</a></label>
-                                                                                        <select class="form-control" name="category">
-                                                                                            @foreach($categories as $category)
-                                                                                            <option value="{{$category->id}}">
-                                                                                                @if(isset($post))
-                                                                                                @if($category->id == $post->category_id)
-                                                                                                    selected
-                                                                                                @endif
-                                                                                                @endif
-                                                                                                {{$category->name}}
-                                                                                            </option>
-                                                                                            @endforeach
-                                                                                        </select>
-                                                                                    </div> --}}
                                                                                     <tbody>
                                                                                         @foreach($posts as $post)
                                                                                         <tr>
@@ -279,8 +264,7 @@
                                                 <!-- End Service area -->
                     
                                                 <div class="form-group">
-                                                        <button type="submit" class="btn btn-success btn-lg btn-block">แจ้งข้อมูลรถ</button>
-                                                        {{-- <input type="submit" name="" value="{{isset($post)?'แก้ไขข้อมูล':'แจ้งข้อมูลรถ'}}" class="btn btn-success"> --}}
+                                                        <button type="submit" class="btn btn-success btn-lg btn-block">แจ้งข้อมูลรถ</button>                                                       
                                                 </div>
                     
                                     </form>
