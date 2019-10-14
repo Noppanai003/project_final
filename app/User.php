@@ -21,7 +21,6 @@ class User extends Authenticatable
         'name', 'email', 'password', 'role'
     ];
 
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -46,9 +45,19 @@ class User extends Authenticatable
         return $this->role == 'admin';
     }
 
+    public function isUser()
+    {
+        return $this->role == 'user';
+    }
+
     public function isRevenue_officer()
     {
         return $this->role == 'revenue_officer';
+    }
+
+    public function isMember()
+    {
+        return $this->role == 'member';
     }
 
     public function posts()
@@ -69,6 +78,16 @@ class User extends Authenticatable
     public function CallMechanic()
     {
         return $this->hasMany(CallMechanic::class);
+    }
+
+    public function Promotion()
+    {
+        return $this->hasMany(Promotion::class);
+    }
+
+    public function Bill()
+    {
+        return $this->hasMany(Bill::class);
     }
 
     public function Articlerating()

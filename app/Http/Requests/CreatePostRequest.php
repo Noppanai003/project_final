@@ -32,7 +32,7 @@ class CreatePostRequest extends FormRequest
             'city_name' => 'required',
             'amphur' => 'required',
             'district' => 'required',
-            'postcode' => 'required',
+            // 'postcode' => 'required',
             'tel' => 'required',
             'category' => 'required',
             'lat' => 'required',

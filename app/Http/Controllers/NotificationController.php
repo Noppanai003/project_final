@@ -21,6 +21,7 @@ class NotificationController extends Controller
     {
         return view('notifications.index')
         ->with('notifications' ,Notification::all());
+        // ->with('notifications', Notification::where('user_id','=',auth()->user()->id)->get());
         
     }
 

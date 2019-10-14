@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">แดชบอร์ด</div>
+                <div class="card-header">หน้าหลัก</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    ที่นี่คือแดชบอร์ด!
+                    ยินดีต้อนรับคุณ "{{ Auth::user()->name }}"
                 </div>
             </div>
         </div>

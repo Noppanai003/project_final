@@ -12,7 +12,7 @@ class CallMechanic extends Model
         'user_id',
         'posts_id',
         'post1s_id',
-        'gencode',    
+        'gencode',
         'info', 
         'cartel',        
         'image3',  
@@ -28,6 +28,11 @@ class CallMechanic extends Model
     public function posts()
     {
         return $this->belongsTo(Post::class);
-    }    
+    }
+    
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
 }

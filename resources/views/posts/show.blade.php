@@ -127,10 +127,10 @@
                         {{ $post->city_name }}
                     </div>
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <strong>รหัสไปรษณีย์ : </strong>
                         {{ $post->postcode }}
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                         <strong>เบอร์โทรร้าน : </strong>
                         {{ $post->tel }}
@@ -146,7 +146,7 @@
 
                     <div class="form-group">
                         <strong> รูปใบประกอบกิจการร้าน : </strong> <br>
-                        <img src="../storage/{{$post->image1}}" width="200px" height="200px">
+                        <img src="../storage/{{$post->image1}}" width="350px" height="500px">
                     </div>
 
                     <div id="map-canvas"></div>              

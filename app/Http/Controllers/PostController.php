@@ -27,7 +27,9 @@ class PostController extends Controller
 
     public function index()
     {
-        return view('posts.index')->with('posts', Post::paginate(5));
+        return view('posts.index')
+        // ->with('posts', Post::paginate(5))
+        ->with('posts', Post::where('user_id','=',auth()->user()->id)->get());
     }
 
     /**
@@ -89,7 +91,7 @@ class PostController extends Controller
             'city_name' => $request->city_name,
             'amphur' => $request->amphur,
             'district' => $request->district,
-            'postcode' => $request->postcode,
+            // 'postcode' => $request->postcode,
             'tel' => $request->tel,
             'category_id' => $request->category,
             'user_id' => auth()->user()->id,

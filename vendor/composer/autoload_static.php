@@ -380,10 +380,12 @@ class ComposerStaticInit09440fd8dd065cd912ae227b8a54d905
     );
 
     public static $classMap = array (
+        'App\\Articlerating' => __DIR__ . '/../..' . '/app/Articlerating.php',
         'App\\CallMechanic' => __DIR__ . '/../..' . '/app/CallMechanic.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\ArticleratingController' => __DIR__ . '/../..' . '/app/Http/Controllers/ArticleratingController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -426,6 +428,7 @@ class ComposerStaticInit09440fd8dd065cd912ae227b8a54d905
         'App\\Http\\Requests\\CreateCategoryRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CreateCategoryRequest.php',
         'App\\Http\\Requests\\CreateCategoryStoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CreateCategoryStoreRequest.php',
         'App\\Http\\Requests\\CreateMakecarRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CreateMakecarRequest.php',
+        'App\\Http\\Requests\\CreateNotificationRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CreateNotificationRequest.php',
         'App\\Http\\Requests\\CreatePost1Request' => __DIR__ . '/../..' . '/app/Http/Requests/CreatePost1Request.php',
         'App\\Http\\Requests\\CreatePostRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CreatePostRequest.php',
         'App\\Http\\Requests\\CreatePromotionRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CreatePromotionRequest.php',
@@ -433,6 +436,7 @@ class ComposerStaticInit09440fd8dd065cd912ae227b8a54d905
         'App\\Http\\Requests\\CreateUserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CreateUserRequest.php',
         'App\\Http\\Requests\\UpdateCategoryRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateCategoryRequest.php',
         'App\\Http\\Requests\\UpdateMakecarRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateMakecarRequest.php',
+        'App\\Http\\Requests\\UpdateNotificationRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateNotificationRequest.php',
         'App\\Http\\Requests\\UpdatePostRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdatePostRequest.php',
         'App\\Http\\Requests\\UpdatePromotionRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdatePromotionRequest.php',
         'App\\Http\\Requests\\UpdateTagsRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateTagsRequest.php',
@@ -450,7 +454,7 @@ class ComposerStaticInit09440fd8dd065cd912ae227b8a54d905
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Tag' => __DIR__ . '/../..' . '/app/Tag.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
-        'App\\articlerating' => __DIR__ . '/../..' . '/app/articlerating.php',
+        'App\\bill' => __DIR__ . '/../..' . '/app/bill.php',
         'App\\category_store' => __DIR__ . '/../..' . '/app/category_store.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',

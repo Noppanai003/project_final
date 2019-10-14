@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     @include('layouts.head')
-    <meta charset="UTF-8">
 </head>
 
 <body data-spy="scroll" data-target="#navbar-example">
@@ -10,6 +9,7 @@
   {{-- <div id="preloader"></div> --}}
 
 @include('layouts.sidebar')
+
   <header>
     <!-- header-area start -->
     <div id="sticker" class="header-area">
@@ -71,45 +71,19 @@
     </div>
     <!-- header-area end -->
   </header>
-  <!-- header end -->
-  
-  <br><br>
+  <!-- header end -->     
+    
+<br><br>
   <!-- Start Service area -->
   <div id="services" class="services-area area-padding">
       <div class="container">
-        {{-- @include('ratings.connect'); --}}
-        <?php
-            $post=$posts;
-          header('Content-Type: text/html; charset=utf-8');       
-          $db=new mysqli("localhost","root","","carcare3");
-
-        //    $id= $_GET["$article->id"];
-        //     $query=$db->query("select * from posts where id=$id");
-        //     $row=$query->fetch_object();
-            
-        //     mysqli_query($db, 'SET CHARACTER SET UTF8');
- 
-        ?> 
-   
-              <div class="section-headline services-head">
-                <h4>รีวิวอู่</h4>              
-
-                    <form action="{{route('rating.store')}}" method="post">
-                      @csrf
-
-                      <div class="form-group">
-                            {{-- <label for="">ชื่อประเภทการร้าน</label> --}}
-                            <input type="hidden" class="b" name="postcar" value="{{$post->id}}" class="form-control" placeholder="กรุณาใส่ข้อมูล">
-                      </div>
-
-                      @foreach(range(1,5) as $rating)                         
-                        <a class="btn btn-primary" href="{{route('rating.store',$rating)}}" role="button">{{$rating}}</a>                    
-                      @endforeach              
-                  </form>
-              </div>
-       
         
-    <!-- End Service area -->
+           <?php
+            
+            ?>
+
+        </div>
+    </div>
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 

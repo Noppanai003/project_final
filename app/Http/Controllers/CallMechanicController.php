@@ -78,7 +78,7 @@ class CallMechanicController extends Controller
         Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
         return redirect(route('CallMechanic.create'));
     }
-
+    
     /**
      * Display the specified resource.
      *

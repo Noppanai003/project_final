@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\CallMechanic;
-use App\ManageRequests;
+use App\Bill;
+use App\Http\Requests\CreateBillRequest;
 
-class ManageRequestsController extends Controller
+class BillController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,7 @@ class ManageRequestsController extends Controller
      */
     public function index()
     {
-        // $CallMechanic = DB::table('call_mechanics')->get();
-
-        return view('managerequests.index')
-        ->with('callMechanic', CallMechanic::all());
+        return view('bill.index');
     }
 
     /**
@@ -29,7 +25,7 @@ class ManageRequestsController extends Controller
      */
     public function create()
     {
-       
+        //
     }
 
     /**
@@ -38,9 +34,14 @@ class ManageRequestsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateBillRequest $request)
     {
-        //
+        Bill::create([
+            'user_id' => auth()->user()->id,
+            'posts_id' => $request->demo,
+           
+        ]);
+        return redirect(route('bill.index'));
     }
 
     /**
@@ -51,11 +52,7 @@ class ManageRequestsController extends Controller
      */
     public function show($id)
     {
-        return view('managerequests.show')
-        ->with('CallMechanic', CallMechanic::all());
-
-        // $CallMechanic = CallMechanic::find($id);
-        // return view('manageRequests.show',compact('CallMechanic'));
+        //
     }
 
     /**

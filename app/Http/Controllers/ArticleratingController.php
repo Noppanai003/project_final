@@ -39,12 +39,14 @@ class ArticleratingController extends Controller
     public function store(Request $request)
     {
         // $postt= $post->id;
-        $rating=$_GET['rating'];
+        // $rating=$_GET['rating'];
+        $rating = $request->rating;
         Articlerating::create([
             'user_id' => auth()->user()->id,
-            'posts_id' => $request->post->id,
+            'posts_id' => $request->postcar,
             'rating' => $request->$rating,
-        ]);      
+        ]);  
+        // dd($request);    
         // Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
         return redirect(route('CallMechanic.index'));
     }

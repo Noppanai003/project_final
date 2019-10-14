@@ -17,7 +17,9 @@ class PromotionController extends Controller
      */
     public function index()
     {
-        return view('promotions.index')->with('promotions' ,Promotion::paginate(4));
+        return view('promotions.index')
+        // ->with('promotions' ,Promotion::paginate(4))
+        ->with('promotions', Promotion::where('user_id','=',auth()->user()->id)->get());
     }
 
     /**
@@ -49,6 +51,7 @@ class PromotionController extends Controller
         $pro_image=$request->pro_image->store('posts2');
         // dd($pro_image);
         Promotion::create([
+            'user_id' => auth()->user()->id,
             'pro_name' => $request->pro_name,
             'pro_detail' => $request->pro_detail,
             'pro_image' => $pro_image,

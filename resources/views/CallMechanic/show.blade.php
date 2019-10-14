@@ -81,32 +81,48 @@
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="section-headline services-head text-center">
               <h3>รอการตอบรับการเรียกช่าง</h3>
+              <form action="{{route('bill.store')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                  <table class="table">
+                      <thead>
+                          <th>เลือก</th>
+                          <th>รายการ</th>
+                          <th>รูปร้าน</th>
+                          <th>ชื่อร้าน</th>
+                          <th>ประเภทร้าน</th>
+                          <th>วันที่</th>
+                          <th>เวลาการตอบรับ</th>
+                          <th></th>
+                      </thead>
+                      <tbody>
+                          @foreach($posts as $post)
+                          <tr>
+                              <td>
+                                <input type="radio" name="demo" value="{{$post->id}}" id="radio-one" class="form-radio" >
+                              </td>
+                              <td>{{$post->id}}</td>
+                              <td>
+                                <a href=""><img src="../../storage/{{$post->image}}" alt="Card image cap" width="100" height="100"></a>                                                                                             
+                              </td>
+                              <td>ร้าน{{$post->title}}</td>
+                              <td>{{$post->category->name}}</td> 
+                              <td>{{$post->daterequest}}</td>
+                              <td>{{$post->timerequest}} น.</td>
+                              <td>
+                                <a href="{{route('managerequests.show',$post->id)}}" class="btn btn-warning btn-sm">รายละเอียด</a>
+                              </td>
+                          </tr>
+                          @endforeach
+                      </tbody>
+                  </table>
+      
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-lg btn-block">ยืนยันร้าน</button>
+                    </div>
+              </form>
             </div>
           </div>
         </div>
-        <div class="row text-center">
-          <div class="services-contents">
-
-          <br>
-            <!-- Start services -->
-            <div class="section bg-gray">
-                <div class="container">
-                  <div class="row">
-        
-                    <div class="col-md-8 col-xl-9">
-                      <div class="row gap-y">
-                        
-                      </div>
-            
-                  </div>
-                </div>
-              </div>
-              <!-- End services -->
-      
-        </div>
-      </div>
-    </div>
-    <!-- End Service area -->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 

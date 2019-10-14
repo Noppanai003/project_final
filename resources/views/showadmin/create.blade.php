@@ -42,7 +42,7 @@
                 @foreach($promotions as $promotion)
                 <tr>
                     <td>
-                        <img src="storage/{{$promotion->pro_image}}" alt="" width="120px" height="120px">
+                        <img src="../../storage/{{$promotion->pro_image}}" alt="" width="120px" height="120px">
                     </td>
                     <td>{{$promotion->pro_name}}</td>
                     <td>{{$promotion->pro_cost}} %</td>
@@ -72,7 +72,7 @@
                 </tr>
             </tfoot> -->
         </table>
-        {{-- {{ $promotions->links() }} --}}
+        {{ $promotions->links() }}
         @else
         <h3 class="text text-center">ไม่มีข้อมูลโปรโมชัน</h3>
         @endif

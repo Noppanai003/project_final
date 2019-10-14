@@ -65,7 +65,7 @@
                 @endforeach
             </tbody>
         </table>
-        {{-- {{ $posts->links() }} --}}
+        {{ $posts->links() }}
 
         @else
         <h3 class="text text-center">ไม่มีข้อมูลร้าน</h3>

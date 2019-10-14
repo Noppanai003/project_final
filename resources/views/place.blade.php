@@ -1,47 +1,121 @@
-@extends('layouts.app')
-@section('content')
+<?php
 
-<div class="card card-default">
-    @if($errors->any())
-    <div class="alert alert-danger">
-        <ul class="list-group">
-            @foreach($errors->all() as $error)
-            <li class="list-group-item">{{$error}}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-    <div class="card-header">
-        {{isset($notification)?'แก้ไขข้อมูลการแจ้งเตือน':'เพิ่มข้อมูลการแจ้งเตือน'}}
-    </div>
+namespace App\Http\Controllers;
 
-    <div class="card-body">
-        <form action="{{isset($notification)?route('notifications.update',$notification->id):route('notifications.store')}}" method="post">
-            @csrf
-            @if(isset($notification))
-            @method('PUT')
-            @endif
+use Illuminate\Http\Request;
+use App\Category;
+use App\Post;
+use App\Post1;
+use App\CallMechanic;
+use App\Http\Requests\CreateCallMechanicRequest;
 
-                <div class="form-group">
-                    <label>เลือกประเภทการแจ้งเตือน</label>
-                    <select class="form-control" name="nonti_data" value="{{isset($notification)?$notification->nonti_data:''}}">
-                        <option>พ.ร.บ</option>
-                        <option>การต่อภาษีทะเบียนรถยนต์</option>
-                        <option>การต่อประกันรถยนต์</option>
-                    </select>
-                </div>
+class CallMechanicController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('CallMechanic.index')
+        ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get());
+    }
 
-            <div class="form-group">
-                <label for="title">วันที่ทำการต่อทะเบียน</label>
-                <input type="date" name="startdate" value="{{isset($notification)?$notification->startdate:''}}" class="form-control">
-            </div>
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        // แล้วให้มันแสดงค่ารถตามไอดีที่ถูกส่งมา
+        return view('CallMechanic.show')
+        ->with('categories',Category::all())
+        ->with('callMechanic',CallMechanic::all())
+        ->with('posts', Post::paginate(5))
+        ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get());
+    }
 
-            <div class="form-group">
-                <input type="submit" name="" value="บันทึกการแจ้งเตือน" class="btn btn-success">
-            </div>
-        </form>
-    </div>
-</div>
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(CreateCallMechanicRequest $request)
+    {
+        $image3 = $request->image3->store('posts');
+        // dd($image,$image1);
+        CallMechanic::create([
+            'user_id' => auth()->user()->id,
+            'posts_id' => $request->checkshop,
+            'post1s_id' => $request->post1,
+            'gencode' => $request->gencode,
+            'info' => $request->info,
+            'cartel' => $request->cartel,
+            'lat' => $request->lat,
+            'long' => $request->long,
+            'image3' => $image3,
 
-@endsection
+        ]);
+        Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
+        return redirect(route('CallMechanic.create'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //what data do i want?
+
+        return view('CallMechanic.create')
+        ->with('categories',Category::all())
+        ->with('posts', Post::all())
+        ->with('posts1', Post1::find($id));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}

@@ -14,7 +14,8 @@ class Promotion extends Model
         'pro_image',
         'pro_cost',
         'pro_start_date',
-        'pro_due_date'
+        'pro_due_date',
+        'user_id'
     ];
 
     // ลบภาพที่เก็บอยู่ใน Storage
@@ -28,7 +29,11 @@ class Promotion extends Model
     //     'pro_due_date'
     // ];
 
-
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
     public function getProDueDateAttribute($value)
     {
         return Carbon::parse($value)->format('d-m-Y');

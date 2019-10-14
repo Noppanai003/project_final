@@ -120,7 +120,7 @@
                     <a href="#"><img class="card-img-top" src="../../storage/{{$posts2->image2}}" alt="Card image cap"></a>
                     <div class="add-actions text-center">
                       <div class="project-dec">
-                        <a href="{{route('CallMechanic.create',$posts2->id)}}">                          
+                        <a href="{{route('CallMechanic.edit',$posts2->id)}}">                          
                           <h4 href="">{{$posts2->lname}}</h4>
                           <span>
                              {{$posts2->make}} {{$posts2->fname}}

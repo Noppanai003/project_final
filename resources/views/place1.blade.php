@@ -92,9 +92,9 @@
                 <div class="card-body">
                     <form action="{{route('CallMechanic.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
-                        @if(isset($post))
+                        {{-- @if(isset($post))
                         @method('PUT')
-                        @endif
+                        @endif --}}
                         <br>
 
                         <div class="form-group">
@@ -248,7 +248,6 @@
                                                     <div class="row">
 
                                                         <div class="col-md-12">
-                                                            {{-- <div class="row gap-y"> --}}
                                                             <table class="table">
                                                                 <thead>
                                                                     <th>select</th>
@@ -265,7 +264,9 @@
                                                                             <a href=""><img src="../../storage/{{$post->image}}" alt="Card image cap" width="100" height="100"></a>
                                                                         </td>
                                                                         <td>ร้าน{{$post->title}}</td>
-                                                                        <td>{{$post->category->name}}</td>
+                                                                 
+                                                                        <td>{{$post->$category->name}}</td>
+                                                                        
                                                                         <td>ตำแหน่งร้าน : {{$post->content}} ตำบล{{$post->district}} อำเภอ{{$post->amphur}} จังหวัด{{$post->city_name}}</td>
                                                                     </tr>
                                                                     @endforeach
@@ -305,36 +306,6 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#select-tags').select2();
-        });
-    </script>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#city_name').keyup(function() {
-                var query = $(this).val();
-
-                if (query != '') {
-                    var _token = $('input[name="_token"]').val();
-                }
-
-                $.ajax({
-                    url: "{{ route('autocomplete.show') }}",
-                    method: "POST",
-                    data: {
-                        query: query,
-                        _token: _token
-                    },
-                    success: function(data) {
-                        $('#cityList').fadeIn();
-                        $('#cityList').html(data);
-                    }
-                })
-            });
-        });
-        $(document).on('click', 'li', function() {
-            $('#cityList').fadeOut();
-            $('#city_name').val($(this).text());
-
         });
     </script>
 

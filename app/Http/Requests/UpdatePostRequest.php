@@ -32,7 +32,7 @@ class UpdatePostRequest extends FormRequest
             'city_name'=>'required',
             'amphur'=>'required',
             'district'=>'required',
-            'postcode'=>'required',
+            // 'postcode'=>'required',
             'tel'=>'required',
             'image'=>'image',
             'image1'=>'image',

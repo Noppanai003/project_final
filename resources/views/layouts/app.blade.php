@@ -132,30 +132,66 @@
                         <div class="card-header"> {{ Auth::user()->name }} </div>
                         <ul class="list-group">
                             @if(auth()->user()->isAdmin())
-
-                                <li class="list-group-item">
+                                
+                                {{-- <li class="list-group-item">
                                     <a href="{{route('dashboard.index')}}">แดชบอร์ด</a>
-                                </li>
+                                </li> --}}
                                 <li class="list-group-item">
                                     <a href="{{route('users.index')}}">จัดการข้อมูลสมาชิก</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{route('categories.index')}}">ประเภทการร้าน</a>
+                                    <a href="{{route('categories.index')}}">ประเภทศูนย์บริการ</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{route('managerequests.index')}}">จัดการคำขอบริการ</a>
+                                    <a href="{{route('showadmin.index')}}">จัดการข้อมูลร้าน</a>
                                 </li>
-                                <li class="list-group-item">
+                                {{-- <li class="list-group-item">
                                     <a href="{{route('manageAssessment.index')}}">จัดการข้อมูลประเมินการใช้บริการ</a>
+                                </li> --}}
+                                <li class="list-group-item">
+                                    <a href="{{route('showadmin.create')}}">จัดการข้อมูลโปรโมชัน</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{route('MoneyRequests.index')}}">จัดการคำร้องขอคืนเงิน</a>
+                                    <a href="{{route('makecar.index')}}">จัดการข้อมูลยี่ห้อรถ</a>
+                                </li>
+                            @endif
+
+                            @if(auth()->user()->isRevenue_officer())
+                                <li class="list-group-item">
+                                        <a href="{{route('CallMechanic.index')}}">จัดการข้อมูลเรียกช่างนอกพื้นที่</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('DepositManages.index')}}">จัดการคำร้องหักค่ามัดจำการเรียก</a>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{route('TransferMoneys.index')}}">จัดการข้อมูลการโอนเงิน</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{route('DepositManages.index')}}">จัดการคำร้องหักค่ามัดจำการเรียก</a>
+                                    <a href="{{route('MoneyRequests.index')}}">จัดการคำร้องขอคืนเงิน</a>
+                                </li>
+                            @endif
+
+                            @if(auth()->user()->isMember())
+                            {{-- เริ่มศูนย์บริการ --}}
+                                <li class="list-group-item">
+                                    <a href="{{route('managerequests.index')}}">จัดการคำขอบริการ</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('posts.index')}}">จัดการข้อมูลร้าน</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('promotions.index')}}">จัดการข้อมูลโปรโมชัน</a>
+                                </li>
+                            @endif
+                            {{-- สิ้นสุดศูนย์บริการ --}}
+
+                            {{-- เริ่มผู้ใช้รถยนต์ --}}
+                            @if(auth()->user()->isUser())
+                                <li class="list-group-item">
+                                    <a href="{{route('posts1.index')}}">จัดการข้อมูลรถยนต์</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('CallMechanic.index')}}">เรียกช่างนอกพื้นที่</a>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{route('userpromotions.index')}}">โปรโมชัน</a>
@@ -163,27 +199,8 @@
                                 <li class="list-group-item">
                                     <a href="{{route('notifications.index')}}">การแจ้งเตือน</a>
                                 </li>
-                                <li class="list-group-item">
-                                    <a href="{{route('makecar.index')}}">จัดการข้อมูลยี่ห้อรถ</a>
-                                </li>
                             @endif
-
-                            <li class="list-group-item">
-                                <a href="{{route('posts.index')}}">จัดการข้อมูลร้าน</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="{{route('promotions.index')}}">จัดการข้อมูลโปรโมชัน</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="{{route('posts1.index')}}">จัดการข้อมูลรถยนต์</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="{{route('CallMechanic.index')}}">จัดการข้อมูลเรียกช่างนอกพื้นที่</a>
-                            </li>
-
-                            <li class="list-group-item">
-                                <a href="{{route('CallMechanic.index')}}">เรียกช่างนอกพื้นที่</a>
-                            </li>
+                            {{-- สิ้นสุดผู้ใช้รถยนต์ --}}
 
                         </ul>
                     </div>

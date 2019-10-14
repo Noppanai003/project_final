@@ -18,11 +18,12 @@ Route::get('blog/category/{category}',[Postcontroller::class,'category'])->name(
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
 
-    Route::resource('posts', 'PostController');
-    Route::resource('posts1', 'Post1Controller');
-
-    Route::resource('CallMechanic', 'CallMechanicController');
-    Route::resource('makecar', 'MakecarController');
+    Route::resource('posts', 'PostController'); // เพิ่มร้านศูนย์บริการ
+    Route::resource('posts1', 'Post1Controller'); // เพิ่มรถยนต์ผู้ใช้บริการ
+    Route::resource('showadmin', 'ShowadminController'); // เพิ่มร้านศูนย์บริการ
+    Route::resource('CallMechanic', 'CallMechanicController'); // เรียกช่างของผู้ใช้รถยนต์
+    Route::resource('makecar', 'MakecarController'); // เพิ่มยี่ห้อรถยนต์ของ Admin
+    Route::resource('bill', 'BillController'); // ตอบรับการเรียกช่าง
 
     Route::resource('promotions','PromotionController');
     Route::get('/search','PromotionController@search'); //ค้นหา admin จัดการโปรโมชัน
@@ -40,20 +41,19 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('TransferMoneys', 'TransferMoneyController'); //จัดการข้อมูลการโอนเงิน
 
     Route::resource('userpromotions', 'UserPromotionController'); //จัดการข้อมูลการโอนเงิน
-    Route::resource('notifications', 'NotificationController');
+    Route::resource('notifications', 'NotificationController'); //แจ้งเตือนผู้ใช้รถยนต์
+
+    Route::resource('managerequests', 'ManageRequestsController'); //จัดการคำขอศูนย์บริการ
+    Route::resource('manageAssessment', 'ManageAssessmentController'); //จัดการข้อมูลประเมินการใช้บริการ
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::resource('users', 'Usercontroller');
-
     Route::get('users', 'Usercontroller@index')->name('users.index');
     Route::post('users/{user}/makeadmin', 'Usercontroller@makeadmin')->name('user.makeadmin');
-    Route::resource('categories', 'CategoryController');
-    Route::resource('categoryStore', 'category_StoreController');
+    Route::resource('categories', 'CategoryController'); //ประเภทศูนย์บริการ
     Route::resource('dashboard', 'DashboardController');
-    Route::resource('managerequests', 'ManageRequestsController');
-    Route::resource('manageAssessment', 'ManageAssessmentController');
 
 });
 
@@ -67,12 +67,24 @@ Route::get('/test1', function() {
     return view('test1');
 });
 
-Route::get('/Geolocation', function() {
-    return view('Geolocation');
+Route::get('/TestTime', function() {
+    return view('TestTime');
 });
 
 Route::get('/Geo', function() {
     return view('Geo');
+});
+
+Route::get('/ratings', function() {
+    return view('rating');
+});
+
+Route::get('/article', function() {
+    return view('article');
+});
+
+Route::get('/avg', function() {
+    return view('rating_avg');
 });
 
 // Route::get('/rating', function() {
@@ -84,6 +96,5 @@ Route::resource('rating', 'ArticleratingController');
 // Route::get('/show', function() {
 //     return view('manageRequest.show');
 // });
-
 
 Route::post('posts/create', 'PostController@autoprovince')->name('autocomplete.show');

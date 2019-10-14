@@ -6,10 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Articlerating' => $baseDir . '/app/Articlerating.php',
     'App\\CallMechanic' => $baseDir . '/app/CallMechanic.php',
     'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\ArticleratingController' => $baseDir . '/app/Http/Controllers/ArticleratingController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -52,6 +54,7 @@ return array(
     'App\\Http\\Requests\\CreateCategoryRequest' => $baseDir . '/app/Http/Requests/CreateCategoryRequest.php',
     'App\\Http\\Requests\\CreateCategoryStoreRequest' => $baseDir . '/app/Http/Requests/CreateCategoryStoreRequest.php',
     'App\\Http\\Requests\\CreateMakecarRequest' => $baseDir . '/app/Http/Requests/CreateMakecarRequest.php',
+    'App\\Http\\Requests\\CreateNotificationRequest' => $baseDir . '/app/Http/Requests/CreateNotificationRequest.php',
     'App\\Http\\Requests\\CreatePost1Request' => $baseDir . '/app/Http/Requests/CreatePost1Request.php',
     'App\\Http\\Requests\\CreatePostRequest' => $baseDir . '/app/Http/Requests/CreatePostRequest.php',
     'App\\Http\\Requests\\CreatePromotionRequest' => $baseDir . '/app/Http/Requests/CreatePromotionRequest.php',
@@ -59,6 +62,7 @@ return array(
     'App\\Http\\Requests\\CreateUserRequest' => $baseDir . '/app/Http/Requests/CreateUserRequest.php',
     'App\\Http\\Requests\\UpdateCategoryRequest' => $baseDir . '/app/Http/Requests/UpdateCategoryRequest.php',
     'App\\Http\\Requests\\UpdateMakecarRequest' => $baseDir . '/app/Http/Requests/UpdateMakecarRequest.php',
+    'App\\Http\\Requests\\UpdateNotificationRequest' => $baseDir . '/app/Http/Requests/UpdateNotificationRequest.php',
     'App\\Http\\Requests\\UpdatePostRequest' => $baseDir . '/app/Http/Requests/UpdatePostRequest.php',
     'App\\Http\\Requests\\UpdatePromotionRequest' => $baseDir . '/app/Http/Requests/UpdatePromotionRequest.php',
     'App\\Http\\Requests\\UpdateTagsRequest' => $baseDir . '/app/Http/Requests/UpdateTagsRequest.php',
@@ -76,7 +80,7 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\Tag' => $baseDir . '/app/Tag.php',
     'App\\User' => $baseDir . '/app/User.php',
-    'App\\articlerating' => $baseDir . '/app/articlerating.php',
+    'App\\bill' => $baseDir . '/app/bill.php',
     'App\\category_store' => $baseDir . '/app/category_store.php',
     'BeyondCode\\DumpServer\\DumpServerCommand' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
     'BeyondCode\\DumpServer\\DumpServerServiceProvider' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',

@@ -16,29 +16,12 @@ class Post1Controller extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    // public function fetch(Request $request)
-    // {
-    //     $id=$request->get('select');
-    //     $result=array();
-    //     $query=DB::table('make')
-    //     ->join('model','make.id','=','model.make_id')
-    //     ->select('model.title')
-    //     ->where('make.id',$id)
-    //     ->groupBy('model.title')
-    //     ->get();
-
-    //     $output='<option value="">เลือกรุ่นรถ</option>';
-    //     foreach ($query as $row) {
-    //         $output.='<option value= "'.$row->title.'" >'.$row->title.'</option>';
-    //     }
-    //     echo $output;
-    // }
-
     public function index()
     {
 
         return view('posts1.index')
-            ->with('posts1', Post1::paginate(5))
+            // ->with('posts1', Post1::paginate(5))
+            ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get())
             ->with('makecar',Makecar::all());
     }
 

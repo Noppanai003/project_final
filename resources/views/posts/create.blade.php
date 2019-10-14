@@ -151,10 +151,10 @@
             </div>
             {{ csrf_field() }}
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="title">รหัสไปรษณีย์ <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
                 <input type="text" name="postcode" value="{{isset($post)?$post->postcode:''}}" class="form-control" placeholder="กรุณาใส่ข้อมูล">
-            </div>
+            </div> --}}
 
             <div class="form-group">
                 <label for="title">เบอร์โทรร้าน <a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
@@ -178,12 +178,12 @@
             </div>
 
             <div class="form-group">
-                <label for="title">รูปอู่ซ่อม<a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
+                <label for="title">รูปศูนย์บริการ<a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
                 <input type="file" name="image" value="" class="form-control">
             </div>
 
             <div class="form-group">
-                <label for="title">รูปใบประกอบกิจการร้าน<a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
+                <label for="title">รูปใบประกอบกิจการศูนย์บริการ<a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
                 <input type="file" name="image1" value="" class="form-control">
             </div>
 
@@ -257,20 +257,20 @@
                                         <label for="">วันหยุด :</label>
                                         <input type="text" name="day_end" class="form-control">
                                     </div>
-                                </div>
-                            </div> -->
+                    </div>
+                </div> -->
 
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="">เวลาเปิดทำการ :</label>
-                            <input type="time" name="time_start" value="{{isset($post)?$post->time_start:''}}" class="form-control">
+                            <input type="text" name="time_start" value="{{isset($post)?$post->time_start:''}}" class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="">สิ้นสุดเวลาทำการ :</label>
-                            <input type="time" name="time_end" value="{{isset($post)?$post->time_end:''}}" class="form-control">
+                            <input type="text" name="time_end" value="{{isset($post)?$post->time_end:''}}" class="form-control">
                         </div>
                     </div>
                 </div>

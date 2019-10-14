@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\CallMechanic;
-use App\ManageRequests;
+use App\Post;
+use App\Promotion;
+use App\Category;
 
-class ManageRequestsController extends Controller
+class ShowadminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,8 @@ class ManageRequestsController extends Controller
      */
     public function index()
     {
-        // $CallMechanic = DB::table('call_mechanics')->get();
-
-        return view('managerequests.index')
-        ->with('callMechanic', CallMechanic::all());
+        return view('showadmin.index')
+        ->with('posts', Post::paginate(5));
     }
 
     /**
@@ -29,7 +27,8 @@ class ManageRequestsController extends Controller
      */
     public function create()
     {
-       
+        return view('showadmin.create')
+        ->with('promotions' ,Promotion::paginate(4));
     }
 
     /**
@@ -51,11 +50,7 @@ class ManageRequestsController extends Controller
      */
     public function show($id)
     {
-        return view('managerequests.show')
-        ->with('CallMechanic', CallMechanic::all());
-
-        // $CallMechanic = CallMechanic::find($id);
-        // return view('manageRequests.show',compact('CallMechanic'));
+        //
     }
 
     /**

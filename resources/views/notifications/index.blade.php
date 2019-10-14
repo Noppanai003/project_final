@@ -53,7 +53,7 @@
         </table>
 
         @else
-        <h3 class="text text-center">ไม่มีข้อมูลร้าน</h3>
+        <h3 class="text text-center">ไม่มีข้อมูลการแจ้งเตือน</h3>
         @endif
     </div>
 </div>
