@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\CreateNotificationRequest;
-use App\Http\Requests\UpdateNotificationRequest;
 use App\Http\Controllers\Controller;
-use App\Notification;
 use App\Post1;
-use Illuminate\Support\Facades\DB;
+use App\Notification;
+use App\notifi_detail;
 
-class NotificationController extends Controller
+class NotifDetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +21,6 @@ class NotificationController extends Controller
         ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get())
         // ->with('posts1' ,Post1::all())
         ->with('notifications' ,Notification::all());
-
     }
 
     /**
@@ -33,8 +30,7 @@ class NotificationController extends Controller
      */
     public function create()
     {
-        return view('notifications.create')
-        ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get());
+        //
     }
 
     /**
@@ -43,22 +39,9 @@ class NotificationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateNotificationRequest $request)
+    public function store(Request $request)
     {
-
-        $adate = date($request->startdate);
-        $result = date("Y-m-d", strtotime("+1 year, -3 days", strtotime($adate)));
-
-        Notification::create([
-            'user_id' => auth()->user()->id,
-            'post1s_id' => $request->post1,
-            'nonti_data' => $request->nonti_data,
-            'startdate' => $request->startdate,
-            'deadline' => $result,
-
-        ]);
-        Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
-        return redirect(route('notifications.index'));
+        //
     }
 
     /**
@@ -69,11 +52,13 @@ class NotificationController extends Controller
      */
     public function show($id)
     {
-        return view('notifications.show')
+        return view('notifications.detail')
         // ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get())
+        // ->with('notifications' ,Notification::all())
+        ->with('notifications', Notification::where('user_id','=',auth()->user()->id)->get())
         ->with('posts1', Post1::find($id));
-    }
 
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -81,9 +66,9 @@ class NotificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Notification $notification)
+    public function edit($id)
     {
-        return view('notifications.create')->with('notification', $notification);
+        //
     }
 
     /**
@@ -93,14 +78,9 @@ class NotificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateNotificationRequest $request, Notification $notification)
+    public function update(Request $request, $id)
     {
-        $request->only([
-            'nonti_data',
-            'startdate'
-        ]);
-        Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
-        return redirect(route('notifications.index'));
+        //
     }
 
     /**
@@ -113,6 +93,6 @@ class NotificationController extends Controller
     {
         $notification->delete(); //ลบข้อมูลในฐานข้อมูล
         Session()->flash('success', 'ลบข้อมูลเรียบร้อยแล้ว!');
-        return redirect(route('notifications.index'));
+        return redirect(route('notifications.detail'));
     }
 }

@@ -41,8 +41,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('userpromotions', 'UserPromotionController'); //จัดการข้อมูลการโอนเงิน
     Route::resource('notifications', 'NotificationController');
-});
 
+    Route::resource('notifdetails', 'NotifDetailController');
+
+});
+use App\Post1;
 Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::resource('users', 'Usercontroller');

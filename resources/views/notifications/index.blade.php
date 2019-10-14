@@ -1,75 +1,168 @@
-@extends('layouts.app')
-@section('content')
+<!doctype html>
+<html lang="en">
+<head>
+    @include('layouts.head')
+</head>
 
-<div class="d-flex justify-content-end mb-2">
-    <a href="{{route('notifications.create')}}" class="btn btn-success">เพิ่มข้อมูลการแจ้งเตือน</a>
-</div>
+<body data-spy="scroll" data-target="#navbar-example">
 
-<!-- ส่วนของการแสดง  -->
-<div class="card card-default">
-    <div class="card-header">
-        จัดการข้อมูลการแจ้งเตือน
+  {{-- <div id="preloader"></div> --}}
+
+@include('layouts.sidebar')
+
+  <header>
+    <!-- header-area start -->
+    <div id="sticker" class="header-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+
+            <!-- Navigation -->
+            <nav class="navbar navbar-default">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-example-navbar-collapse-1" aria-expanded="false">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+                <!-- Brand -->
+                <a class="navbar-brand page-scroll sticky-logo" href="{{ url('/home') }}">
+                  {{-- <h1><span>e</span>Business</h1> --}}
+                  <!-- Uncomment below if you prefer to use an image logo -->
+                  <img class="" src="{{asset('img/logo_carcare.png')}}" alt="logo">
+                  {{-- <img src="img/logo_carcare" alt="" title=""> --}}
+								</a>
+              </div>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
+                <ul class="nav navbar-nav navbar-right">
+
+                @if (Route::has('login'))
+                    {{-- <div class="top-right links"> --}}
+                        @auth
+                            <li class="active">
+                                <a href="{{ url('/home') }}">หน้าหลัก</a>
+                            </li>
+                        @else
+                            <li>
+                                <a href="{{ route('login') }}">เข้าสู่ระบบ</a>
+                            </li>
+                            {{-- <a href="{{ route('login') }}">เข้าสู่ระบบ</a> --}}
+
+                            @if (Route::has('register'))
+                                <li>
+                                    <a href="{{ route('register') }}">สมัครสมาชิก</a>
+                                </li>
+                            @endif
+                        @endauth
+                    {{-- </div> --}}
+                @endif
+
+                </ul>
+              </div>
+              <!-- navbar-collapse -->
+            </nav>
+            <!-- END: Navigation -->
+          </div>
+        </div>
+      </div>
     </div>
+    <!-- header-area end -->
+  </header>
+  <!-- header end -->
 
-    <div class="card-body">
-        @if($notifications->count()>0)
-        <table class="table">
-            <thead>
-                <th>รายการแจ้งเตือน</th>
-                <th>วันที่ทำการบันทึก</th>
-                <th>วันที่ครบกำหนด</th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </thead>
-            <tbody>
-                @foreach($notifications as $notification)
-                <tr>
-                    <td>{{$notification->nonti_data}}</td>
-                    <td>{{$notification->startdate}}</td>
-                    <td>
-                        <?php
-                            $adate = date($notification->startdate);
-                            echo date("d-m-Y",strtotime("+1 year, -3 days" ,strtotime($adate)));
-                        ?>
-                    </td>
-                    <td>
-                        <a href="" class="btn btn-warning btn-sm">รายละเอียด</a>
-                    </td>
-                    <td>
-                        <a href="{{route('notifications.edit',$notification->id)}}" class="btn btn-primary btn-sm">แก้ไข</a>
-                    </td>
-                    <td>
-                        <form class="delete_form" action="{{route('notifications.destroy',$notification->id)}}" method="post">
-                            @csrf
-                            <input type="hidden" name="_method" value="DELETE">
-                            <input type="submit" name="" value="ลบ" class="btn btn-danger btn-sm">
-                        </form>
-                    </td>
+  <br><br>
 
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+      <!-- Start portfolio Area -->
+  <div id="portfolio" class="portfolio-area area-padding fix">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h5>ข้อมูลรถยนต์</h2>
+                <h6>คุณมีรถยนต์ {{$posts1->count()}} คัน</h6>
+                <h6>เลือกที่ต้องการทำรายการ</h6>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Start Portfolio -page -->
+            {{-- <div class="awesome-project-1 fix">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="awesome-menu ">
+                  <ul class="project-menu">
+                    <li>
+                      <a href="#" class="active" data-filter="*">All</a>
+                    </li>
+                    <li>
+                      <a href="#" data-filter=".development">Development</a>
+                    </li>
+                    <li>
+                      <a href="#" data-filter=".design">Design</a>
+                    </li>
+                    <li>
+                      <a href="#" data-filter=".photo">Photoshop</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div> --}}
+            <br>
+            <div class="awesome-project-content">
 
-        @else
-        <h3 class="text text-center">ไม่มีข้อมูลร้าน</h3>
-        @endif
-    </div>
-</div>
+              <!-- single-awesome-project start -->
+              @forelse($posts1 as $posts2)
+              <div class="col-md-4 col-sm-4 col-xs-12 design development">
+                <div class="single-awesome-project">
+                  <div class="awesome-img">
+                    <a href="#"><img class="card-img-top" src="../../storage/{{$posts2->image2}}" alt="Card image cap"></a>
+                    <div class="add-actions text-center">
+                      <div class="project-dec">
+                        <a href="{{route('notifications.show',$posts2->id)}}">
+                          <h4 href="">{{$posts2->lname}}</h4>
+                          <span>
+                             {{$posts2->make}} {{$posts2->fname}}
+                        </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              @empty
 
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('.delete_form').on('submit', function() {
-            if (confirm("คุณต้องการลบข้อมูลหรือไม่")) {
-                return true;
-            } else {
-                return false;
-            }
+                @endforelse
+              <!-- single-awesome-project end -->
 
-        });
-    });
-</script>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- awesome-portfolio end -->
 
-@endsection
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+
+    <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('lib/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('lib/venobox/venobox.min.js')}}"></script>
+    <script src="{{asset('lib/knob/jquery.knob.js')}}"></script>
+    <script src="{{asset('lib/wow/wow.min.js')}}"></script>
+    <script src="{{asset('lib/parallax/parallax.js')}}"></script>
+    <script src="{{asset('lib/easing/easing.min.js')}}"></script>
+    <script src="{{asset('lib/nivo-slider/js/jquery.nivo.slider.js')}}" type="text/javascript"></script>
+    <script src="{{asset('lib/appear/jquery.appear.js')}}"></script>
+    <script src="{{asset('lib/isotope/isotope.pkgd.min.js')}}"></script>
+
+    <!-- Contact Form JavaScript File -->
+    <script src="{{asset('contactform/contactform.js')}}"></script>
+
+    <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{asset('js/jquery.nicescroll.js')}}"></script>
+</body>
+
+</html>

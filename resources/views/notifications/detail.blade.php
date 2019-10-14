@@ -110,7 +110,7 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                    <img src="../../storage/{{$posts2->image2}}" alt="" width="500" height="600"><br>
+                                        <img src="../../storage/{{$posts2->image2}}" alt="" width="500" height="600"><br>
                                     </div>
                                     <div class="p-6 text-center">
                                         <h5 class="mb-0"><a class="text-dark" href="{{route('CallMechanic.edit',$posts2->id)}}">{{$posts2->lname}}</a></h5>
@@ -141,31 +141,73 @@
                             </div>
                         </div>
 
-                        <form action="{{isset($notification)?route('notifications.update',$notification->id):route('notifications.store')}}" method="post">
-                            @csrf
-                            @if(isset($notification))
-                            @method('PUT')
-                            @endif
+                        <div class="card card-default">
+                            <div class="card-header">
 
-                            <div class="form-group">
-                                <label>เลือกประเภทการแจ้งเตือน</label>
-                                <select class="form-control" name="nonti_data" value="{{isset($notification)?$notification->nonti_data:''}}">
-                                    <option>พ.ร.บ</option>
-                                    <option>การต่อภาษีทะเบียนรถยนต์</option>
-                                    <option>การต่อประกันรถยนต์</option>
-                                </select>
                             </div>
 
-                            <div class="form-group">
-                                <label for="title">วันที่ทำการต่อทะเบียน</label>
-                                <input type="date" name="startdate" value="{{isset($notification)?$notification->startdate:''}}" class="form-control">
-                            </div>
+                            <div class="card-body">
+                                @if($notifications->count()>0)
 
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-success btn-lg btn-block">บันทึกการแจ้งเตือน</button>
-                            </div>
+                                <table class="table">
+                                    <thead>
+                                        <th>รายการแจ้งเตือน</th>
+                                        <th>วันที่ทำการบันทึก</th>
+                                        <th>วันที่ครบกำหนด</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($notifications as $notification)
+                                        <tr>
+                                            <td>{{$notification->nonti_data}}</td>
+                                            <td>{{$notification->startdate}}</td>
+                                            <td>
+                                                <?php
+                                                $adate = date($notification->startdate);
+                                                echo date("d-m-Y", strtotime("+1 year, -3 days", strtotime($adate)));
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <a href="" class="btn btn-warning btn-sm">รายละเอียด</a>
+                                            </td>
+                                            <td>
+                                                <a href="{{route('notifications.edit',$notification->id)}}" class="btn btn-primary btn-sm">แก้ไข</a>
+                                            </td>
+                                            <td>
+                                                <form class="delete_form" action="{{route('notifications.destroy',$notification->id)}}" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <input type="submit" name="" value="ลบ" class="btn btn-danger btn-sm">
+                                                </form>
+                                            </td>
 
-                        </form>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+
+                                @else
+                                <h3 class="text text-center">ไม่มีข้อมูลการแจ้งเตือน</h3>
+                                @endif
+                            </div>
+                        </div>
+
+                        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                $('.delete_form').on('submit', function() {
+                                    if (confirm("คุณต้องการลบข้อมูลหรือไม่")) {
+                                        return true;
+                                    } else {
+                                        return false;
+                                    }
+
+                                });
+                            });
+                        </script>
+
                     </form>
                 </div>
             </div>
