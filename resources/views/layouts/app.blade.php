@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -22,8 +23,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Favicons -->
-  <link href="{{asset('img/logoWeb-carcare.png')}}" rel="icon">
-  <link href="{{asset('img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+    <link href="{{asset('img/logoWeb-carcare.png')}}" rel="icon">
+    <link href="{{asset('img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
     <!-- Styles -->
 
@@ -38,7 +39,8 @@
         /* #map {
             height: 100%;
         } */
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
             padding: 0;
@@ -52,6 +54,7 @@
             margin: 0;
             /* <-- Apparently some margin are still there even though it's hidden */
         }
+
         input[type=number] {
             -moz-appearance: textfield;
             /* Firefox */
@@ -99,6 +102,21 @@
                         </li>
                         @endif
                         @else
+
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <span class="caret"></span>
+                                <span class="fa fa-bell">0</span>
+
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    Notification
+
+                                </li>
+                            </ul>
+                        </li>
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
@@ -107,7 +125,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ url('/profile') }}"><i class="fa fa-btn fa-user"></i> ข้อมูลส่วนตัว</a>
 
-                                <a class="dropdown-item"  href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="fa fa-btn fa-sign-out"></i>
                                     {{ __('ออกจากระบบ') }}
                                 </a>
@@ -117,6 +135,7 @@
 
                             </div>
                         </li>
+
                         @endguest
                     </ul>
                 </div>

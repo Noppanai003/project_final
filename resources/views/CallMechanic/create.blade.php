@@ -12,7 +12,6 @@
     {{-- <div id="preloader"></div> --}}
 
     @include('layouts.sidebar')
-
     <header>
         <!-- header-area start -->
         <div id="sticker" class="header-area">
@@ -144,7 +143,6 @@
                                 <input type="text" name="cartel" value="" class="form-control">
                             </div>
 
-
                         </div>
 
                         <div class="form-group">
@@ -160,9 +158,7 @@
                         <div class="form-group">
                             <input type="hidden" name="gencode" value="{{$result}}" class="form-control" class="b" readonly>
                         </div>
-                        {{-- <div class="form-group">
-
-                                            </div>  --}}
+                        
 
                         <div class="form-group">
                             <label for="title">สภาพรถยนต์<a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
@@ -215,12 +211,12 @@
 
                                                 </form>
                                                 <br>
-                                                <!-- <h4 class="sidebar-title">ประเภทร้าน</h4>
+                                                 {{-- <h4 class="sidebar-title">ประเภทร้าน</h4>
                                                 <div class="row link-color-default fs-14 lh-24">
                                                     @foreach($categories as $category)
                                                     <a class="btn btn-primary" href="{{route('blog.category',$category->id)}}" role="button">{{$category->name}}</a>
                                                     @endforeach
-                                                </div> -->
+                                                </div>  --}}
                                             </div>
                                         </div>
                                     </div>
@@ -241,9 +237,7 @@
                                     <div class="row text-center">
                                         <div class="services-contents">
 
-                                            <br>
                                             <!-- Start services -->
-                                            <div class="section bg-gray">
                                                 <div class="container">
                                                     <div class="row">
 
@@ -277,8 +271,6 @@
                                                 </div>
                                             </div>
                                             <!-- End services -->
-
-                                        </div>
                                     </div>
                                 </div>
                             </div>

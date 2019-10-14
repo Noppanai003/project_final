@@ -12,7 +12,7 @@ class Notification extends Model
         'post1s_id',
         'nonti_data',
         'startdate',
-        // 'deadline'
+        'deadline'
     ];
 
     public function user()

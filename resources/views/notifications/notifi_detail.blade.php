@@ -79,13 +79,15 @@
     <!-- Start portfolio Area -->
     <div id="portfolio" class="portfolio-area area-padding fix">
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="d-flex justify-content-end mb-2">
+                        <a href="{{route('notifications.create')}}" class="btn btn-success">เพิ่มข้อมูลการแจ้งเตือน</a>
+                    </div>
                     <div class="section-headline text-center">
-                        <h5>เพิ่มข้อมูลการแจ้งเตือน</h2>
+                        <h5>รายละเอียดการแจ้งเตือน</h2>
                             <h6>คุณมีรถยนต์ {{$posts1->count()}} คัน</h6>
-                            <h6>เลือกรถที่ต้องการทำรายการ</h6>
+                            <!-- <h6>เลือกดูรถที่ทำการแจ้งเตือน</h6> -->
                     </div>
                 </div>
             </div>
@@ -122,7 +124,7 @@
                                 <a href="#"><img class="card-img-top" src="../../storage/{{$posts2->image2}}" alt="Card image cap"></a>
                                 <div class="add-actions text-center">
                                     <div class="project-dec">
-                                        <a href="{{route('notifications.show',$posts2->id)}}">
+                                        <a href="{{route('notifdetails.show',$posts2->id)}}">
                                             <h4 href="">{{$posts2->lname}}</h4>
                                             <span>
                                                 {{$posts2->make}} {{$posts2->fname}}

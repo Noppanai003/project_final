@@ -2,13 +2,21 @@ Code Github
 git merge man
 git checkout man
 git checkout master
-
 git branch --all
+
+Man :
 git add .
 git status
 git commit -m "add all"
 git push -u origin master
 
+Dom:
+git pull
+git add .
+git status
+git commit -m "add all"
+git push -u origin master
+git pull
 ----------------------------------
 php artisan Storage:link
 php artisan migrate
