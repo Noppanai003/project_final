@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Bill;
+use App\CallMechanic;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\DepositManage;
-use App\Bill;
-use App\Post1;
-use App\User;
-use App\CallMechanic;
-use App\Category;
 use App\Post;
+use App\User;
 
 class DepositManageController extends Controller
 {
@@ -22,14 +19,14 @@ class DepositManageController extends Controller
     public function index()
     {
         return view('DepositManages.index')
-        ->with('Bill' ,Bill::all())
-        ->with('users', User::all())
-        ->with('posts1' ,Post1::all())
-        ->with('callMechanic', CallMechanic::
-        Join('posts','call_mechanics.posts_id', '=','posts.id')
-        // ->select('call_mechanics.*')
-        ->get()
-    );
+        ->with('bills', Bill::where('bills.user_id','>' ,0)
+        ->join('call_mechanics','bills.call_mechanics_id','=','call_mechanics.id')
+        ->join('posts','call_mechanics.posts_id','=','posts.id')
+        ->join('post1s','call_mechanics.post1s_id','=','post1s.id')
+        ->join('users','call_mechanics.user_id','=','users.id')
+        // ->where('bill_status',NULL)
+        // ->Orderby('call_mechanics.updated_at','desc')
+        ->get());
     }
 
     /**

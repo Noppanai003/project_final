@@ -9,7 +9,8 @@ class Bill extends Model
     protected $fillable =
     [
         'user_id',
-        'posts_id',
+        'call_mechanics_id',
+        'bill_status'
 
     ];
 
@@ -22,5 +23,4 @@ class Bill extends Model
     {
         return $this->belongsTo(Post::class);
     }
-
 }

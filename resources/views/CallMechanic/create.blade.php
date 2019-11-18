@@ -1,3 +1,10 @@
+<?php
+
+use Illuminate\Support\Facades\DB;
+use App\Post;
+use App\Category;
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -149,47 +156,7 @@
                             <label for="title">ระบุอาการ <a class="text-danger">(*ข้อมูลที่จำเป็นต้องกรอก)</a></label>
                         </div>
 
-                        <!-- <div class="form-group">
-                            <input type="radio" name="no" value="ไม่ทราบสาเหตุ"> ไม่ทราบสาเหตุ
-                        </div>
 
-                        <div class="form-group">
-                            <input type="radio" name="no" value="ทราบสาเหตุ"> ทราบสาเหตุ
-                        </div>
-
-                        &nbsp;&nbsp;&nbsp;&nbsp; <label>
-                            <input type="checkbox" name="bat" value="แบตเตอรี่" class="img-checker"> แบตเตอรี่
-                            <img src="../../img/batt.jpg" width="90px" height="70px">
-                        </label>
-                        <label>
-                            <input type="checkbox" name="di" value="ไดชาร์จ"> ไดชาร์จ
-                            <img src="../../img/di.jpg" width="90px" height="70px">
-                        </label>
-                        <label>
-                            <input type="checkbox" name="motor" value="มอเตอร์สตาร์ท"> มอเตอร์สตาร์ท
-                            <img src="../../img/motor.jpg" width="90px" height="70px">
-                        </label>
-                        <label>
-                            <input type="checkbox" name="head" value="หัวเทียน"> หัวเทียน
-                            <img src="../../img/hhh.jpg" width="90px" height="70px">
-                        </label>
-                        <label>
-                            <input type="checkbox" name="oil" value="น้ำมันรั่ว"> น้ำมันรั่ว
-                            <img src="../../img/mam.jpg" width="90px" height="70px">
-                        </label>
-                        <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
-                            <input type="checkbox" name="dry" value="หม้อน้ำรั่ว,หม้อแห้ง"> หม้อน้ำรั่ว,หม้อแห้ง
-                            <img src="../../img/nam.jpg" width="90px" height="70px">
-                        </label>
-                        <label>
-                            <input type="checkbox" name="flat" value="ยางแบน"> ยางแบน
-                            <img src="../../img/yang.jpg" width="90px" height="70px">
-                        </label>
-                        <br>
-                        <label>
-                            <textarea cols="50" name="other" class="form-control" placeholder="ระบุอาการรถของท่านเบื้องต้น"></textarea>
-                        </label> -->
 
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                         <script>
@@ -203,59 +170,6 @@
                                 });
                             });
                         </script>
-
-                        <!-- <table class="table table-borderless">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="bat" value="แบตเตอรี่" class="img-checker"> แบตเตอรี่
-                                        <br>
-                                        <img src="../../img/batt.jpg" width="100px" height="100px">
-                                    </td>
-                                    <td>
-                                        <input type="checkbox" name="di" value="ไดชาร์จ"> ไดชาร์จ
-                                        <br>
-                                        <img src="../../img/di.jpg" width="90px" height="70px">
-                                    </td>
-                                    <td>
-                                        <input type="checkbox" name="motor" value="มอเตอร์สตาร์ท"> มอเตอร์สตาร์ท
-                                        <br>
-                                        <img src="../../img/motor.jpg" width="90px" height="70px">
-                                    </td>
-                                    <td>
-                                        <input type="checkbox" name="head" value="หัวเทียน"> หัวเทียน
-                                        <br>
-                                        <img src="../../img/hhh.jpg" width="90px" height="70px">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="oil" value="น้ำมันรั่ว"> น้ำมันรั่ว
-                                        <br>
-                                        <img src="../../img/mam.jpg" width="90px" height="70px">
-                                    </td>
-                                    <td>
-                                        <input type="checkbox" name="dry" value="หม้อน้ำรั่ว,หม้อแห้ง"> หม้อน้ำรั่ว,หม้อแห้ง
-                                        <br>
-                                        <img src="../../img/nam.jpg" width="90px" height="70px">
-                                    </td>
-                                    <td>
-                                        <input type="checkbox" name="flat" value="ยางแบน"> ยางแบน
-                                        <br>
-                                        <img src="../../img/yang.jpg" width="90px" height="70px">
-                                    </td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table> -->
 
                         <input type="radio" name="answer" value="yes" /> ไม่ทราบสาเหตุ <br>
                         <input type="radio" name="answer" value="other" /> ทราบสาเหตุ <br>
@@ -309,7 +223,6 @@
                             <input type="hidden" name="gencode" value="{{$result}}" class="form-control" class="b" readonly>
                         </div>
 
-
                         <div class="form-group">
                             <label for="title">สภาพรถยนต์<a class="text-danger">(* กรอกหรือไม่กรอกก็ได้)</a></label>
                             <input type="file" name="image3" value="" class="form-control">
@@ -347,44 +260,12 @@
 
                             {{-- Map สิ้นสุดตรงนี้ --}}
 
-
-                            <!-- Start Wellcome Area -->
-
-                            <!-- <h6 class="sidebar-title">ข้อมูลศูนย์บริการ<a class="text-danger">(* กรุณาเลือกร้านที่จะทำการเรียกช่าง)</a></h6> -->
-
-                            <!-- <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <div class="">
-                                            <div> -->
-                            <!-- <h4 class="sidebar-title">ค้นหาอู่ซ่อมรถยนต์</h4> -->
-
-                            <!-- <form class="" action="{{route('welcome')}}" method="GET">
-                                                    <input type="text" class="" name="search" placeholder="ค้นหาอู่ซ่อมรถยนต์" value="{{request()->query('search')}}">
-
-                                                    <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-
-                                                </form>
-                                                <br> -->
-                            <!-- <h4 class="sidebar-title">ประเภทร้าน</h4>
-                                                <div class="row link-color-default fs-14 lh-24">
-                                                    @foreach($categories as $category)
-                                                    <a class="btn btn-primary" href="{{route('blog.category',$category->id)}}" role="button">{{$category->name}}</a>
-                                                    @endforeach
-                                                </div>   -->
-                            <!-- </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-
-                            <!-- End Wellcome Area -->
-
                             <!-- Start Service area -->
                             <div id="services" class="services-area area-padding">
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <h6 class="sidebar-title">ข้อมูลศูนย์บริการ<a class="text-danger">(* กรุณาเลือกร้านที่จะทำการเรียกช่าง)</a></h6>
                                             <h4>สถานประกอบการ</h4>
 
                                         </div>
@@ -395,9 +276,7 @@
                                             <!-- Start services -->
                                             <div class="container">
                                                 <div class="row">
-
                                                     <div class="col-md-12">
-                                                        {{-- <div class="row gap-y"> --}}
                                                         <table class="table">
                                                             <thead>
                                                                 <th>select</th>
@@ -405,17 +284,100 @@
                                                                 <th>ชื่อร้าน</th>
                                                                 <th>ประเภทร้าน</th>
                                                                 <th>ที่อยู่</th>
+                                                                <th>ระยะห่างจากอู่ซ่อม</th>
                                                             </thead>
                                                             <tbody>
-                                                                @foreach($posts as $post)
+                                                                <?php
+                                                                $post = DB::select('select * from posts');
+                                                                // $find = Post::find($bills->id);
+                                                                // $find1 = Category::find($find->category_id);
+
+                                                                $kilometers = [];
+                                                                ?>
+
+                                                                @foreach($post as $posts)
+                                                                <?php
+                                                                // 19.2698419 Lat พะเยา
+                                                                // 99.5954193 Long พะเยา
+                                                                $lat1 = 19.2698419;
+                                                                $lon1 = 99.5954193;
+
+                                                                $lat2 = $posts->lat;
+                                                                $lon2 = $posts->long;
+
+                                                                $theta = $lon1 - $lon2;
+                                                                $miles = (sin(deg2rad($lat1)) * sin(deg2rad($lat2))) + (cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta)));
+                                                                $miles = acos($miles);
+                                                                $miles = rad2deg($miles);
+                                                                $miles = $miles * 60 * 1.1515;
+                                                                $feet = $miles * 5280;
+                                                                $yards = $feet / 3;
+
+                                                                $km = $miles * 1.609344;
+
+                                                                array_push($kilometers, $km);
+
+                                                                $array[] = array(
+                                                                    'id_shop' => $posts->id,
+                                                                    'category'=> 'อู่ซ่อม',
+                                                                    'title' => $posts->title,
+                                                                    'kilometers' => $km,
+                                                                    'content' => $posts->content,
+                                                                    'image' => $posts->image,
+                                                                    'district' => $posts->district,
+                                                                    'amphur' => $posts->amphur,
+                                                                    'city_name' => $posts->city_name,
+                                                                );
+                                                                ?>
+                                                                @endforeach
+
+                                                                <?php
+                                                                array_multisort(array_map(function ($element) {
+                                                                    return $element['kilometers'];
+                                                                }, $array), SORT_ASC, $array);
+
+                                                                // echo '<pre>';
+                                                                // print_r($array);
+                                                                // echo '</pre>';
+                                                                ?>
+
+                                                                @foreach($array as $post)
+
                                                                 <tr>
-                                                                    <td><label><input type="checkbox" name="checkshop" value="{{$post->id}}"></label></td>
+                                                                    <td><label><input type="checkbox" name="checkshop" value="{{$post['id_shop']}}"></label></td>
                                                                     <td>
-                                                                        <a href=""><img src="../../storage/{{$post->image}}" alt="Card image cap" width="100" height="100"></a>
+                                                                        <a href=""><img src="../../storage/{{$post['image']}}" alt="Card image cap" width="100" height="100"></a>
                                                                     </td>
-                                                                    <td>ร้าน{{$post->title}}</td>
-                                                                    <td>{{$post->category->name}}</td>
-                                                                    <td>ตำแหน่งร้าน : {{$post->content}} ตำบล{{$post->district}} อำเภอ{{$post->amphur}} จังหวัด{{$post->city_name}}</td>
+                                                                    <td>ร้าน{{$post['title']}}</td>
+                                                                    <td>{{$post['category']}}</td>
+                                                                    <td>ตำแหน่งร้าน : {{$post['content']}} ตำบล{{$post['district']}} อำเภอ{{$post['amphur']}} จังหวัด{{$post['city_name']}}</td>
+
+                                                                    <td>
+                                                                        <?php
+
+                                                                        // $lat1 = 18.79464648105186;
+                                                                        // $lon1 = 98.97679500156255;
+
+                                                                        // $lat2 = $post->lat;
+                                                                        // $lon2 = $post->long;
+
+                                                                        // $theta = $lon1 - $lon2;
+                                                                        // $miles = (sin(deg2rad($lat1)) * sin(deg2rad($lat2))) + (cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta)));
+                                                                        // $miles = acos($miles);
+                                                                        // $miles = rad2deg($miles);
+                                                                        // $miles = $miles * 60 * 1.1515;
+                                                                        // $feet = $miles * 5280;
+                                                                        // $yards = $feet / 3;
+                                                                        // $kilometers = $miles * 1.609344;
+                                                                        // $meters = $kilometers * 1000;
+
+                                                                        // DB::table('posts')
+                                                                        //     ->where('id', $post->id)
+                                                                        //     ->update(['distance' => $kilometers]);
+
+                                                                        ?>
+                                                                        {{number_format($post['kilometers'],2)}} กิโลเมตร
+                                                                    </td>
                                                                 </tr>
                                                                 @endforeach
                                                             </tbody>
@@ -520,6 +482,21 @@
             var lng = marker.getPosition().lng();
             $('#lat').val(lat);
             $('#lng').val(lng);
+            // $(document).ready(function() {
+            //     $("#map-canvas").click(function() {
+            //         $.ajax({
+            //             url: '/caldis',
+            //             type: "POST",
+            //             data: {
+            //                 lat: lat,
+            //                 lng: lng
+            //             },
+            //             success: function(data) {
+            //                 console.log(data);
+            //             },
+            //         });
+            //     });
+            // });
         });
     </script>
 

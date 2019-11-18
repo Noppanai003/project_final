@@ -86,6 +86,7 @@ class UserController extends Controller
             'phone' => $request->phone,
             'photo'=> $request->photo,
         ]);
+
         Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
         return redirect(route('users.index'));
     }
@@ -120,8 +121,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUserRequest $request, User $user)
+    public function update(UpdateUserRequest $request)
     {
+        $user = User::find(Auth::user()->id);
         $data=$request->only([
             'name',
             'email',
@@ -131,6 +133,11 @@ class UserController extends Controller
             'photo',
         ]);
         $user->update($data);
+       
+        $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+        $request->avatar->storeAs('avatars',$avatarName);
+        $user->avatar = $avatarName;
+        $user->save();
         Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว!');
         return redirect(route('users.index'));
     }
@@ -146,6 +153,20 @@ class UserController extends Controller
         $user->delete(); //ลบข้อมูลในฐานข้อมูล
 
         Session()->flash('success', 'ลบข้อมูลเรียบร้อยแล้ว!');
+        return redirect(route('users.index'));
+    }
+    
+    public function updateprofile (Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+       
+        $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+        $request->avatar->storeAs('avatars',$avatarName);
+        $user->avatar = $avatarName;
+        $user->name =  $request->get('name');
+        $user->id_card =  $request->get('id_card');
+        $user->save();
+        Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว!');
         return redirect(route('users.index'));
     }
 }

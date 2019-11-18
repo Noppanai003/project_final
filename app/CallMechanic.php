@@ -29,6 +29,7 @@ class CallMechanic extends Model
         'image3',
         'lat',
         'long',
+        'status'
     ];
 
     public function user()

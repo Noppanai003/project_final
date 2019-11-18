@@ -81,7 +81,7 @@
           <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <div class="section-headline text-center">
-                <h5>ข้อมูลรถยนต์</h2>
+                <h5>ข้อมูลรถยนต์</h5>
                 <h6>คุณมีรถยนต์ {{$posts1->count()}} คัน</h6>
                 <h6>เลือกที่ต้องการทำรายการ</h6>
               </div>
