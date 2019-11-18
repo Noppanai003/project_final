@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('managerequests', 'ManageRequestsController'); //จัดการคำขอศูนย์บริการ
     Route::resource('manageAssessment', 'ManageAssessmentController'); //จัดการข้อมูลประเมินการใช้บริการ
     Route::resource('notifdetails', 'NotifDetailController');
+    Route::resource('confirm', 'ConfirmController');
 
 });
 use App\Post1;
@@ -83,14 +84,14 @@ Route::get('/avg', function() {
     return view('rating_avg');
 });
 
-// Route::get('/rating', function() {
-//     return view('ratings.index');
-// });
+Route::get('/place', function() {
+    return view('place1');
+});
+
 
 Route::resource('rating', 'ArticleratingController');
-
-// Route::get('/show', function() {
-//     return view('manageRequest.show');
-// });
-
 Route::post('posts/create', 'PostController@autoprovince')->name('autocomplete.show');
+Route::post('/managerequests/create/{id}', 'ManageRequestsController@callmechanic');
+Route::post('/user/update', 'UserController@updateprofile');
+Route::post('/bill/create/{id}', 'BillController@bill');
+Route::post('/bill/confirm', 'BillController@confirm');

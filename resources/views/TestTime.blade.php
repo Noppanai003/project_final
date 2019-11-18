@@ -60,7 +60,7 @@
         window.addEventListener("load", function () {
           // COUNTDOWN IN SECONDS
           // EXAMPLE - 5 MINS = 5 X 60 = 300 SECS
-          counter.end = 2;
+          counter.end = 15;
 
           // Get the containers
           counter.min = document.getElementById("cd-min");

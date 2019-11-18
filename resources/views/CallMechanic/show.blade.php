@@ -1,3 +1,9 @@
+<?php
+use App\Post;
+use App\CallMechanic;
+use App\Category;
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -57,7 +63,6 @@
                                 </li>
                             @endif
                         @endauth
-                    {{-- </div> --}}
                 @endif
 
                 </ul>
@@ -83,6 +88,9 @@
               <h3>รอการตอบรับการเรียกช่าง</h3>
               <form action="{{route('bill.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
+              {{-- @foreach($callMechanic1 as $callMechani)
+                @endforeach
+                @if($callMechani->status == 1 && 0) --}}
                   <table class="table">
                       <thead>
                           <th>เลือก</th>
@@ -90,32 +98,171 @@
                           <th>รูปร้าน</th>
                           <th>ชื่อร้าน</th>
                           <th>ประเภทร้าน</th>
-                          <th>วันที่</th>
-                          <th>เวลาการตอบรับ</th>
+                          {{-- <th>วันที่</th>
+                          <th>เวลาการตอบรับ</th> --}}
                           <th></th>
+                          <th>สถานะการตอบรับ</th>
+                          {{-- <th>ระยะเวลาที่กำหนด</th> --}}
                       </thead>
                       <tbody>
-                          @foreach($posts as $post)
+                          @foreach($callMechanic as $callMechanics)
+                          @if($callMechanics->status == 1 OR $callMechanics->status == 0 )
                           <tr>
                               <td>
-                                <input type="radio" name="demo" value="{{$post->id}}" id="radio-one" class="form-radio" >
+                                <input type="radio" name="demo" value="{{$callMechanics->id}}" id="radio-one" class="form-radio" >
                               </td>
-                              <td>{{$post->id}}</td>
+                              <td>{{$callMechanics->id}}</td>
                               <td>
-                                <a href=""><img src="../../storage/{{$post->image}}" alt="Card image cap" width="100" height="100"></a>                                                                                             
+                                <?php 
+                                  $find = Post::find($callMechanics->posts_id);
+                                  $find1 = Category::find($find->category_id);
+                                ?>
+                               <img src="../../storage/{{$find->image}}" alt="Card image cap" width="100" height="100">                                                                                       
                               </td>
-                              <td>ร้าน{{$post->title}}</td>
-                              <td>{{$post->category->name}}</td> 
-                              <td>{{$post->daterequest}}</td>
-                              <td>{{$post->timerequest}} น.</td>
+                              <td>ร้าน{{$find->title}}</td>
+                              <td>{{$find1->name}}</td> 
+                              {{-- <td>{{$post->daterequest}}</td>
+                              <td>{{$post->timerequest}} น.</td> --}}
                               <td>
-                                <a href="{{route('managerequests.show',$post->id)}}" class="btn btn-warning btn-sm">รายละเอียด</a>
+                                  <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#exampleModalLong{{$find->id}}">
+                                          รายละเอียด
+                                  </button>
+                                        
+                                        <!-- Modal -->
+                                    <div class="modal fade" id="exampleModalLong{{$find->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                          <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">รายละเอียดร้าน</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                              </div>
+                                              <div class="modal-body">
+                                                  <div class="row">
+                                                      
+                                                          <strong> รูปร้าน : </strong>
+                                                          <div class="form-group" align="middle">
+                                                              <img src="../../storage/{{$find->image}}" width="300px" height="300px">
+                                                          </div> <br>
+                                                          <div class="form-group">
+                                                              <strong>ชื่อสถานประกอบการ : </strong>
+                                                              {{ $find->title }}
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <strong>ชื่อ-นามสกุล : </strong>
+                                                              {{ $find->fname }}
+                                                              {{ $find->lname }}
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <strong>รายละเอียดร้าน : </strong>
+                                                              {!!$find->description!!}
+                                                          </div>
+                                      
+                                                          <strong> วันที่เปิดทำการ : </strong>
+                                                          <div class="form-group">
+                                                              <i class="fa fa-calendar-check-o"></i><strong> จันทร์ </strong>
+                                                              - {{ $find->mon }}
+                                                              <br>
+                                                              <i class="fa fa-calendar-check-o"></i><strong> อังคาร </strong>
+                                                              - {{ $find->tue }}
+                                                              <br>
+                                                              <i class="fa fa-calendar-check-o"></i><strong> พุธ </strong>
+                                                              - {{ $find->wed }}
+                                                              <br>
+                                                              <i class="fa fa-calendar-check-o"></i><strong> พฤหัสบดี </strong>
+                                                              - {{ $find->thu }}
+                                                              <br>
+                                                              <i class="fa fa-calendar-check-o"></i><strong> ศุกร์ </strong>
+                                                              - {{ $find->fri }}
+                                                              <br>
+                                                              <i class="fa fa-calendar-check-o"></i><strong> เสาร์ </strong>
+                                                              - {{ $find->sat }}
+                                                              <br>
+                                                              <i class="fa fa-calendar-check-o"></i><strong> อาทิตย์ </strong>
+                                                              - {{ $find->sun }}
+                                                          </div>
+                                      
+                                                          <div class="form-group">
+                                                              <strong>เวลาเปิดทำการ : </strong>
+                                                              {{ $find->time_start }}
+                                                              <label> - </label>
+                                                              {{ $find->time_end }} น.
+                                                          </div>
+                                      
+                                                          <div class="form-group">
+                                                              <strong>บ้านเลขที่ : </strong>
+                                                              {{ $find->content }}
+                                                          
+                                                              <strong>ตำบล : </strong>
+                                                              {{ $find->district }}
+                                                          
+                                                              <strong>อำเภอ : </strong>
+                                                              {{ $find->amphur }}
+                                                          
+                                                              <strong>จังหวัด : </strong>
+                                                              {{ $find->city_name }}
+                                                          </div>
+                                      
+                                                          {{-- <div class="form-group">
+                                                              <strong>รหัสไปรษณีย์ : </strong>
+                                                              {{ $post->postcode }}
+                                                          </div> --}}
+                                                          <div class="form-group">
+                                                              <strong>เบอร์โทรร้าน : </strong>
+                                                              {{ $find->tel }}
+                                                          </div>
+                                                          {{--<div class="form-group">
+                                                              <strong>ประเภทร้าน : </strong>
+                                                              {{ $find-> category_store_id}}
+                                                          </div> --}}
+                                                          <div class="form-group">
+                                                              <strong>ประเภทการสถานประกอบการ : </strong>
+                                                              {{ $find1->name }}
+                                                          </div>
+                                      
+                                                          <div class="form-group">
+                                                              <strong> รูปใบประกอบกิจการร้าน : </strong> <br>
+                                                              <img src="../../storage/{{$find->image1}}" width="350px" height="500px">
+                                                          </div>
+                                      
+                                                          <div id="map-canvas"></div><br><br>              
+                                      
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                              </td> 
+                              {{-- <td>
+                                
+                                  <div class="" id="cd-min">00</div>นาที 
+                                  <div class="" id="cd-sec">00</div>วินาที
+                                  <div id="demo"></div>
+                               
+                              </td> --}}
+                              <td>
+                                @if($callMechanics->status === 1)
+                                
+                                  <p class="text-success">ยืนยันคำร้องขอ</p>
+
+                                @elseif($callMechanics->status === 0)
+                                  <p class="text-danger">ยกเลิกคำร้องขอ</p>
+
+                                @elseif($callMechanics->status === NULL)
+                                  <p class="text-warning">ยังไม่ทำการตอบรับคำร้องขอ</p>
+                                @endif
                               </td>
                           </tr>
+                          @endif
                           @endforeach
                       </tbody>
                   </table>
-      
+                    
                     <div class="form-group">
                         <button type="submit" class="btn btn-success btn-lg btn-block">ยืนยันร้าน</button>
                     </div>
@@ -145,6 +292,63 @@
 
     <script src="{{asset('js/main.js')}}"></script>
     <script src="{{asset('js/jquery.nicescroll.js')}}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYG5g2aJ9TjMlbYk7E_VuFYKSvHC1Ee6Y&libraries=places" type="text/javascript"></script>
+                <!-- <script>
+                  var map = new google.maps.Map(document.getElementById('map-canvas'),{
+
+                    center:{
+                      lat: lat,
+                      lng: lng
+                    },
+                    zoom: 15                  
+                  });
+
+                  var marker = new google.maps.Marker({
+                    position:{
+                      lat:lat,
+                      lng:lng
+                    },
+                    map: map
+                  });
+
+                </script> -->
+
+    {{-- <script>
+      var counter = {};
+        window.addEventListener("load", function () {
+          // COUNTDOWN IN SECONDS
+          // EXAMPLE - 5 MINS = 5 X 60 = 300 SECS
+          counter.end = 300;
+
+          // Get the containers
+          counter.min = document.getElementById("cd-min");
+          counter.sec = document.getElementById("cd-sec");
+
+          // Start if not past end date 
+          if (counter.end > 0) {
+            counter.ticker = setInterval(function(){
+              // Stop if passed end time
+              counter.end--;
+
+              // Calculate remaining time
+              var secs = counter.end;
+              var mins  = Math.floor(secs / 60); // 1 min = 60 secs
+              secs -= mins * 60;
+
+              if (counter.end <= 0) {
+                clearInterval(counter.ticker);
+                document.getElementById("demo").innerHTML = "หมดเวลา";
+                // window.location.href = "{{ url('/') }}";
+              }
+
+              // Update HTML
+              counter.min.innerHTML = mins;
+              counter.sec.innerHTML = secs;
+            }, 1000);
+          }
+        });
+    </script> 
+     --}}
 </body>
 
 </html>

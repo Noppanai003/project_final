@@ -43,7 +43,7 @@ class ArticleratingController extends Controller
         $rating = $request->rating;
         Articlerating::create([
             'user_id' => auth()->user()->id,
-            'posts_id' => $request->postcar,
+            'posts_id' => $request->postshop,
             'rating' => $request->$rating,
         ]);  
         // dd($request);    
@@ -96,4 +96,24 @@ class ArticleratingController extends Controller
     {
         //
     }
+    public function ratings(Request $request , $id)
+    {
+        error_log($id);
+    }
+
+    // public function rating(Request $request, $id, $rating)
+    // {
+    //     // $rating = $request->rating;
+    //     error_log($id);
+    //     // Articlerating::create([
+    //     //     'user_id' => auth()->user()->id,
+    //     //     'posts_id' => $request->$id,
+    //     //     'rating' => $request->$rating,
+    //     // ]);  
+
+    //     // $call_id = Articlerating::find($id);
+    //     // $call_id->bill_status = $request->ok;
+    //     // $call_id->save();
+    //     // return redirect(route('confirm.index'));
+    // }
 }

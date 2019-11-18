@@ -7,6 +7,7 @@ use App\Category;
 use App\Post;
 use App\Post1;
 use App\CallMechanic;
+use App\Bill;
 use App\Http\Requests\CreateCallMechanicRequest;
 
 class CallMechanicController extends Controller
@@ -48,9 +49,11 @@ class CallMechanicController extends Controller
     {
         // แล้วให้มันแสดงค่ารถตามไอดีที่ถูกส่งมา
         return view('CallMechanic.show')
-        ->with('categories',Category::all())
-        ->with('posts', Post::paginate(5))
-        ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get());
+        ->with('callMechanic', CallMechanic::
+        // Join('posts','call_mechanics.posts_id','=','posts.id')
+        // ->Join('categories','posts.category_id','=','categories.id')
+        where('call_mechanics.user_id',auth()->user()->id)
+        ->select('call_mechanics.*')->get());
     }
 
     /**
@@ -61,6 +64,7 @@ class CallMechanicController extends Controller
      */
     public function store(CreateCallMechanicRequest $request)
     {
+        
         $image3 = $request->image3->store('posts');
         // dd($image,$image1);
         CallMechanic::create([
@@ -99,10 +103,15 @@ class CallMechanicController extends Controller
     public function edit($id)
     {
         //what data do i want?
+        
 
         return view('CallMechanic.create')
         ->with('categories',Category::all())
-        ->with('posts', Post::paginate(5))
+        ->with('posts', Post::Orderby('distance','asc')->limit(5)->get())
+
+        // ->with('bills', Bill::where('bills.user_id','=',auth()->user()->id)
+        // ->join('call_mechanics','bills.call_mechanics_id','=','call_mechanics.id')->first())
+
         ->with('posts1', Post1::find($id));
     }
 
@@ -128,4 +137,6 @@ class CallMechanicController extends Controller
     {
         //
     }
+
+
 }

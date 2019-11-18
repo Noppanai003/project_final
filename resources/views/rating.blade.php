@@ -7,7 +7,8 @@ $db = new mysqli(
   "carcare3"
 );
 $articleArr = [];
-$query = $db->query("select *,AVG(carcare3.articleratings.rating) AS rating FROM carcare3.posts LEFT JOIN carcare3.articleratings ON carcare3.posts.id=carcare3.articleratings.posts_id GROUP BY carcare3.posts.id");
+$query = $db->query(
+  "select *,AVG(carcare3.articleratings.rating) AS rating FROM carcare3.posts LEFT JOIN carcare3.articleratings ON carcare3.posts.id=carcare3.articleratings.posts_id GROUP BY carcare3.posts.id");
 while ($row = $query->fetch_object()) {
   $articleArr[] = $row;
 }
@@ -57,68 +58,69 @@ mysqli_query($db, 'SET CHARACTER SET UTF8');
   <title>Rating</title>
 </head>
 <header>
-    <!-- header-area start -->
-    <div id="sticker" class="header-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
+  <!-- header-area start -->
+  <div id="sticker" class="header-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
 
-            <!-- Navigation -->
-            <nav class="navbar navbar-default">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
+          <!-- Navigation -->
+          <nav class="navbar navbar-default">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
 
-                <a class="navbar-brand page-scroll sticky-logo" href="{{route('welcome')}}">
-                  {{-- <h1><span>e</span>Business</h1> --}}
-                  <!-- Uncomment below if you prefer to use an image logo -->
-                  <img class="" src="{{asset('img/logo_carcare.png')}}" alt="logo">
-                  {{-- <img src="img/logo_carcare" alt="" title=""> --}}
-								</a>
-              </div>
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
-                <ul class="nav navbar-nav navbar-right">
+              <a class="navbar-brand page-scroll sticky-logo" href="{{route('welcome')}}">
+                {{-- <h1><span>e</span>Business</h1> --}}
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <img class="" src="{{asset('img/logo_carcare.png')}}" alt="logo">
+                {{-- <img src="img/logo_carcare" alt="" title=""> --}}
+              </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
+              <ul class="nav navbar-nav navbar-right">
 
                 @if (Route::has('login'))
-                    {{-- <div class="top-right links"> --}}
-                        @auth
-                            <li class="active">
-                                <a href="{{ url('/home') }}">หน้าหลัก</a>
-                            </li>
-                        @else
-                            <li>
-                                <a href="{{ route('login') }}">เข้าสู่ระบบ</a>
-                            </li>
-                            {{-- <a href="{{ route('login') }}">เข้าสู่ระบบ</a> --}}
+                {{-- <div class="top-right links"> --}}
+                @auth
+                <li class="active">
+                  <a href="{{ url('/home') }}">หน้าหลัก</a>
+                </li>
+                @else
+                <li>
+                  <a href="{{ route('login') }}">เข้าสู่ระบบ</a>
+                </li>
+                {{-- <a href="{{ route('login') }}">เข้าสู่ระบบ</a> --}}
 
-                            @if (Route::has('register'))
-                                <li>
-                                    <a href="{{ route('register') }}">สมัครสมาชิก</a>
-                                </li>
-                            @endif
-                        @endauth
-                    {{-- </div> --}}
+                @if (Route::has('register'))
+                <li>
+                  <a href="{{ route('register') }}">สมัครสมาชิก</a>
+                </li>
                 @endif
-                  
-                </ul>
-              </div>
-              <!-- navbar-collapse -->
-            </nav>
-            <!-- END: Navigation -->
-          </div>
+                @endauth
+                {{-- </div> --}}
+                @endif
+
+              </ul>
+            </div>
+            <!-- navbar-collapse -->
+          </nav>
+          <!-- END: Navigation -->
         </div>
       </div>
     </div>
-    <!-- header-area end -->
+  </div>
+  <!-- header-area end -->
 </header>
 <!-- header end -->
+
 <body>
   <br>
   <!-- Start Service area -->
   <div id="services" class="services-area area-padding">
     <div class="container">
       <div class="section-headline services-head">
-        <h3 >Ratings System</h3>
+        <h3>Ratings System</h3>
         <table class="table">
           <thead>
             <th>รูปร้าน</th>
@@ -139,7 +141,7 @@ mysqli_query($db, 'SET CHARACTER SET UTF8');
                     ?>
                 </td>
                 <td> <?php echo $article->title; ?></td>
-                <td>Rating: <?php echo round($article->rating) ;?>/5</td>
+                <td>Rating: <?php echo round($article->rating); ?>/5</td>
                 <td>
                   <?php
                     echo "<a href='/article?id=$article->id' class='btn btn-primary btn-sm'>vote</a>";

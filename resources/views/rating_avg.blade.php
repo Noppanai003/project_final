@@ -146,7 +146,7 @@ while ($row = $query->fetch_object()) {
                 <td>
                   <?php
                     echo "<img src='../../storage/$article->image' alt='' width='100' height='100' />";
-                    ?>
+                  ?>
                 </td>
                 <td> <?php echo $article->title; ?></td>
                 <td>Rating: <?php echo sprintf('%.1f',$article->rating) ;?>/5</td>

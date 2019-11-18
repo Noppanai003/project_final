@@ -9,12 +9,18 @@ class Bill extends Model
     protected $fillable =
     [
         'user_id',
-        'posts_id',
+        'call_mechanics_id',
+        'bill_status'
 
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function Post()
+    {
+        return $this->belongsTo(Post::class);
     }
 }

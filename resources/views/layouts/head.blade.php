@@ -32,5 +32,8 @@
   <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
 
   <!-- Styles -->
-  {{-- <link href="{{asset('css/page.min.css')}}" rel="stylesheet"> --}}
   <link href="{{asset('css/style1.css')}}" rel="stylesheet">
+
+  {{-- <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet"> --}}
+  <script src="{{asset('js/jquery-1.10.2.min.js')}}"></script>
+  <script src="{{asset('js/bootstrap.min.js')}}"></script>

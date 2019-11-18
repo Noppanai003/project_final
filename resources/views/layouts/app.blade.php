@@ -103,7 +103,7 @@
                         @endif
                         @else
 
-                        <li class="nav-item dropdown">
+                        {{-- <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <span class="caret"></span>
                                 <span class="fa fa-bell">0</span>
@@ -115,10 +115,16 @@
 
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    @if(Auth::user()->avatar == NULL)
+                                        <img src={{asset('img/no-image-profile.png')}} style="width:25px; height:25px; float:left; border-radius:50%; margin-right:25px;">
+                                    
+                                    @else
+                                        <img class="rounded-circle" src="storage/avatars/{{ Auth::user()->avatar}}" style="width:25px; height:25px; float:left; border-radius:50%; margin-right:25px;"> 
+                                    @endif
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
@@ -177,17 +183,14 @@
 
                             @if(auth()->user()->isRevenue_officer())
                                 <li class="list-group-item">
-                                        <a href="{{route('CallMechanic.index')}}">จัดการข้อมูลเรียกช่างนอกพื้นที่</a>
+                                    <a href="{{route('DepositManages.index')}}">จัดการข้อมูลเรียกช่างนอกพื้นที่</a>
                                 </li>
-                                <li class="list-group-item">
-                                    <a href="{{route('DepositManages.index')}}">จัดการคำร้องหักค่ามัดจำการเรียก</a>
-                                </li>
-                                <li class="list-group-item">
+                                {{-- <li class="list-group-item">
                                     <a href="{{route('TransferMoneys.index')}}">จัดการข้อมูลการโอนเงิน</a>
-                                </li>
-                                <li class="list-group-item">
+                                </li> --}}
+                                {{-- <li class="list-group-item">
                                     <a href="{{route('MoneyRequests.index')}}">จัดการคำร้องขอคืนเงิน</a>
-                                </li>
+                                </li> --}}
                             @endif
 
                             @if(auth()->user()->isMember())
@@ -210,7 +213,7 @@
                                     <a href="{{route('posts1.index')}}">จัดการข้อมูลรถยนต์</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{route('CallMechanic.index')}}">เรียกช่างนอกพื้นที่</a>
+                                    <a href="{{route('CallMechanic.index')}}">เรียกช่าง</a>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{route('userpromotions.index')}}">โปรโมชัน</a>

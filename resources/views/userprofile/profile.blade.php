@@ -11,7 +11,14 @@
     </div>
 
     <div class="card-body">
-        <img src={{asset('img/no-image-profile.png')}} style="width:200px; height:200px; float:left; border-radius:50%; margin-right:25px;">
+        @if($user->avatar == NULL)
+            <img src={{asset('img/no-image-profile.png')}} style="width:200px; height:200px; float:left; border-radius:50%; margin-right:25px;">
+        
+        @else
+            {{-- <img class="rounded-circle"  src="storage/avatars/{{ Auth::user()->avatar}}" /> --}}
+            <img class="rounded-circle" src="storage/avatars/{{ Auth::user()->avatar}}" style="width:200px; height:200px; float:left; border-radius:50%; margin-right:25px;"> 
+        @endif
+        
         <!-- <h2>{{ $user->name }}</h2> -->
         <form enctype="multipart/form-data" action="/profile" method="POST">
             <!-- <label>Update Profile Image</label> -->
@@ -29,10 +36,13 @@
                 <strong>ชื่อ-นามสกุล : </strong>
                 {{ $user->name}}
             </div>
-            <div class="form-group">
-                <strong>เลขบัตรประชาชน : </strong>
-                {{ $user->id_card}}
-            </div>
+            @if($user->role == 'member')
+                <div class="form-group">
+                    <strong>เลขบัตรประชาชน : </strong>
+                    {{ $user->id_card}}
+                </div>
+            @endif
+            
         </div>
 
         <!-- <form enctype="multipart/form-data" action="/profile" method="POST">
