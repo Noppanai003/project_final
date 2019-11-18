@@ -14,6 +14,7 @@
     @include('layouts.sidebar')
 
     <header>
+        <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
         <!-- header-area start -->
         <div id="sticker" class="header-area">
             <div class="container">
@@ -110,7 +111,7 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                    <img src="../../storage/{{$posts2->image2}}" alt="" width="500" height="600"><br>
+                                        <img src="../../storage/{{$posts2->image2}}" alt="" width="500" height="600"><br>
                                     </div>
                                     <div class="p-6 text-center">
                                         <h5 class="mb-0"><a class="text-dark" href="{{route('CallMechanic.edit',$posts2->id)}}">{{$posts2->lname}}</a></h5>
@@ -199,6 +200,24 @@
     <script src="{{asset('lib/nivo-slider/js/jquery.nivo.slider.js')}}" type="text/javascript"></script>
     <script src="{{asset('lib/appear/jquery.appear.js')}}"></script>
     <script src="{{asset('lib/isotope/isotope.pkgd.min.js')}}"></script>
+
+    <!-- start alert -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <script>
+        @if(Session::has('message'))
+        var type = "{{Session::get('alert-type','info')}}"
+
+        switch (type) {
+            case 'info':
+                toastr.info("{{ Session::get('message') }}");
+                break;
+        }
+        @endif
+    </script>
+
+    <!-- endz alert -->
 
     <!-- Contact Form JavaScript File -->
     <script src="{{asset('contactform/contactform.js')}}"></script>

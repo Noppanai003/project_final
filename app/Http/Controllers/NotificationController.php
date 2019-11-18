@@ -9,6 +9,15 @@ use App\Http\Controllers\Controller;
 use App\Notification;
 use App\Post1;
 use Illuminate\Support\Facades\DB;
+use App\Mail\SendEmail;
+
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
+use App\User;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\Input;
 
 class NotificationController extends Controller
 {
@@ -33,8 +42,8 @@ class NotificationController extends Controller
      */
     public function create()
     {
-        return view('notifications.create')
-        ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get());
+        return view('notifications.alert_type');
+        // ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get());
     }
 
     /**
@@ -61,17 +70,48 @@ class NotificationController extends Controller
         return redirect(route('notifications.index'));
     }
 
+    public function alert()
+    {
+        $name=Input::get('startdate','nonti_data');
+
+        if ($name) {
+            echo "sussess";
+
+            $notification = array(
+                'message' => 'Successfully Alert!!',
+                'alert-type' => 'success'
+            );
+
+        } else {
+
+        }
+
+        return back()->with($notification);
+
+    }
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Notification $notification)
     {
-        return view('notifications.show')
+        // return view('notifications.show')
         // ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get())
-        ->with('posts1', Post1::find($id));
+        // ->with('posts1', Post1::find($id));
+
+        // return view('home.show')
+        // ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get())
+        // ->with('posts1', Post1::find($id));
+
+        return view("mail.home", array('user' => Auth::user()))
+        // ->with('posts1', Post1::find($id))
+        ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get())
+        // ->with('posts1' ,Post1::all())
+        ->with('notification', $notification);
+
     }
 
 
@@ -83,7 +123,9 @@ class NotificationController extends Controller
      */
     public function edit(Notification $notification)
     {
-        return view('notifications.create')->with('notification', $notification);
+        return view('notifications.create')
+        ->with('notification', $notification)
+        ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get());
     }
 
     /**

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Faker\Provider\Image;
 
 class UserController extends Controller
 {
@@ -42,12 +43,23 @@ class UserController extends Controller
 
     public function profile()
     {
-        return view('userprofile.profile', array('user' => Auth::user()));
+        return view('userprofile.index', array('user' => Auth::user()));
     }
 
-    public function editprofile()
+    public function editprofile(Request $request)
     {
-        return view('userprofile.editprofile', array('user' => Auth::user()));
+        return view('userprofile.create', array('user' => Auth::user()));
+
+        if($request->hasFile('photo')){
+            $photo = $request->file('photo');
+            $filename = time() . '.' . $photo->getClientOriginalExtension();
+
+            Image::make($photo)->resize(300,300)->save( public_path('/img/no-image-profile/' . $filename ));
+
+            $user = Auth::user();
+            $user->photo = $filename;
+            $user->save();
+        }
     }
 
     public function search3(Request $request)
@@ -70,7 +82,9 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
-            'id_card' => $request->id_card
+            'idcard' => $request->idcard,
+            'phone' => $request->phone,
+            'photo'=> $request->photo,
         ]);
         Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
         return redirect(route('users.index'));
@@ -112,7 +126,9 @@ class UserController extends Controller
             'name',
             'email',
             'password',
-            'id_card'
+            'idcard',
+            'phone',
+            'photo',
         ]);
         $user->update($data);
         Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว!');

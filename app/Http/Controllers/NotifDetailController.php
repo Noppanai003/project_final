@@ -30,7 +30,9 @@ class NotifDetailController extends Controller
      */
     public function create()
     {
-        //
+        return view('notifications.create')
+        ->with('posts1', Post1::where('user_id','=',auth()->user()->id)->get());
+
     }
 
     /**

@@ -15,6 +15,9 @@ Route::get('/','WelcomeController@index')->name('welcome');
 Route::get('blog/posts/{post}',[Postcontroller::class,'show'])->name('blog.show');
 Route::get('blog/category/{category}',[Postcontroller::class,'category'])->name('blog.category');
 
+Route::resource('register2', 'Register2Controller');
+
+
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
 
@@ -32,6 +35,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('Post', 'PostController@store')->name('store');
     Route::get('profile', 'Usercontroller@profile'); //โปรไฟล์ผู้ใช้
     Route::get('editprofile', 'Usercontroller@editprofile'); //แก้ไขโปรไฟล์ผู้ใช้
+
+    Route::resource('profile', 'ProfileController'); //โปรไฟล์
+    Route::get('profile', 'ProfileController@update'); //แก้ไขโปรไฟล์ผู้ใช้
+
+
     Route::resource('MoneyRequests', 'MoneyRequestController'); //จัดการคำร้องขอคืนเงิน
     Route::resource('DepositManages', 'DepositManageController'); //จัดการคำร้องหักค่ามัดจำการเรียก
     Route::resource('TransferMoneys', 'TransferMoneyController'); //จัดการข้อมูลการโอนเงิน
@@ -40,6 +48,11 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('managerequests', 'ManageRequestsController'); //จัดการคำขอศูนย์บริการ
     Route::resource('manageAssessment', 'ManageAssessmentController'); //จัดการข้อมูลประเมินการใช้บริการ
     Route::resource('notifdetails', 'NotifDetailController');
+
+    Route::post('/notifications.store','NotificationController@alert'); //alert
+
+    Route::get('mail', 'MailController@home');
+    Route::post('send/email', 'MailController@sendemail');
 
 });
 use App\Post1;
@@ -81,6 +94,10 @@ Route::get('/article', function() {
 
 Route::get('/avg', function() {
     return view('rating_avg');
+});
+
+Route::get('/admin', function() {
+    return view('admin.index');
 });
 
 // Route::get('/rating', function() {

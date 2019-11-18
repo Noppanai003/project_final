@@ -29,4 +29,9 @@ class Notification extends Model
     {
         return Carbon::parse($value)->format('d-m-Y');
     }
+
+    public function getDeadlineAttribute($value)
+    {
+        return Carbon::parse($value)->format('d-m-Y');
+    }
 }

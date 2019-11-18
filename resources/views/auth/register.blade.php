@@ -39,6 +39,22 @@
                             </div>
                         </div>
 
+
+
+                        <div class="form-group row">
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('เบอร์โทรศัพท์') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="number" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('รหัสผ่าน') }}</label>
 
@@ -67,15 +83,15 @@
                             <div class="col-md-6">
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="role" value="user" id="user" /> ผู้ใช้ทั่วไป
+                                        <input type="hidden" name="role" checked="checked" value="user" id="user" />
                                     </label>
                                 </div>
-                                <div class="radio">
+                                <!-- <div class="radio">
                                     <label>
                                         <input type="radio" name="role" value="member" id="member" /> ศูนย์บริการ
                                     </label>
-                                </div>
-                                <div class="radio">
+                                </div> -->
+                                <!-- <div class="radio">
                                     <label>
                                         <input type="radio" name="role" value="admin" id="admin" /> ผู้ดูแลระบบ
                                     </label>
@@ -84,7 +100,21 @@
                                     <label>
                                         <input type="radio" name="role" value="revenue_officer" id="revenue_officer" /> ผู้จัดการรายได้
                                     </label>
-                                </div>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="idcard" class="col-md-4 col-form-label text-md-right"></label>
+
+                            <div class="col-md-6">
+                                <input id="idcard" type="hidden" class="form-control @error('idcard') is-invalid @enderror" name="idcard" value="{{ old('idcard') }}" required autocomplete="idcard" autofocus oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="13" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+
+                                @error('idcard')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
 

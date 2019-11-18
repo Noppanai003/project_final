@@ -33,10 +33,13 @@
                 <input type="text" name="name" value="{{isset($user)?$user->name:''}}" class="form-control" placeholder="กรุณากรอกข้อมูล">
             </div>
             <div class="form-group">
-                <label for="title">เลขบัตรประชาชน</label>
-                <input type="number" name="id_card" value="{{isset($user)?$user->id_card:''}}" class="form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="13" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="กรุณากรอกข้อมูล">
+                <label for="title">เบอร์โทรศัพท์</label>
+                <input type="number" name="phone" value="{{isset($user)?$user->phone:''}}" class="form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="กรุณากรอกข้อมูล">
             </div>
-
+            <div class="form-group">
+                <label for="title">เลขบัตรประชาชน</label>
+                <input type="number" name="idcard" value="{{isset($user)?$user->idcard:''}}" class="form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="13" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="กรุณากรอกข้อมูล">
+            </div>
             <div class="form-group">
                 <input type="submit" value="บันทึกข้อมูล" class="btn btn-success">
             </div>

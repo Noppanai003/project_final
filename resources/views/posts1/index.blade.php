@@ -13,30 +13,29 @@
                         <thead>
                             <th>รูปรถยนต์</th>
                             <th>ค่ายผู้ผลิต</th>
-                            <th>รุ่นรถ</th>                            
+                            <th>รุ่นรถ</th>
                             <th>ปีรุ่นรถยนต์</th>
                             <th></th>
                             <th></th>
-                            
                         </thead>
                         <tbody>
                           @foreach($posts1 as $post1)
                               <tr>
-  
+
                                   <td>
                                       <img src="storage/{{$post1->image2}}" alt="" width="70" height="60">
                                   </td>
 
                                   <td>{{$post1->make}}</td>
 
-                                  <td>{{$post1->fname}}</td>  
+                                  <td>{{$post1->fname}}</td>
 
                                   <td>{{$post1->model}}</td>
-                                  
+
                                   <td>
                                         <a href="{{route('posts1.edit',$post1->id)}}" class="btn btn-info btn-sm">แก้ไข</a>
                                   </td>
-  
+
                                   <td>
                                       <form class="delete_form" action="{{route('posts1.destroy',$post1->id)}}" method="post">
                                               @csrf
@@ -44,7 +43,7 @@
                                               <input type="submit" name="" value="ลบ" class="btn btn-danger btn-sm">
                                       </form>
                                   </td>
-  
+
                               </tr>
                           @endforeach
                         </tbody>

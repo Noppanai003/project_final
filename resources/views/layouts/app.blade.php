@@ -103,11 +103,10 @@
                         @endif
                         @else
 
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <span class="caret"></span>
                                 <span class="fa fa-bell">0</span>
-
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
@@ -115,7 +114,7 @@
 
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -151,7 +150,7 @@
                         <div class="card-header"> {{ Auth::user()->name }} </div>
                         <ul class="list-group">
                             @if(auth()->user()->isAdmin())
-                                
+
                                 {{-- <li class="list-group-item">
                                     <a href="{{route('dashboard.index')}}">แดชบอร์ด</a>
                                 </li> --}}
@@ -180,7 +179,8 @@
                                         <a href="{{route('CallMechanic.index')}}">จัดการข้อมูลเรียกช่างนอกพื้นที่</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{route('DepositManages.index')}}">จัดการคำร้องหักค่ามัดจำการเรียก</a>
+                                    <a href="{{route('DepositManages.index')}}">รายการชำระเงิน</a>
+                                    <!-- จัดการคำร้องหักค่ามัดจำการเรียก -->
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{route('TransferMoneys.index')}}">จัดการข้อมูลการโอนเงิน</a>

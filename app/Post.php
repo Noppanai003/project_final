@@ -76,6 +76,11 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function Bill()
+    {
+        return $this->hasMany(Bill::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

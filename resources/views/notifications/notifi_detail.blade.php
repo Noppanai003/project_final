@@ -82,7 +82,15 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="d-flex justify-content-end mb-2">
-                        <a href="{{route('notifications.create')}}" class="btn btn-success">เพิ่มข้อมูลการแจ้งเตือน</a>
+                        <!-- ไปหน้าส่งเมล -->
+                        <!-- <a href="/mail" class="btn btn-success">เพิ่มข้อมูลการแจ้งเตือน</a> -->
+
+                        <!-- ไปหน้าเลือก ประเภทแจ้งเตือน -->
+                        <!-- <a href="{{route('notifications.create')}}" class="btn btn-success">เพิ่มข้อมูลการแจ้งเตือน</a> -->
+
+                        <!-- ไปหน้าเลือกรถ -->
+                        <a href="{{route('notifdetails.create')}}" class="btn btn-success">เพิ่มข้อมูลการแจ้งเตือน</a>
+
                     </div>
                     <div class="section-headline text-center">
                         <h5>รายละเอียดการแจ้งเตือน</h2>

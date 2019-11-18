@@ -169,9 +169,9 @@
                                                 echo date("d-m-Y", strtotime("+1 year, -3 days", strtotime($adate)));
                                                 ?>
                                             </td>
-                                            <td>
+                                            <!-- <td>
                                                 <a href="" class="btn btn-warning btn-sm">รายละเอียด</a>
-                                            </td>
+                                            </td> -->
                                             <td>
                                                 <a href="{{route('notifications.edit',$notification->id)}}" class="btn btn-primary btn-sm">แก้ไข</a>
                                             </td>
@@ -187,6 +187,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+
 
                                 @else
                                 <h3 class="text text-center">ไม่มีข้อมูลการแจ้งเตือน</h3>

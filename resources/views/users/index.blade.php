@@ -29,7 +29,7 @@
             <thead>
                 <th>ชื่อ-นามสกุล</th>
                 <th>อีเมล์</th>
-                <!-- <th>เลขบัตรประชาชน</th> -->
+                <th>ประเภทผู้ใช้</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -39,7 +39,7 @@
                 <tr>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
-                    <!-- <td>{{$user->id_card}}</td> -->
+                    <td>{{$user->role}}</td>
                     <td>
                         <a href="{{route('users.show',$user->id)}}" class="btn btn-warning btn-sm">รายละเอียด</a>
                     </td>

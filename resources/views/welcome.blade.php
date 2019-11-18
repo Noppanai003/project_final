@@ -45,10 +45,17 @@
                                         <a href="{{ url('/home') }}">หน้าหลัก</a>
                                     </li>
                                     @else
+
+                                    <li>
+                                        <a href="{{ route('register2.create') }}">เข้าร่วมเป็นศูนย์บริการ</a>
+                                    </li>
+
                                     <li>
                                         <a href="{{ route('login') }}">เข้าสู่ระบบ</a>
                                     </li>
-                                    {{-- <a href="{{ route('login') }}">เข้าสู่ระบบ</a> --}}
+
+
+
 
                                     @if (Route::has('register'))
                                     <li>
@@ -56,7 +63,7 @@
                                     </li>
                                     @endif
                                 @endauth
-                                    </div>                                
+                                    </div>
 
                                 </ul>
                             </div>
@@ -288,7 +295,7 @@
                                         @endforelse
                                     </div>
                                     {{$posts->appends(['search'=>request()->query('search')])->links()}}
-                                </div>                              
+                                </div>
 
                             </div>
                         </div>

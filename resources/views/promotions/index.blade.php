@@ -49,7 +49,68 @@
                     <td>{{$promotion->pro_start_date}}</td>
                     <td>{{$promotion->pro_due_date}}</td>
                     <td>
-                        <a href="{{route('promotions.show',$promotion->id)}}" class="btn btn-warning btn-sm">รายละเอียด</a>
+                        <!-- <a href="{{route('promotions.show',$promotion->id)}}" class="btn btn-warning btn-sm">รายละเอียด</a> -->
+
+                        <!-- start modal -->
+
+                        <button href="{{route('promotions.show',$promotion->id)}}" type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#exampleModalLong">
+                            รายละเอียด
+                        </button>
+
+                        <!-- Modal -->
+                        <div href="{{route('promotions.show',$promotion->id)}}" class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">รายละเอียด โปรโมชัน</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="" method="post" enctype="multipart/form-data">
+                                            <div class="row">
+                                                <div class="container">
+                                                    <strong> รูปโปรโมชัน : </strong>
+                                                    <div class="form-group" align="middle">
+                                                        <img src="../storage/{{$promotion->pro_image}}" width="250px" height="250px">
+                                                    </div> <br>
+                                                    <div class="form-group">
+                                                        <strong>หัวข้อ : </strong>
+                                                        {{ $promotion->pro_name}}
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <strong>รายละเอียดร้าน : </strong>
+                                                        {!!$promotion->pro_detail!!}
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <strong>ส่วนลด : </strong>
+                                                        {{ $promotion->pro_cost}}%
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <strong>วันที่เริ่มต้น : </strong>
+                                                        {{ $promotion->pro_start_date}}
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <strong>วันที่สิ้นสุด : </strong>
+                                                        {{ $promotion->pro_due_date}}
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- end modal -->
+
                     </td>
                     <td>
                         <a href="{{route('promotions.edit',$promotion->id)}}" class="btn btn-primary btn-sm">แก้ไข</a>

@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role'
+        'name', 'email', 'password', 'role', 'idcard', 'phone', 'photo'
     ];
 
     /**
@@ -43,6 +43,11 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->role == 'admin';
+    }
+
+    public function deleteImage()
+    {
+        Storage::delete($this->photo);
     }
 
     public function isUser()

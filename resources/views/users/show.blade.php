@@ -25,8 +25,16 @@
                         {{ $user->name}}
                     </div>
                     <div class="form-group">
+                        <strong>ประเภทผู้ใช้ : </strong>
+                        {{ $user->role}}
+                    </div>
+                    <div class="form-group">
+                        <strong>เบอร์โทรศัพท์ : </strong>
+                        {{ $user->phone}}
+                    </div>
+                    <div class="form-group">
                         <strong>เลขบัตรประชาชน : </strong>
-                        {{ $user->id_card}}
+                        -{{ $user->idcard}}
                     </div>
                 </div>
             </div>

@@ -7,6 +7,8 @@ use App\Category;
 use App\Post;
 use App\Post1;
 use App\CallMechanic;
+use App\User;
+
 use App\Http\Requests\CreateCallMechanicRequest;
 
 class CallMechanicController extends Controller
@@ -74,11 +76,22 @@ class CallMechanicController extends Controller
             'long' => $request->long,
             'image3' => $image3,
 
+            'bat' => $request->bat,
+            'di' => $request->di,
+            'motor' => $request->motor,
+            'head' => $request->head,
+            'oil' => $request->oil,
+            'dry' => $request->dry,
+            'flat' => $request->flat,
+            'no' => $request->no,
+            'other' => $request->other,
+
+
         ]);
         Session()->flash('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
         return redirect(route('CallMechanic.create'));
     }
-    
+
     /**
      * Display the specified resource.
      *

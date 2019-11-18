@@ -138,17 +138,167 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <label for="title">เบอร์โทรผู้ขับ<a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
                                 <input type="text" name="cartel" value="" class="form-control">
                             </div>
-
                         </div>
 
                         <div class="form-group">
-                            <label for="title">ข้อมูลเพิ่มเติม <a class="text-danger">(*ข้อมูลที่จำเป็นต้องกรอก)</a></label>
-                            <textarea name="info" rows="4" cols="4" class="form-control" placeholder="กรุณาใส่ข้อมูล"></textarea>
+                            <label for="title">ระบุอาการ <a class="text-danger">(*ข้อมูลที่จำเป็นต้องกรอก)</a></label>
                         </div>
+
+                        <!-- <div class="form-group">
+                            <input type="radio" name="no" value="ไม่ทราบสาเหตุ"> ไม่ทราบสาเหตุ
+                        </div>
+
+                        <div class="form-group">
+                            <input type="radio" name="no" value="ทราบสาเหตุ"> ทราบสาเหตุ
+                        </div>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp; <label>
+                            <input type="checkbox" name="bat" value="แบตเตอรี่" class="img-checker"> แบตเตอรี่
+                            <img src="../../img/batt.jpg" width="90px" height="70px">
+                        </label>
+                        <label>
+                            <input type="checkbox" name="di" value="ไดชาร์จ"> ไดชาร์จ
+                            <img src="../../img/di.jpg" width="90px" height="70px">
+                        </label>
+                        <label>
+                            <input type="checkbox" name="motor" value="มอเตอร์สตาร์ท"> มอเตอร์สตาร์ท
+                            <img src="../../img/motor.jpg" width="90px" height="70px">
+                        </label>
+                        <label>
+                            <input type="checkbox" name="head" value="หัวเทียน"> หัวเทียน
+                            <img src="../../img/hhh.jpg" width="90px" height="70px">
+                        </label>
+                        <label>
+                            <input type="checkbox" name="oil" value="น้ำมันรั่ว"> น้ำมันรั่ว
+                            <img src="../../img/mam.jpg" width="90px" height="70px">
+                        </label>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+                            <input type="checkbox" name="dry" value="หม้อน้ำรั่ว,หม้อแห้ง"> หม้อน้ำรั่ว,หม้อแห้ง
+                            <img src="../../img/nam.jpg" width="90px" height="70px">
+                        </label>
+                        <label>
+                            <input type="checkbox" name="flat" value="ยางแบน"> ยางแบน
+                            <img src="../../img/yang.jpg" width="90px" height="70px">
+                        </label>
+                        <br>
+                        <label>
+                            <textarea cols="50" name="other" class="form-control" placeholder="ระบุอาการรถของท่านเบื้องต้น"></textarea>
+                        </label> -->
+
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                        <script>
+                            $(document).ready(function() {
+                                $("input[type='radio']").change(function() {
+                                    if ($(this).val() == "other") {
+                                        $("#otherAnswer").show();
+                                    } else {
+                                        $("#otherAnswer").hide();
+                                    }
+                                });
+                            });
+                        </script>
+
+                        <!-- <table class="table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="bat" value="แบตเตอรี่" class="img-checker"> แบตเตอรี่
+                                        <br>
+                                        <img src="../../img/batt.jpg" width="100px" height="100px">
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="di" value="ไดชาร์จ"> ไดชาร์จ
+                                        <br>
+                                        <img src="../../img/di.jpg" width="90px" height="70px">
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="motor" value="มอเตอร์สตาร์ท"> มอเตอร์สตาร์ท
+                                        <br>
+                                        <img src="../../img/motor.jpg" width="90px" height="70px">
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="head" value="หัวเทียน"> หัวเทียน
+                                        <br>
+                                        <img src="../../img/hhh.jpg" width="90px" height="70px">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="oil" value="น้ำมันรั่ว"> น้ำมันรั่ว
+                                        <br>
+                                        <img src="../../img/mam.jpg" width="90px" height="70px">
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="dry" value="หม้อน้ำรั่ว,หม้อแห้ง"> หม้อน้ำรั่ว,หม้อแห้ง
+                                        <br>
+                                        <img src="../../img/nam.jpg" width="90px" height="70px">
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="flat" value="ยางแบน"> ยางแบน
+                                        <br>
+                                        <img src="../../img/yang.jpg" width="90px" height="70px">
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table> -->
+
+                        <input type="radio" name="answer" value="yes" /> ไม่ทราบสาเหตุ <br>
+                        <input type="radio" name="answer" value="other" /> ทราบสาเหตุ <br>
+                        <p id="otherAnswer" style="display:none" name="otherAnswer">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+                                <input type="checkbox" name="bat" value="แบตเตอรี่" class="img-checker"> แบตเตอรี่
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../img/batt.jpg" width="90px" height="70px">
+                            </label>
+                            <br><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+                                <input type="checkbox" name="di" value="ไดชาร์จ"> ไดชาร์จ
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../img/di.jpg" width="90px" height="70px">
+                            </label>
+                            <br><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+                                <input type="checkbox" name="motor" value="มอเตอร์สตาร์ท"> มอเตอร์สตาร์ท
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../img/motor.jpg" width="90px" height="70px">
+                            </label>
+                            <br><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+                                <input type="checkbox" name="head" value="หัวเทียน"> หัวเทียน
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../img/hhh.jpg" width="90px" height="70px">
+                            </label>
+                            <br><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+                                <input type="checkbox" name="oil" value="น้ำมันรั่ว"> น้ำมันรั่ว
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="../../img/mam.jpg" width="90px" height="70px">
+                            </label>
+                            <br><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+                                <input type="checkbox" name="dry" value="หม้อน้ำรั่ว,หม้อแห้ง"> หม้อน้ำรั่ว,หม้อแห้ง
+                                &nbsp;<img src="../../img/nam.jpg" width="90px" height="70px">
+                            </label>
+                            <br><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+                                <input type="checkbox" name="flat" value="ยางแบน"> ยางแบน
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../img/yang.jpg" width="90px" height="70px">
+                            </label>
+                            <br><br>
+                            <label>
+                                <textarea cols="50" name="other" class="form-control" placeholder="ระบุอาการรถของท่านเบื้องต้น"></textarea>
+                            </label>
+                        </p>
 
                         <?php
                         $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
@@ -158,11 +308,16 @@
                         <div class="form-group">
                             <input type="hidden" name="gencode" value="{{$result}}" class="form-control" class="b" readonly>
                         </div>
-                        
+
 
                         <div class="form-group">
-                            <label for="title">สภาพรถยนต์<a class="text-danger">(* ข้อมูลที่จำเป็นต้องกรอก)</a></label>
+                            <label for="title">สภาพรถยนต์<a class="text-danger">(* กรอกหรือไม่กรอกก็ได้)</a></label>
                             <input type="file" name="image3" value="" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">รายละเอียดสถานที่ <a class="text-danger">(*ข้อมูลที่จำเป็นต้องกรอก)</a></label>
+                            <textarea name="info" rows="4" cols="4" class="form-control" placeholder="กรุณาใส่ข้อมูล"></textarea>
                         </div>
 
 
@@ -195,33 +350,33 @@
 
                             <!-- Start Wellcome Area -->
 
-                            <h6 class="sidebar-title">ข้อมูลศูนย์บริการ<a class="text-danger">(* กรุณาเลือกร้านที่จะทำการเรียกช่าง)</a></h6>
+                            <!-- <h6 class="sidebar-title">ข้อมูลศูนย์บริการ<a class="text-danger">(* กรุณาเลือกร้านที่จะทำการเรียกช่าง)</a></h6> -->
 
-                            <div class="container">
+                            <!-- <div class="container">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="">
-                                            <div>
-                                                <!-- <h4 class="sidebar-title">ค้นหาอู่ซ่อมรถยนต์</h4> -->
+                                            <div> -->
+                            <!-- <h4 class="sidebar-title">ค้นหาอู่ซ่อมรถยนต์</h4> -->
 
-                                                <form class="" action="{{route('welcome')}}" method="GET">
+                            <!-- <form class="" action="{{route('welcome')}}" method="GET">
                                                     <input type="text" class="" name="search" placeholder="ค้นหาอู่ซ่อมรถยนต์" value="{{request()->query('search')}}">
 
                                                     <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
 
                                                 </form>
-                                                <br>
-                                                 {{-- <h4 class="sidebar-title">ประเภทร้าน</h4>
+                                                <br> -->
+                            <!-- <h4 class="sidebar-title">ประเภทร้าน</h4>
                                                 <div class="row link-color-default fs-14 lh-24">
                                                     @foreach($categories as $category)
                                                     <a class="btn btn-primary" href="{{route('blog.category',$category->id)}}" role="button">{{$category->name}}</a>
                                                     @endforeach
-                                                </div>  --}}
-                                            </div>
+                                                </div>   -->
+                            <!-- </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- End Wellcome Area -->
 
@@ -238,39 +393,39 @@
                                         <div class="services-contents">
 
                                             <!-- Start services -->
-                                                <div class="container">
-                                                    <div class="row">
+                                            <div class="container">
+                                                <div class="row">
 
-                                                        <div class="col-md-12">
-                                                            {{-- <div class="row gap-y"> --}}
-                                                            <table class="table">
-                                                                <thead>
-                                                                    <th>select</th>
-                                                                    <th>รูปร้าน</th>
-                                                                    <th>ชื่อร้าน</th>
-                                                                    <th>ประเภทร้าน</th>
-                                                                    <th>ที่อยู่</th>
-                                                                </thead>
-                                                                <tbody>
-                                                                    @foreach($posts as $post)
-                                                                    <tr>
-                                                                        <td><label><input type="checkbox" name="checkshop" value="{{$post->id}}"></label></td>
-                                                                        <td>
-                                                                            <a href=""><img src="../../storage/{{$post->image}}" alt="Card image cap" width="100" height="100"></a>
-                                                                        </td>
-                                                                        <td>ร้าน{{$post->title}}</td>
-                                                                        <td>{{$post->category->name}}</td>
-                                                                        <td>ตำแหน่งร้าน : {{$post->content}} ตำบล{{$post->district}} อำเภอ{{$post->amphur}} จังหวัด{{$post->city_name}}</td>
-                                                                    </tr>
-                                                                    @endforeach
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-
+                                                    <div class="col-md-12">
+                                                        {{-- <div class="row gap-y"> --}}
+                                                        <table class="table">
+                                                            <thead>
+                                                                <th>select</th>
+                                                                <th>รูปร้าน</th>
+                                                                <th>ชื่อร้าน</th>
+                                                                <th>ประเภทร้าน</th>
+                                                                <th>ที่อยู่</th>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach($posts as $post)
+                                                                <tr>
+                                                                    <td><label><input type="checkbox" name="checkshop" value="{{$post->id}}"></label></td>
+                                                                    <td>
+                                                                        <a href=""><img src="../../storage/{{$post->image}}" alt="Card image cap" width="100" height="100"></a>
+                                                                    </td>
+                                                                    <td>ร้าน{{$post->title}}</td>
+                                                                    <td>{{$post->category->name}}</td>
+                                                                    <td>ตำแหน่งร้าน : {{$post->content}} ตำบล{{$post->district}} อำเภอ{{$post->amphur}} จังหวัด{{$post->city_name}}</td>
+                                                                </tr>
+                                                                @endforeach
+                                                            </tbody>
+                                                        </table>
                                                     </div>
+
                                                 </div>
                                             </div>
-                                            <!-- End services -->
+                                        </div>
+                                        <!-- End services -->
                                     </div>
                                 </div>
                             </div>
